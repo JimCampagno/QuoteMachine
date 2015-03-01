@@ -7,6 +7,10 @@
 //
 
 #import "QuoteDataStore.h"
+#import "CreatePeople.h"
+#import "Person+Methods.h"
+#import "Quotes.h"
+#import <UIKit/UIKit.h>
 
 @implementation QuoteDataStore
 
@@ -44,16 +48,35 @@
     return _sharedDataStore;
 }
 
-//- (void)fetchData {
-//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Person"];
-//    NSSortDescriptor *createdAtSorter = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-//    request.sortDescriptors = @[createdAtSorter];
-//    
-//    self.quotesReadyForGame = [self.managedObjectContext executeFetchRequest:request error:nil];
-//    if ([self.quotesReadyForGame] == 0) {
-//        [
-//    }
-//}
+- (void)generateGame {
+    CreatePeople *objectToSetPeople = [[CreatePeople alloc] init];
+    
+    Person *neil = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setNeilDegrasseTyson:neil];
+    
+    Person *mario = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setSuperMario:mario];
+    
+    Person *mitch = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setMitchHedberg:mitch];
+    
+    [self saveContext];
+    [self fetchData];
+    
+    
+
+}
+
+- (void)fetchData {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Person"];
+    NSSortDescriptor *createdAtSorter = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    request.sortDescriptors = @[createdAtSorter];
+    
+    self.quotesReadyForGame = [self.managedObjectContext executeFetchRequest:request error:nil];
+    if ([self.quotesReadyForGame count] == 0) {
+        [self generateGame];
+    }
+}
 
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "com.JimCampagno.QuoteMachine" in the application's documents directory.

@@ -19,8 +19,8 @@
 
 + (instancetype)sharedDataStore;
 - (instancetype)init;
-//- (void)generateTestData;
-//- (void)fetchData;
+- (void)generateGame;
+- (void)fetchData;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

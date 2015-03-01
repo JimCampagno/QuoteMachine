@@ -11,7 +11,7 @@
 		7D3AE0741AA3791E001EE74B /* MatchingTheQuotesGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE0731AA3791E001EE74B /* MatchingTheQuotesGame.m */; };
 		7D3AE0771AA37DBB001EE74B /* Quotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE0761AA37DBB001EE74B /* Quotes.m */; };
 		7D3AE07A1AA37DBC001EE74B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE0791AA37DBC001EE74B /* Person.m */; };
-		7D3AE07D1AA37F57001EE74B /* initialCreationOfGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE07C1AA37F57001EE74B /* initialCreationOfGame.m */; };
+		7D3AE07D1AA37F57001EE74B /* CreatePeople.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE07C1AA37F57001EE74B /* CreatePeople.m */; };
 		7D3AE0801AA38051001EE74B /* Person+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE07F1AA38051001EE74B /* Person+Methods.m */; };
 		7D42D5FA1A9FBF32002738E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D42D5F91A9FBF32002738E7 /* main.m */; };
 		7D42D5FD1A9FBF32002738E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D42D5FC1A9FBF32002738E7 /* AppDelegate.m */; };
@@ -42,8 +42,8 @@
 		7D3AE0761AA37DBB001EE74B /* Quotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quotes.m; sourceTree = "<group>"; };
 		7D3AE0781AA37DBC001EE74B /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		7D3AE0791AA37DBC001EE74B /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		7D3AE07B1AA37F57001EE74B /* initialCreationOfGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = initialCreationOfGame.h; sourceTree = "<group>"; };
-		7D3AE07C1AA37F57001EE74B /* initialCreationOfGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = initialCreationOfGame.m; sourceTree = "<group>"; };
+		7D3AE07B1AA37F57001EE74B /* CreatePeople.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePeople.h; sourceTree = "<group>"; };
+		7D3AE07C1AA37F57001EE74B /* CreatePeople.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePeople.m; sourceTree = "<group>"; };
 		7D3AE07E1AA38051001EE74B /* Person+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Person+Methods.h"; sourceTree = "<group>"; };
 		7D3AE07F1AA38051001EE74B /* Person+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Person+Methods.m"; sourceTree = "<group>"; };
 		7D42D5F41A9FBF32002738E7 /* QuoteMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,8 +115,8 @@
 				7D3AE0701AA36D8B001EE74B /* QuoteDataStore.m */,
 				7D42D6201A9FC074002738E7 /* GameScreenViewController.h */,
 				7D42D6211A9FC074002738E7 /* GameScreenViewController.m */,
-				7D3AE07B1AA37F57001EE74B /* initialCreationOfGame.h */,
-				7D3AE07C1AA37F57001EE74B /* initialCreationOfGame.m */,
+				7D3AE07B1AA37F57001EE74B /* CreatePeople.h */,
+				7D3AE07C1AA37F57001EE74B /* CreatePeople.m */,
 				7D42D6041A9FBF32002738E7 /* Main.storyboard */,
 				7D42D6091A9FBF32002738E7 /* LaunchScreen.xib */,
 				7D42D5F71A9FBF32002738E7 /* Supporting Files */,
@@ -260,7 +260,7 @@
 				7D42D5FA1A9FBF32002738E7 /* main.m in Sources */,
 				7D42D6221A9FC074002738E7 /* GameScreenViewController.m in Sources */,
 				7D3AE0771AA37DBB001EE74B /* Quotes.m in Sources */,
-				7D3AE07D1AA37F57001EE74B /* initialCreationOfGame.m in Sources */,
+				7D3AE07D1AA37F57001EE74B /* CreatePeople.m in Sources */,
 				7D42D6001A9FBF32002738E7 /* QuoteMachine.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

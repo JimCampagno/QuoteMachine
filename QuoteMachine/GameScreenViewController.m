@@ -10,9 +10,6 @@
 #import "QuoteDataStore.h"
 #import <QuartzCore/QuartzCore.h>
 #import <CoreData/CoreData.h>
-
-
-
 #import "Person+Methods.h"
 #import "Quotes.h"
 
@@ -43,41 +40,54 @@
     //    @property (nonatomic, retain) NSSet *quotes;
     
     self.dataStore = [QuoteDataStore sharedDataStore];
+    [self.dataStore fetchData];
     self.dataStore.fetchedResults.delegate = self;
     [self.dataStore.fetchedResults performFetch:nil];
     
-    Person *neil = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.dataStore.managedObjectContext];
-    neil.name = @"Neil deGrasse Tyson";
-    neil.fieldOfStudy = @"Science";
-    neil.summary = @"Neil deGrasse Tyson is an American astrophysicist, cosmologist, author, and science communicator. Since 1996, he has been the Frederick P. Rose Director of the Hayden Planetarium at the Rose Center for Earth and Space in New York City.";
-    neil.thumbnailImage = [UIImage imageNamed:@"neilDegrasseTyson"];
-    neil.profilePicture = [UIImage imageNamed:@"neilDegrasseTysonProfilePicture"];
     
-    Quotes *neilQuote1 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStore.managedObjectContext];
-    Quotes *neilQuote2 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStore.managedObjectContext];
-    Quotes *neilQuote3 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStore.managedObjectContext];
     
-    neilQuote1.quote = @"Hello, my favorite number is 1";
-    neilQuote2.person = neil;
-    neilQuote2.quote = @"What is your problem man?!!!";
-    neilQuote2.person = neil;
-    neilQuote3.quote = @"I love WATER, WHAT DO YOU LOVE";
-    neilQuote3.person = neil;
+//    @property (strong, nonatomic) NSArray *quotesReadyForGame;
     
-//    neilQuote1.person = neil;
+    NSLog (@"Test");
     
-    [neil addQuotesObject:neilQuote1];
-    [neil addQuotesObject:neilQuote2];
-    [neil addQuotesObject:neilQuote3];
-    [self.dataStore saveContext];
+    Person *test = self.dataStore.quotesReadyForGame[0];
+    NSLog (@"%@", test);
     
-//    NSLog (@"%@", neil.quotes);
+//    Item *itemForIP =self.dataManager.shoppingList[indexPath.row];
     
-    NSArray *test = [neil.quotes allObjects];
-    NSLog (@"This should print the first quote %@", test);
-    
-    Quotes *quote = test[0];
-    self.displayTheQuote.text = quote.quote;
+//
+//    Person *neil = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.dataStore.managedObjectContext];
+//    neil.name = @"Neil deGrasse Tyson";
+//    neil.fieldOfStudy = @"Science";
+//    neil.summary = @"Neil deGrasse Tyson is an American astrophysicist, cosmologist, author, and science communicator. Since 1996, he has been the Frederick P. Rose Director of the Hayden Planetarium at the Rose Center for Earth and Space in New York City.";
+//    neil.thumbnailImage = [UIImage imageNamed:@"neilDegrasseTyson"];
+//    neil.profilePicture = [UIImage imageNamed:@"neilDegrasseTysonProfilePicture"];
+//    
+//    Quotes *neilQuote1 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStore.managedObjectContext];
+//    Quotes *neilQuote2 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStore.managedObjectContext];
+//    Quotes *neilQuote3 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStore.managedObjectContext];
+//    
+//    neilQuote1.quote = @"Hello, my favorite number is 1";
+//    neilQuote2.person = neil;
+//    neilQuote2.quote = @"What is your problem man?!!!";
+//    neilQuote2.person = neil;
+//    neilQuote3.quote = @"I love WATER, WHAT DO YOU LOVE";
+//    neilQuote3.person = neil;
+//    
+////    neilQuote1.person = neil;
+//    
+//    [neil addQuotesObject:neilQuote1];
+//    [neil addQuotesObject:neilQuote2];
+//    [neil addQuotesObject:neilQuote3];
+//    [self.dataStore saveContext];
+//    
+////    NSLog (@"%@", neil.quotes);
+//    
+//    NSArray *test = [neil.quotes allObjects];
+//    NSLog (@"This should print the first quote %@", test);
+//    
+//    Quotes *quote = test[0];
+//    self.displayTheQuote.text = quote.quote;
     
     
 //    NSArray *quotes = [[NSArray alloc] init];
