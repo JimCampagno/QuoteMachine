@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QuoteDataStore.h"
 
-@interface GameScreenViewController : UIViewController
+@interface GameScreenViewController : UIViewController <NSFetchedResultsControllerDelegate>
+
+@property (strong, nonatomic) QuoteDataStore *dataStore;
+@property (strong, nonatomic) NSArray *managedPersonObjects;
 
 @end

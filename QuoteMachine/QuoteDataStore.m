@@ -21,7 +21,7 @@
     self = [super init];
     
     if (self) {
-        _quotesReadyForGame = [[NSMutableDictionary alloc] init];
+        _quotesReadyForGame = [[NSArray alloc] init];
         
         NSSortDescriptor *sorter = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
         NSFetchRequest *personFetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Person"];
@@ -44,7 +44,6 @@
     return _sharedDataStore;
 }
 
-#warning Is this below code required?  Does the "- (instancetype)init" method above take care of this now?
 //- (void)fetchData {
 //    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Person"];
 //    NSSortDescriptor *createdAtSorter = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
@@ -52,7 +51,7 @@
 //    
 //    self.quotesReadyForGame = [self.managedObjectContext executeFetchRequest:request error:nil];
 //    if ([self.quotesReadyForGame] == 0) {
-//        [self generateTestData];
+//        [
 //    }
 //}
 

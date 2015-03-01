@@ -14,12 +14,14 @@
 @interface Person : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * fieldOfStudy;
 @property (nonatomic, retain) NSString * summary;
-@property (nonatomic, retain) id profilePicture;
 @property (nonatomic, retain) id thumbnailImage;
+@property (nonatomic, retain) id profilePicture;
 @property (nonatomic, retain) NSSet *quotes;
 
 @end
+
 
 @interface Person (CoreDataGeneratedAccessors)
 

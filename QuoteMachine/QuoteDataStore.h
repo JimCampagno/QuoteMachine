@@ -15,7 +15,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResults;
-@property (strong, nonatomic) NSMutableDictionary *quotesReadyForGame;
+@property (strong, nonatomic) NSArray *quotesReadyForGame;
 
 + (instancetype)sharedDataStore;
 - (instancetype)init;

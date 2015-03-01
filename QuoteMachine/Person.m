@@ -16,6 +16,7 @@
 @dynamic thumbnailImage;
 @dynamic summary;
 @dynamic profilePicture;
+@dynamic fieldOfStudy;
 @dynamic quotes;
 
 @end
