@@ -51,7 +51,17 @@
     NSLog (@"Test");
     
     Person *test = self.dataStore.quotesReadyForGame[0];
-    NSLog (@"%@", test);
+//    NSLog (@"%@", test);
+    
+    NSLog (@"%@", test.name);
+    NSArray *testQuotes = [test.quotes allObjects];
+    
+    NSMutableArray *listOfMarioQuotes = [[NSMutableArray alloc] init];
+    
+    for (Quotes *quote in testQuotes) {
+        [listOfMarioQuotes addObject:quote.quote];
+    }
+    NSLog (@"The quotes for %@ are %@", test.name, listOfMarioQuotes);
     
 //    Item *itemForIP =self.dataManager.shoppingList[indexPath.row];
     
