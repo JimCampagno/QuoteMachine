@@ -9,11 +9,6 @@
 #import "CreatePeople.h"
 #import "Person+Methods.h"
 #import "Quotes.h"
-#import <UIKit/UIKit.h>
-#import "QuoteDataStore.h"
-#import <CoreData/CoreData.h>
-#import <Foundation/Foundation.h>
-
 
 @interface CreatePeople ()
 
@@ -23,7 +18,6 @@
 
 
 @implementation CreatePeople
-
 
 - (instancetype)init {
     
@@ -48,18 +42,17 @@
     Quotes *neilQuote2 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStoreForCreate.managedObjectContext];
     Quotes *neilQuote3 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStoreForCreate.managedObjectContext];
 
-    neilQuote1.quote = @"Hello, my favorite number is 1";
+    neilQuote1.quote = @"We are part of this universe; we are in this universe, but perhaps more important than both of those facts, is that the universe is in us";
     neilQuote2.person = person;
-    neilQuote2.quote = @"What is your problem man?!!!";
+    neilQuote2.quote = @"The only way you can invent tomorrow is if you break out of the enclosure that the school system has provided for you by the exams written by people who are trained in another generation.";
     neilQuote2.person = person;
-    neilQuote3.quote = @"I love WATER, WHAT DO YOU LOVE";
+    neilQuote3.quote = @"I said that if an alien came to visit, I'd be embarrassed to tell them that we fight wars to pull fossil fuels out of the ground to run our transportation. They'd be like, 'What?'";
     neilQuote3.person = person;
     
     [person addQuotesObject:neilQuote1];
     [person addQuotesObject:neilQuote2];
     [person addQuotesObject:neilQuote3];
 }
-
 
 - (void)setSuperMario:(Person *)person {
     
@@ -85,7 +78,6 @@
     [person addQuotesObject:marioQuote3];
 }
 
-
 - (void)setMitchHedberg:(Person *)person {
     
     person.name = @"Mitch Hedberg";
@@ -109,6 +101,31 @@
     [person addQuotesObject:mitchQuote2];
     [person addQuotesObject:mitchQuote3];
 }
+
+- (void)setFinnTheHuman:(Person *)person {
+    
+    person.name = @"Finn The Human";
+    person.fieldOfStudy = @"Cartoon";
+    person.summary = @"Finn is a 15-year-old human. He is roughly five feet tall and is missing several teeth due to his habit of biting trees and rocks among other things.  Finn is, along with Jake the Dog, the main character of the American animated television series Adventure Time created by Pendleton Ward.";
+    // No thumnailimage set yet
+    // No profilepicture set yet
+    
+    Quotes *finnQuote1 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStoreForCreate.managedObjectContext];
+    Quotes *finnQuote2 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStoreForCreate.managedObjectContext];
+    Quotes *finnQuote3 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStoreForCreate.managedObjectContext];
+    
+    finnQuote1.quote = @"Everything small is just a smaller version of something big!";
+    finnQuote2.quote = @"Man, you're letting your brain dial turn your fear voluem up.";
+    finnQuote3.quote = @"Imagination is for turbo-nerds who can't handle how kick-butt reality is!.";
+    finnQuote1.person = person;
+    finnQuote2.person = person;
+    finnQuote3.person = person;
+    
+    [person addQuotesObject:finnQuote1];
+    [person addQuotesObject:finnQuote2];
+    [person addQuotesObject:finnQuote3];
+}
+
 
 
 

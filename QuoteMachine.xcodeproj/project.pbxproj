@@ -101,6 +101,8 @@
 		7D42D5F61A9FBF32002738E7 /* QuoteMachine */ = {
 			isa = PBXGroup;
 			children = (
+				7D42D5FB1A9FBF32002738E7 /* AppDelegate.h */,
+				7D42D5FC1A9FBF32002738E7 /* AppDelegate.m */,
 				7D3AE0781AA37DBC001EE74B /* Person.h */,
 				7D3AE0791AA37DBC001EE74B /* Person.m */,
 				7D3AE07E1AA38051001EE74B /* Person+Methods.h */,
@@ -109,8 +111,6 @@
 				7D3AE0761AA37DBB001EE74B /* Quotes.m */,
 				7D3AE0721AA3791E001EE74B /* MatchingTheQuotesGame.h */,
 				7D3AE0731AA3791E001EE74B /* MatchingTheQuotesGame.m */,
-				7D42D5FB1A9FBF32002738E7 /* AppDelegate.h */,
-				7D42D5FC1A9FBF32002738E7 /* AppDelegate.m */,
 				7D3AE06F1AA36D8B001EE74B /* QuoteDataStore.h */,
 				7D3AE0701AA36D8B001EE74B /* QuoteDataStore.m */,
 				7D42D6201A9FC074002738E7 /* GameScreenViewController.h */,

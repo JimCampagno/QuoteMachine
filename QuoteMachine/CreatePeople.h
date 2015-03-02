@@ -6,9 +6,7 @@
 //  Copyright (c) 2015 Jim Campagno. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "QuoteDataStore.h"
-#import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
 @class Person;
@@ -20,5 +18,6 @@
 - (void)setNeilDegrasseTyson:(Person *)person;
 - (void)setSuperMario:(Person *)person;
 - (void)setMitchHedberg:(Person *)person;
+- (void)setFinnTheHuman:(Person *)person;
 
 @end
