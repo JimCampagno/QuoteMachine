@@ -63,6 +63,38 @@
     }
     NSLog (@"The quotes for %@ are %@", test.name, listOfMarioQuotes);
     
+    NSMutableDictionary *holdingThePersonAndQuotes = [[NSMutableDictionary alloc] init];
+    
+    
+    [holdingThePersonAndQuotes setValue:listOfMarioQuotes forKey:@"Mario"];
+    
+//    for (NSString *quote in listOfMarioQuotes) {
+//        [holdingThePersonAndQuotes setValue:quote forKey:@"Mario"];
+//    }
+    
+    NSLog (@" --------------- TESTING -----------");
+    
+    NSLog(@"%@", holdingThePersonAndQuotes);
+    
+    
+    NSString *wrongAnswer = @"I like the color red";
+    NSString *rightAnswer = @"Here I go!";
+    
+    NSMutableArray *jimTest = [[NSMutableArray alloc] init];
+    for (NSString *inn in [holdingThePersonAndQuotes valueForKey:@"Mario"]) {
+        [jimTest addObject:inn];
+    }
+    
+    if ([jimTest containsObject:rightAnswer]) {
+        NSLog (@"MUCH MUCH BETTER WAY1!! WINNE");
+    }
+    
+    if ([[holdingThePersonAndQuotes valueForKey:@"Mario"] containsObject:rightAnswer]) {
+        NSLog (@"WOW THIS WOULD BE GOOD, RIGHT ANSWER");
+    }
+    
+
+    
 //    Item *itemForIP =self.dataManager.shoppingList[indexPath.row];
     
 //
