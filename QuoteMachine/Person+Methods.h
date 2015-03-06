@@ -10,7 +10,5 @@
 
 @interface Person (Methods)
 
-//- (instancetype)initWithN
-//- (instancetype)init;
 
 @end

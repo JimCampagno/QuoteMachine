@@ -15,9 +15,12 @@
 @interface CreatePeople : NSObject
 
 - (instancetype)init;
+
 - (void)setNeilDegrasseTyson:(Person *)person;
 - (void)setSuperMario:(Person *)person;
 - (void)setMitchHedberg:(Person *)person;
 - (void)setFinnTheHuman:(Person *)person;
+- (void)setJimCampagno:(Person *)person;
+
 
 @end

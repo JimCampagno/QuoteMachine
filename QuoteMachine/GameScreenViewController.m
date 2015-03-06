@@ -27,40 +27,20 @@
 
 @implementation GameScreenViewController
 
-
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
-    
-    //    property (strong, nonatomic) NSMutableDictionary *quotesReadyForQuiz; //This is complete and has been implemented as part of the initWithPeople method below.
-    //    @property (strong, nonatomic) NSNumber *scoreOfGame; //This has been set to @0, no logic has been established yet.
-    //    @property (nonatomic) BOOL isCorrectlyChosen; //No logis has been set for this. Do I need this?
-    //    @property (strong, nonatomic) NSString *quoteToDisplay;
-    //
-    //    - (instancetype)initWithPeople:(NSArray *)people; //This is complete and has been implemented.
-    //    - (BOOL)isPerson:(Person *)person matchedToQuote:(NSString *)quote; //Implemented but it's not doing anything to the score.
-    //    - (NSString *)drawAQuoteToDisplay;
-    //    - (NSInteger)score;
-    
-    
-    
     self.dataStore = [QuoteDataStore sharedDataStore];
     [self.dataStore fetchData];
-    
-#warning I don't think I need this stuff here.
-    //    self.dataStore.fetchedResults.delegate = self;
-    //    [self.dataStore.fetchedResults performFetch:nil];
-    
     
     self.theGame = [[MatchingTheQuotesGame alloc] initWithPeople:self.dataStore.quotesReadyForGame];
     
     
-    NSString *quoteChosen = [self.theGame randomQuotePicked];
+    NSString *quoteChosen = [self.theGame drawAQuoteToDisplay];
     NSLog (@"The quote chosen --- %@", quoteChosen);
     
-    Person *someone = self.dataStore.quotesReadyForGame[0];
+    Person *someone = self.dataStore.quotesReadyForGame[1];
     NSLog (@"The person we clicked was %@", someone.name);
     
     if ([self.theGame isPerson:someone matchedToQuote:quoteChosen]) {
@@ -134,19 +114,7 @@
     
     
     
-   
-//    for (NSUInteger i = 0 ; i < [self.theGame.quotesReadyForQuiz count] ; i++) {
-//        
-//        NSString *nameOfDude = allKeys[i];
-//        totalNumberOfQuotes += [[self.theGame.quotesReadyForQuiz valueForKey:nameOfDude] count];
-//    }
-//    
-//    NSLog (@"The total number of people are %ld, the total number of quotes are %ld", [allKeys count], totalNumberOfQuotes);
-    
-    
-    
-    
-    
+
     
     
     
@@ -231,27 +199,9 @@
     
 }
 
-#warning this isn't complete
-//- (NSUInteger)generateRandomNumber:(NSUInteger)count {
-//
-//    return arc4random() % count;
-//}
 
 
-#warning This belongs somewhere else
-////To Figure out the number of quotes in the Quotes Ready For Game dictionary.
-//- (NSUInteger)numberOfQuotesInListOfQuestions:(NSMutableDictionary *)quotesReadyForGame {
-//
-//    NSUInteger totalNumberOfQuotes;
-//    NSArray *allKeys = [quotesReadyForGame allKeys];
-//
-//    for (NSUInteger i = 0 ; i < [quotesReadyForGame count] ; i++) {
-//
-//        NSString *nameOfDude = allKeys[i];
-//        totalNumberOfQuotes += [[quotesReadyForGame valueForKey:nameOfDude] count];
-//    }
-//    return totalNumberOfQuotes;
-//}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
