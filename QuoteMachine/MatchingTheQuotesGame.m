@@ -67,14 +67,16 @@
 #warning this is where I left off on Wednesday 11:15 AM
 //- (NSString *)drawAQuoteToDisplay {
 //    
+//        NSUInteger totalNumberOfQuotes;
+//        NSArray *allKeys = [self.quotesReadyForQuiz allKeys];
+//    
+//        for (NSUInteger i = 0 ; i < [self.quotesReadyForQuiz count] ; i++) {
+//    
+//            NSString *nameOfDude = allKeys[i];
+//            totalNumberOfQuotes += [[self.quotesReadyForQuiz valueForKey:nameOfDude] count];
+//        }
 //    
 //    
-//    
-//    
-//    
-//    
-//    
-//    //In speaking with Zach, we can make a copy of the Dictionary (which in this case is the self.quotesReadyForQuiz and then use that copy.  We produce a random number and then actually REMOVE that item from the dictionary.  The random number produced will then be one less because of the previously removed item.
 //    
 //    
 //}

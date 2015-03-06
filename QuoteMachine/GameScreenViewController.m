@@ -12,6 +12,7 @@
 #import <CoreData/CoreData.h>
 #import "Person+Methods.h"
 #import "Quotes.h"
+#import "MatchingTheQuotesGame.h"
 
 @interface GameScreenViewController ()
 
@@ -29,156 +30,92 @@
     
     [super viewDidLoad];
     
-    //    @property (nonatomic, retain) NSString * quote;
-    //    @property (nonatomic, retain) Person *person;
     
-    //    @property (nonatomic, retain) NSString * name;
-    //    @property (nonatomic, retain) NSString * fieldOfStudy;
-    //    @property (nonatomic, retain) NSString * summary;
-    //    @property (nonatomic, retain) id thumbnailImage;
-    //    @property (nonatomic, retain) id profilePicture;
-    //    @property (nonatomic, retain) NSSet *quotes;
+    //    property (strong, nonatomic) NSMutableDictionary *quotesReadyForQuiz; //This is complete and has been implemented as part of the initWithPeople method below.
+    //    @property (strong, nonatomic) NSNumber *scoreOfGame; //This has been set to @0, no logic has been established yet.
+    //    @property (nonatomic) BOOL isCorrectlyChosen; //No logis has been set for this. Do I need this?
+    //    @property (strong, nonatomic) NSString *quoteToDisplay;
+    //
+    //    - (instancetype)initWithPeople:(NSArray *)people; //This is complete and has been implemented.
+    //    - (BOOL)isPerson:(Person *)person matchedToQuote:(NSString *)quote; //Implemented but it's not doing anything to the score.
+    //    - (NSString *)drawAQuoteToDisplay;
+    //    - (NSInteger)score;
+    
+    
     
     self.dataStore = [QuoteDataStore sharedDataStore];
     [self.dataStore fetchData];
-    self.dataStore.fetchedResults.delegate = self;
-    [self.dataStore.fetchedResults performFetch:nil];
+    
+#warning I don't think I need this stuff here.
+    //    self.dataStore.fetchedResults.delegate = self;
+    //    [self.dataStore.fetchedResults performFetch:nil];
     
     
+    MatchingTheQuotesGame *theGame = [[MatchingTheQuotesGame alloc] initWithPeople:self.dataStore.quotesReadyForGame];
     
-//    @property (strong, nonatomic) NSArray *quotesReadyForGame;
+    NSLog (@"Will this work?  It should display the dictionary in theGame object: %@", theGame.quotesReadyForQuiz);
     
-    NSLog (@"Test");
+    int totalNumberOfQuotes = 0;
+    NSArray *allKeys = [theGame.quotesReadyForQuiz allKeys];
     
-    Person *test = self.dataStore.quotesReadyForGame[0];
-//    NSLog (@"%@", test);
-    
-    NSLog (@"%@", test.name);
-    NSArray *testQuotes = [test.quotes allObjects];
-    
-    NSMutableArray *listOfMarioQuotes = [[NSMutableArray alloc] init];
-    
-    for (Quotes *quote in testQuotes) {
-        [listOfMarioQuotes addObject:quote.quote];
-    }
-    NSLog (@"The quotes for %@ are %@", test.name, listOfMarioQuotes);
-    
-    NSMutableDictionary *holdingThePersonAndQuotes = [[NSMutableDictionary alloc] init];
-    
-    
-    [holdingThePersonAndQuotes setValue:listOfMarioQuotes forKey:@"Mario"];
-    
-//    for (NSString *quote in listOfMarioQuotes) {
-//        [holdingThePersonAndQuotes setValue:quote forKey:@"Mario"];
-//    }
-    
-    NSLog (@" --------------- TESTING -----------");
-    
-    NSLog(@"%@", holdingThePersonAndQuotes);
-    
-    
-    NSString *wrongAnswer = @"I like the color red";
-    NSString *rightAnswer = @"Here I go!";
-    
-    NSMutableArray *jimTest = [[NSMutableArray alloc] init];
-    for (NSString *inn in [holdingThePersonAndQuotes valueForKey:@"Mario"]) {
-        [jimTest addObject:inn];
+    for (NSUInteger i = 0 ; i < [theGame.quotesReadyForQuiz count] ; i++) {
+        
+        NSString *nameOfDude = allKeys[i];
+        totalNumberOfQuotes += [[theGame.quotesReadyForQuiz valueForKey:nameOfDude] count];
     }
     
-    if ([jimTest containsObject:rightAnswer]) {
-        NSLog (@"MUCH MUCH BETTER WAY1!! WINNE");
-    }
-    
-    if ([[holdingThePersonAndQuotes valueForKey:@"Mario"] containsObject:rightAnswer]) {
-        NSLog (@"WOW THIS WOULD BE GOOD, RIGHT ANSWER");
-    }
-    
-
-    
-//    Item *itemForIP =self.dataManager.shoppingList[indexPath.row];
-    
-//
-//    Person *neil = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.dataStore.managedObjectContext];
-//    neil.name = @"Neil deGrasse Tyson";
-//    neil.fieldOfStudy = @"Science";
-//    neil.summary = @"Neil deGrasse Tyson is an American astrophysicist, cosmologist, author, and science communicator. Since 1996, he has been the Frederick P. Rose Director of the Hayden Planetarium at the Rose Center for Earth and Space in New York City.";
-//    neil.thumbnailImage = [UIImage imageNamed:@"neilDegrasseTyson"];
-//    neil.profilePicture = [UIImage imageNamed:@"neilDegrasseTysonProfilePicture"];
-//    
-//    Quotes *neilQuote1 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStore.managedObjectContext];
-//    Quotes *neilQuote2 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStore.managedObjectContext];
-//    Quotes *neilQuote3 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStore.managedObjectContext];
-//    
-//    neilQuote1.quote = @"Hello, my favorite number is 1";
-//    neilQuote2.person = neil;
-//    neilQuote2.quote = @"What is your problem man?!!!";
-//    neilQuote2.person = neil;
-//    neilQuote3.quote = @"I love WATER, WHAT DO YOU LOVE";
-//    neilQuote3.person = neil;
-//    
-////    neilQuote1.person = neil;
-//    
-//    [neil addQuotesObject:neilQuote1];
-//    [neil addQuotesObject:neilQuote2];
-//    [neil addQuotesObject:neilQuote3];
-//    [self.dataStore saveContext];
-//    
-////    NSLog (@"%@", neil.quotes);
-//    
-//    NSArray *test = [neil.quotes allObjects];
-//    NSLog (@"This should print the first quote %@", test);
-//    
-//    Quotes *quote = test[0];
-//    self.displayTheQuote.text = quote.quote;
-    
-    
-//    NSArray *quotes = [[NSArray alloc] init];
-//    quotes = @[@"I had a dream!", @"I am here", @"Bad to the bone."];
-//    
-//    NSMutableDictionary *quotesReadyForGame = [[NSMutableDictionary alloc] init];
-//    
-//    [quotesReadyForGame setObject:quotes forKey:@"Jim"];
-//    
-//    
-//    NSArray *quotes1 = [[NSArray alloc] init];
-//    quotes1 = @[@"I am cute", @"Red is my favorite color", @"Blue is nothing more than what you make it."];
-//    
-//    [quotesReadyForGame setObject:quotes1 forKey:@"Gary"];
-//    
-////    NSLog (@"%@", quotesReadyForGame);
-////    
-////    NSLog (@"%ld",  [self generateRandomNumber:[quotesReadyForGame count]]);
-////    
-////    NSLog (@"%ld", [[quotesReadyForGame allValues] count]);
-////    
-////    
-////    NSLog (@"%ld", [[quotesReadyForGame valueForKey:@"Jim"] count]);
-//    
-//
-////    NSArray *allKeys = [quotesReadyForGame allKeys];
-////    NSLog (@"%ld", [allKeys count]);
-////    
-////
-////    NSLog (@"%@", allKeys);
-//    
-//    
-////    NSLog (@"The number of total quotes = %ld", [self numberOfQuotesInListOfQuestions:quotesReadyForGame]);
-//    
-//    
-//    NSArray *listOfQuotes = [quotesReadyForGame objectForKey:@"Jim"];
-//    NSLog (@"%@", listOfQuotes);
-//    
-//    NSLog (@"The amount of quotes is %ld", listOfQuotes.count);
-//    NSLog (@"The third item is %@", listOfQuotes[2]);
+    NSLog (@"The total number of people are %ld, the total number of quotes are %i", [allKeys count], totalNumberOfQuotes);
     
     
 
-//    @property (nonatomic, retain) NSString * quote;
-//    @property (nonatomic, retain) Person *person;
-
-
-
-    // Do any additional setup after loading the view.
+    
+    
+    //    Person *test = self.dataStore.quotesReadyForGame[0];
+    //
+    //    NSLog (@"%@", test.name);
+    //    NSArray *testQuotes = [test.quotes allObjects];
+    //
+    //    NSMutableArray *listOfMarioQuotes = [[NSMutableArray alloc] init];
+    //
+    //    for (Quotes *quote in testQuotes) {
+    //        [listOfMarioQuotes addObject:quote.quote];
+    //    }
+    //    NSLog (@"The quotes for %@ are %@", test.name, listOfMarioQuotes);
+    //
+    //    NSMutableDictionary *holdingThePersonAndQuotes = [[NSMutableDictionary alloc] init];
+    //
+    //
+    //    [holdingThePersonAndQuotes setValue:listOfMarioQuotes forKey:@"Mario"];
+    //
+    ////    for (NSString *quote in listOfMarioQuotes) {
+    ////        [holdingThePersonAndQuotes setValue:quote forKey:@"Mario"];
+    ////    }
+    //
+    //    NSLog (@" --------------- TESTING -----------");
+    //
+    //    NSLog(@"%@", holdingThePersonAndQuotes);
+    //
+    //
+    //    NSString *wrongAnswer = @"I like the color red";
+    //    NSString *rightAnswer = @"Here I go!";
+    //
+    //    NSMutableArray *jimTest = [[NSMutableArray alloc] init];
+    //    for (NSString *inn in [holdingThePersonAndQuotes valueForKey:@"Mario"]) {
+    //        [jimTest addObject:inn];
+    //    }
+    //
+    //    if ([jimTest containsObject:rightAnswer]) {
+    //        NSLog (@"MUCH MUCH BETTER WAY1!! WINNE");
+    //    }
+    //
+    //    if ([[holdingThePersonAndQuotes valueForKey:@"Mario"] containsObject:rightAnswer]) {
+    //        NSLog (@"WOW THIS WOULD BE GOOD, RIGHT ANSWER");
+    //    }
+    
+    
+    
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -191,25 +128,28 @@
     
     
 }
-- (NSUInteger)generateRandomNumber:(NSUInteger)count {
-    
-    return arc4random() % count;
-}
+
+#warning this isn't complete
+//- (NSUInteger)generateRandomNumber:(NSUInteger)count {
+//
+//    return arc4random() % count;
+//}
 
 
-//To Figure out the number of quotes in the Quotes Ready For Game dictionary.
-- (NSUInteger)numberOfQuotesInListOfQuestions:(NSMutableDictionary *)quotesReadyForGame {
-    
-    NSUInteger totalNumberOfQuotes;
-    NSArray *allKeys = [quotesReadyForGame allKeys];
-    
-    for (NSUInteger i = 0 ; i < [quotesReadyForGame count] ; i++) {
-        
-        NSString *nameOfDude = allKeys[i];
-        totalNumberOfQuotes += [[quotesReadyForGame valueForKey:nameOfDude] count];
-    }
-    return totalNumberOfQuotes;
-}
+#warning This belongs somewhere else
+////To Figure out the number of quotes in the Quotes Ready For Game dictionary.
+//- (NSUInteger)numberOfQuotesInListOfQuestions:(NSMutableDictionary *)quotesReadyForGame {
+//
+//    NSUInteger totalNumberOfQuotes;
+//    NSArray *allKeys = [quotesReadyForGame allKeys];
+//
+//    for (NSUInteger i = 0 ; i < [quotesReadyForGame count] ; i++) {
+//
+//        NSString *nameOfDude = allKeys[i];
+//        totalNumberOfQuotes += [[quotesReadyForGame valueForKey:nameOfDude] count];
+//    }
+//    return totalNumberOfQuotes;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -217,17 +157,17 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)neilButton:(id)sender {
-
+    
 }
 - (IBAction)billButton:(id)sender {
 }
