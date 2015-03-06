@@ -39,6 +39,14 @@
     return self;
 }
 
+- (NSMutableArray *)holdingTheQuotesAlreadyDisplayed {
+    if (!_holdingTheQuotesAlreadyDisplayed) {
+        _holdingTheQuotesAlreadyDisplayed = [[NSMutableArray alloc] init];
+    }
+    
+    return _holdingTheQuotesAlreadyDisplayed;
+}
+
 - (NSMutableDictionary *)quotesReadyForQuiz {
     if (!_quotesReadyForQuiz) {
         _quotesReadyForQuiz = [[NSMutableDictionary alloc] init];
@@ -53,6 +61,14 @@
     return _scoreOfGame;
 }
 
+- (NSString *)randomQuotePicked {
+    if (!_randomQuotePicked) {
+        _randomQuotePicked = [[NSString alloc] init];
+    }
+    
+    return _randomQuotePicked;
+}
+
 - (BOOL)isPerson:(Person *)person matchedToQuote:(NSString *)quote {
     
     if ([[self.quotesReadyForQuiz valueForKey:person.name] containsObject:quote]) {
@@ -64,28 +80,29 @@
     }
 }
 
-#warning this is where I left off on Wednesday 11:15 AM
-//- (NSString *)drawAQuoteToDisplay {
-//    
-//        NSUInteger totalNumberOfQuotes;
-//        NSArray *allKeys = [self.quotesReadyForQuiz allKeys];
-//    
-//        for (NSUInteger i = 0 ; i < [self.quotesReadyForQuiz count] ; i++) {
-//    
-//            NSString *nameOfDude = allKeys[i];
-//            totalNumberOfQuotes += [[self.quotesReadyForQuiz valueForKey:nameOfDude] count];
-//        }
-//    
-//    
-//    
-//    
-//}
+- (NSString *)drawAQuoteToDisplay {
+    
+    [self pickingARandomQuote];
+    
+    while ([self.holdingTheQuotesAlreadyDisplayed containsObject:self.randomQuotePicked]) {
+        
+        [self pickingARandomQuote];
+    }
+    
+    [self.holdingTheQuotesAlreadyDisplayed addObject:self.randomQuotePicked];
+    return self.randomQuotePicked;
+}
 
 
-
-
-
-
+- (void)pickingARandomQuote {
+    
+    NSArray *allKeys = [self.quotesReadyForQuiz allKeys];
+    NSString *randomPersonChosen = allKeys[arc4random_uniform((uint32_t) allKeys.count)];
+    NSUInteger randomQuoteNumber =arc4random_uniform((uint32_t) [[self.quotesReadyForQuiz valueForKey:randomPersonChosen] count]);
+    NSArray *listOfQuotesForPersonChosen = [self.quotesReadyForQuiz valueForKey:randomPersonChosen];
+    self.randomQuotePicked = listOfQuotesForPersonChosen[randomQuoteNumber];
+    
+}
 
 
 //@property (strong, nonatomic) NSMutableDictionary *quotesReadyForQuiz;
@@ -141,8 +158,6 @@
 //if ([[holdingThePersonAndQuotes valueForKey:@"Mario"] containsObject:rightAnswer]) {
 //    NSLog (@"WOW THIS WOULD BE GOOD, RIGHT ANSWER");
 //}
-
-
 
 @end
 

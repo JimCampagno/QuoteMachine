@@ -17,6 +17,7 @@
 @interface GameScreenViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *displayTheQuote;
+@property (strong, nonatomic) MatchingTheQuotesGame *theGame;
 
 - (IBAction)neilButton:(id)sender;
 - (IBAction)billButton:(id)sender;
@@ -25,6 +26,8 @@
 
 
 @implementation GameScreenViewController
+
+
 
 - (void)viewDidLoad {
     
@@ -51,23 +54,107 @@
     //    [self.dataStore.fetchedResults performFetch:nil];
     
     
-    MatchingTheQuotesGame *theGame = [[MatchingTheQuotesGame alloc] initWithPeople:self.dataStore.quotesReadyForGame];
+    self.theGame = [[MatchingTheQuotesGame alloc] initWithPeople:self.dataStore.quotesReadyForGame];
     
-    NSLog (@"Will this work?  It should display the dictionary in theGame object: %@", theGame.quotesReadyForQuiz);
     
-    int totalNumberOfQuotes = 0;
-    NSArray *allKeys = [theGame.quotesReadyForQuiz allKeys];
+    NSString *quoteChosen = [self.theGame randomQuotePicked];
+    NSLog (@"The quote chosen --- %@", quoteChosen);
     
-    for (NSUInteger i = 0 ; i < [theGame.quotesReadyForQuiz count] ; i++) {
+    Person *someone = self.dataStore.quotesReadyForGame[0];
+    NSLog (@"The person we clicked was %@", someone.name);
+    
+    if ([self.theGame isPerson:someone matchedToQuote:quoteChosen]) {
         
-        NSString *nameOfDude = allKeys[i];
-        totalNumberOfQuotes += [[theGame.quotesReadyForQuiz valueForKey:nameOfDude] count];
+        NSLog (@"Congrats Jim, this is working!");
+    }
+    else {
+        NSLog (@"DIdn't pick the right person");
     }
     
-    NSLog (@"The total number of people are %ld, the total number of quotes are %i", [allKeys count], totalNumberOfQuotes);
+
     
+    
+//    NSLog (@"Will this work?  It should display the dictionary in theGame object: %@", self.theGame.quotesReadyForQuiz);
+    
+//    NSArray *allKeys = [self.theGame.quotesReadyForQuiz allKeys];
+//    
+//    NSLog (@"This should print all of the people: %@", allKeys);
+//    
+//    NSUInteger randomNumberToChoosePerson = arc4random_uniform((uint32_t) allKeys.count);
+//    
+//    NSLog (@"The random number chosen was %lu", (unsigned long)randomNumberToChoosePerson);
+//    NSString *randomPersonChosen = allKeys[randomNumberToChoosePerson];
+//
+//    NSLog (@"That random person chosen was %@", randomPersonChosen);
+//    
+//    NSUInteger randomNumberFromAmountOfQuotesOfPerson =arc4random_uniform((uint32_t) [[self.theGame.quotesReadyForQuiz valueForKey:allKeys[randomNumberToChoosePerson]] count]);
+//    
+//    NSLog (@"The random number to use as a quote is %lu", randomNumberFromAmountOfQuotesOfPerson);
+//    
+//    
+//    NSLog (@"To make sure this is working: %u", arc4random_uniform((uint32_t) [[self.theGame.quotesReadyForQuiz valueForKey:allKeys[randomNumberToChoosePerson]] count]));
+//    
+//    NSArray *listOfQuotesForPersonChosen = [self.theGame.quotesReadyForQuiz valueForKey:randomPersonChosen];
+//    NSString *quoteChosen = listOfQuotesForPersonChosen[randomNumberFromAmountOfQuotesOfPerson];
+//    
+//    NSLog (@"The random quote for %@ is %@", randomPersonChosen, quoteChosen);
+//    
+//    NSString *helloAgain = (@"The color is blue");
+//    
+//    NSMutableArray *testing = [[NSMutableArray alloc] init];
+//    
+//    [testing addObject:quoteChosen];
+//    [testing addObject:helloAgain];
+//
+//    NSString *jimIsTesting = (@"The color is blue");
+//    
+//    
+//    
+//    if ([testing containsObject:jimIsTesting]) {
+//        
+//        NSLog (@"Winner!");
+//    }
+//    
+//    else {
+//        NSLog (@"NOT A WINNER!");
+//    }
+//    
     
 
+    
+    
+    
+   
+
+    
+    
+    
+    
+    
+    
+    
+    
+   
+//    for (NSUInteger i = 0 ; i < [self.theGame.quotesReadyForQuiz count] ; i++) {
+//        
+//        NSString *nameOfDude = allKeys[i];
+//        totalNumberOfQuotes += [[self.theGame.quotesReadyForQuiz valueForKey:nameOfDude] count];
+//    }
+//    
+//    NSLog (@"The total number of people are %ld, the total number of quotes are %ld", [allKeys count], totalNumberOfQuotes);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     //    Person *test = self.dataStore.quotesReadyForGame[0];
@@ -117,6 +204,21 @@
     
     
 }
+
+//- (NSString *)generateRandomQuestion {
+//    
+//    NSInteger totalNumberOfQuotes = 0;
+//    
+//    NSArray *allKeys = [self.theGame.quotesReadyForQuiz allKeys];
+//    
+//    for (NSUInteger i = 0 ; i < [self.theGame.quotesReadyForQuiz count] ; i++) {
+//        NSString *nameOfDude = allKeys[i];
+//        totalNumberOfQuotes += [[self.theGame.quotesReadyForQuiz valueForKey:nameOfDude] count];
+//    }
+//
+//    NSUInteger randomNumberForPerson = arc4random_uniform((uint32_t) predictionArray.count);
+//    
+//}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -168,7 +270,12 @@
 
 - (IBAction)neilButton:(id)sender {
     
+    
 }
 - (IBAction)billButton:(id)sender {
+    
+    
 }
+
+
 @end

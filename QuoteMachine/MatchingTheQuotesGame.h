@@ -16,7 +16,9 @@
 @property (strong, nonatomic) NSMutableDictionary *quotesReadyForQuiz; //This is complete and has been implemented as part of the initWithPeople method below.
 @property (strong, nonatomic) NSNumber *scoreOfGame; //This has been set to @0, no logic has been established yet.
 @property (nonatomic) BOOL isCorrectlyChosen; //No logis has been set for this. Do I need this?
-@property (strong, nonatomic) NSString *quoteToDisplay;
+@property (strong, nonatomic) NSString *quoteToDisplay; //Working on this now
+@property (strong, nonatomic) NSMutableArray *holdingTheQuotesAlreadyDisplayed;
+@property (strong, nonatomic) NSString *randomQuotePicked;
 
 - (instancetype)initWithPeople:(NSArray *)people; //This is complete and has been implemented.
 - (BOOL)isPerson:(Person *)person matchedToQuote:(NSString *)quote; //Implemented but it's not doing anything to the score.
