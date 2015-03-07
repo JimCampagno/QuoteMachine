@@ -129,6 +129,16 @@
     [self createQuotesForPerson:person withQuote1:quoteByJim1 withQuote2:quoteByJim2 withQuote3:quoteByJim3];
 }
 
+- (void)setLarryDavid:(Person *)person {
+    
+    person.name = @"Larry David";
+    
+    
+    
+    
+}
+
+
 
 
 

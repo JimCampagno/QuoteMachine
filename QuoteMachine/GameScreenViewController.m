@@ -16,7 +16,6 @@
 
 @interface GameScreenViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *displayTheQuote;
 @property (strong, nonatomic) MatchingTheQuotesGame *theGame;
 
 - (IBAction)neilButton:(id)sender;
@@ -194,7 +193,7 @@
     NSFetchRequest *personQuoteRequest = [[NSFetchRequest alloc] initWithEntityName:@"Person"];
     self.dataStore.quotesReadyForGame = [self.dataStore.managedObjectContext executeFetchRequest:personQuoteRequest error:nil];
     
-#warning [self.tableView reloadData] needs to be placed here.  Instead of calling on tableView, when I create a custom one to be put in the view, do we refresh that?
+// [self.tableView reloadData] needs to be placed here.  Instead of calling on tableView, when I create a custom one to be put in the view, do we refresh that?
     
     
 }
@@ -218,8 +217,140 @@
  }
  */
 
+- (void)tappedButton:(UIButton *)button {
+    
+    if (button.layer.borderColor == [UIColor greenColor].CGColor) {
+        
+        NSLog (@"WE ARE DE-SELECTING THE BUTTON!");
+        
+        [[button layer] setBorderColor:[UIColor clearColor].CGColor];
+        
+        button.transform = CGAffineTransformMakeScale(1.8,1.8);
+        button.alpha = 0.0f;
+        
+        [UIView beginAnimations:@"button" context:nil];
+        [UIView setAnimationDuration:0.50];
+        button.transform = CGAffineTransformMakeScale(1,1);
+        button.alpha = 1.0f;
+        [UIView commitAnimations];
+    }
+    else {
+    
+        [[button layer] setBorderWidth:3.0f];
+        
+        [[button layer] setBorderColor:[UIColor greenColor].CGColor];
+        
+        [UIView animateKeyframesWithDuration:0.6
+                                       delay:0.0
+                                     options:UIViewKeyframeAnimationOptionCalculationModeLinear
+                                  animations:^{
+                                      
+                                      button.transform = CGAffineTransformMakeScale(2.5, 2.5);
+                                      [UIView addKeyframeWithRelativeStartTime:0.0
+                                                              relativeDuration:1/3.0
+                                                                    animations:^{
+                                                                        button.transform = CGAffineTransformMakeRotation(4.0 * M_PI / 3.0);
+                                                                    }];
+                                      [UIView addKeyframeWithRelativeStartTime:1/3.0
+                                                              relativeDuration:1/3.0
+                                                                    animations:^{
+                                                                        
+                                                                        
+                                                                        button.transform = CGAffineTransformMakeRotation(2.0 * M_PI / 3.0);
+                                                                    }];
+                                      [UIView addKeyframeWithRelativeStartTime:2/3.0
+                                                              relativeDuration:1/3.0
+                                                                    animations:^{
+                                                                        button.transform = CGAffineTransformMakeRotation(0);
+                                                                    }];
+                                  }
+                                  completion:^(BOOL finished) {
+                                      [[button layer] setBorderWidth:2.5f];
+                                      [[button layer] setBorderColor:[UIColor greenColor].CGColor];
+                                  }];
+        
+        NSLog (@"WE ARE INITIALLY CLICKING THE BUTTON!");
+    }
+}
+
 - (IBAction)neilButton:(id)sender {
     
+    UIButton *button = (UIButton*)sender;
+    
+    if (button.layer.borderColor == [UIColor greenColor].CGColor) {
+        
+        NSLog (@"TEST!");
+        
+        [[button layer] setBorderColor:[UIColor clearColor].CGColor];
+
+        button.transform = CGAffineTransformMakeScale(1.8,1.8);
+        button.alpha = 0.0f;
+        
+        [UIView beginAnimations:@"button" context:nil];
+        [UIView setAnimationDuration:0.50];
+        button.transform = CGAffineTransformMakeScale(1,1);
+        button.alpha = 1.0f;
+        [UIView commitAnimations];
+
+    }
+    
+    else {
+        
+        [[button layer] setBorderWidth:3.0f];
+
+        [[button layer] setBorderColor:[UIColor greenColor].CGColor];
+
+    [UIView animateKeyframesWithDuration:0.6
+                                   delay:0.0
+                                 options:UIViewKeyframeAnimationOptionCalculationModeLinear
+                              animations:^{
+                                  
+                                  button.transform = CGAffineTransformMakeScale(2.5, 2.5);
+
+                                  [UIView addKeyframeWithRelativeStartTime:0.0
+                                                          relativeDuration:1/3.0
+                                                                animations:^{
+                                                                    
+                                                                    button.transform = CGAffineTransformMakeRotation(4.0 * M_PI / 3.0);
+
+                                                                }];
+                                  
+                                  
+                                  [UIView addKeyframeWithRelativeStartTime:1/3.0
+                                                          relativeDuration:1/3.0
+                                                                animations:^{
+                                                                    
+                            
+                                                                    button.transform = CGAffineTransformMakeRotation(2.0 * M_PI / 3.0);
+
+                                                                    
+                                                                }];
+                                  
+                                  
+                                  [UIView addKeyframeWithRelativeStartTime:2/3.0
+                                                          relativeDuration:1/3.0
+                                                                animations:^{
+                                                                    button.transform = CGAffineTransformMakeRotation(0);
+                                                                }];
+                                  
+                              }
+                              completion:^(BOOL finished) {
+                                  
+                                  [[button layer] setBorderWidth:2.5f];
+                                  [[button layer] setBorderColor:[UIColor greenColor].CGColor];
+                                  
+
+
+
+                              }];
+        
+        NSLog (@"Should run once");
+        
+    
+    
+    }
+
+
     
 }
 - (IBAction)billButton:(id)sender {

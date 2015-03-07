@@ -21,6 +21,7 @@
 - (void)setMitchHedberg:(Person *)person;
 - (void)setFinnTheHuman:(Person *)person;
 - (void)setJimCampagno:(Person *)person;
+- (void)setLarryDavid:(Person *)person;
 
 
 @end
