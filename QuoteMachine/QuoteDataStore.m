@@ -63,8 +63,7 @@
     Person *finn = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
     [objectToSetPeople setFinnTheHuman:finn];
     
-    Person *jim = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setJimCampagno:jim];
+    
     
     [self saveContext];
     [self fetchData];

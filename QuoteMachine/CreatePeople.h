@@ -16,12 +16,40 @@
 
 - (instancetype)init;
 
+//Scientists
 - (void)setNeilDegrasseTyson:(Person *)person;
+- (void)setBillNye:(Person *)person;
+- (void)setCarlSagan:(Person *)person;
+- (void)setisaacNewton:(Person *)person;
+
+//Cartoon Characters
 - (void)setSuperMario:(Person *)person;
-- (void)setMitchHedberg:(Person *)person;
 - (void)setFinnTheHuman:(Person *)person;
-- (void)setJimCampagno:(Person *)person;
+- (void)setHomerSimpson:(Person *)person;
+- (void)setEricCartman:(Person *)person;
+
+
+//Comedians
+- (void)setMitchHedberg:(Person *)person;
 - (void)setLarryDavid:(Person *)person;
+- (void)setTinaFey:(Person *)person;
+- (void)setAmyPoehler:(Person *)person;
+
+//Sports figures
+- (void)setMichaelJordan:(Person *)person;
+- (void)setMuhammadAli:(Person *)person;
+- (void)setStuartScott:(Person *)person;
+- (void)setVinceLombardi:(Person *)person;
+
+//Mixed Bag
+- (void)setJaneGoodall:(Person *)person;
+- (void)setAnitaBorg:(Person *)person;
+
+
+
+
+
+
 
 
 @end
