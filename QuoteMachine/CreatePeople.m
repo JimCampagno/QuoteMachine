@@ -299,7 +299,7 @@
 - (void)setJaneGoodall:(Person *)person {
     
     person.name = @"Jane Goodall";
-    person.fieldOfStudy = @"Mixed";
+    person.fieldOfStudy = @"Science";
     person.summary = @"Dame Jane Morris Goodall, DBE is an English primatologist, ethologist, anthropologist, and UN Messenger of Peace.";
     
     NSString *quote1 = @"What you do makes a difference, and you have to decide what kind of difference you want to make.";
@@ -314,16 +314,49 @@
 - (void)setAnitaBorg:(Person *)person {
     
     person.name = @"Anita Borg";
-    person.fieldOfStudy = @"Mixed";
+    person.fieldOfStudy = @"Science";
     person.summary = @"Anita Borg was an American computer scientist. She founded the Institute for Women and Technology and the Grace Hopper Celebration of Women in Computing. She was born Anita Borg Naffz in Chicago, Illinois.";
     
-//    NSString *quote1 = @"If we want technology to serve society rather than enslave it, we have to build systems accessible to all people - be they male or female.";
+    NSString *quote1 = @"If we want technology to serve society rather than enslave it, we have to build systems accessible to all people - be they male or female.";
+    NSString *quote2 = @"Keep an active fantasy life about what you can do and what your possibilities are. Have principles and work towards them, but be patient with yourself when you can't change the whole world. You can't do it all by yourself";
+    NSString *quote3 = @"Don't underestimate yourself, but learn to know yourself. Learn to understand your strengths and believe in yourself. Be rationally optimistic. Optimism is a wonderful thing, it gets you where you're going";
     
+    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
+}
+
+- (void)setBarbaraMcClintock:(Person *)person {
     
+    person.name = @"Barbara McClintock";
+    person.fieldOfStudy = @"Science";
+    person.summary = @"Barbara McClintock, was an American scientist and one of the world's most distinguished cytogeneticists, who won the 1983 Nobel laureate in Physiology or Medicine. McClintock received her PhD in botany from Cornell University in 1927.";
     
+    NSString *quote1 = @"If you know you are on the right track, if you have this inner knowledge, then nobody can turn you off... no matter what they say.";
+    NSString *quote2 = @"Every time I walk on grass, I feel sorry because I know the grass is screaming at me.";
+    NSString *quote3 = @"I was just so interested in what I was doing I could hardly wait to get up in the morning and get at it. One of my friends, a geneticist, said I was a child, because only children can't wait to get up in the morning to get at what they want to do.";
     
+    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
+
+
     
 }
+
+- (void)setMarieCurie:(Person *)person {
+    
+    person.name = @"Marie Curie";
+    person.fieldOfStudy = @"Science";
+    person.summary = @"Marie Skłodowska-Curie was a Polish and naturalized-French physicist and chemist who conducted pioneering research on radioactivity. She was the first woman to win a Nobel Prize, the first person and only woman to win twice, the only person to win twice in multiple sciences, and was part of the Curie family legacy of five Nobel Prizes. She was also the first woman to become a professor at the University of Paris, and in 1995 became the first woman to be entombed on her own merits in the Panthéon in Paris.";
+    
+    NSString *quote1 = @"After all, science is essentially international, and it is only through lack of the historical sense that national qualities have been attributed to it.";
+    NSString *quote2 = @"Be less curious about people and more curious about ideas.";
+    NSString *quote3 = @"Life is not easy for any of us, but what of that? We must have perseverance and above all confidence in ourselves. We must believe that we are gifted in something, and that this thing, at whatever cost, must be attained.";
+    
+    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
+    
+}
+
+
+
+
 
 
 

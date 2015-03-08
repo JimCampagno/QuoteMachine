@@ -28,7 +28,6 @@
 - (void)setHomerSimpson:(Person *)person;
 - (void)setEricCartman:(Person *)person;
 
-
 //Comedians
 - (void)setMitchHedberg:(Person *)person;
 - (void)setLarryDavid:(Person *)person;
@@ -41,12 +40,11 @@
 - (void)setStuartScott:(Person *)person;
 - (void)setVinceLombardi:(Person *)person;
 
-//Mixed Bag
+//More Scientists
 - (void)setJaneGoodall:(Person *)person;
 - (void)setAnitaBorg:(Person *)person;
-
-
-
+- (void)setBarbaraMcClintock:(Person *)person;
+- (void)setMarieCurie:(Person *)person;
 
 
 
