@@ -17,14 +17,29 @@
 @interface GameScreenViewController ()
 
 @property (strong, nonatomic) MatchingTheQuotesGame *theGame;
+@property (weak, nonatomic) IBOutlet UIButton *playButtonProp;
+
+- (IBAction)playButton:(id)sender;
 
 - (IBAction)neilButton:(id)sender;
 - (IBAction)billButton:(id)sender;
+- (IBAction)isaacButton:(id)sender;
+- (IBAction)carlButton:(id)sender;
+- (IBAction)larryButton:(id)sender;
 
 @end
 
 
 @implementation GameScreenViewController
+
+
+
+- (NSMutableArray *)fourPeopleChosen {
+    if (!_fourPeopleChosen) {
+        _fourPeopleChosen = [[NSMutableArray alloc] init];
+    }
+    return _fourPeopleChosen;
+}
 
 - (void)viewDidLoad {
     
@@ -50,161 +65,22 @@
         NSLog (@"DIdn't pick the right person");
     }
     
-
-    
-    
-//    NSLog (@"Will this work?  It should display the dictionary in theGame object: %@", self.theGame.quotesReadyForQuiz);
-    
-//    NSArray *allKeys = [self.theGame.quotesReadyForQuiz allKeys];
-//    
-//    NSLog (@"This should print all of the people: %@", allKeys);
-//    
-//    NSUInteger randomNumberToChoosePerson = arc4random_uniform((uint32_t) allKeys.count);
-//    
-//    NSLog (@"The random number chosen was %lu", (unsigned long)randomNumberToChoosePerson);
-//    NSString *randomPersonChosen = allKeys[randomNumberToChoosePerson];
-//
-//    NSLog (@"That random person chosen was %@", randomPersonChosen);
-//    
-//    NSUInteger randomNumberFromAmountOfQuotesOfPerson =arc4random_uniform((uint32_t) [[self.theGame.quotesReadyForQuiz valueForKey:allKeys[randomNumberToChoosePerson]] count]);
-//    
-//    NSLog (@"The random number to use as a quote is %lu", randomNumberFromAmountOfQuotesOfPerson);
-//    
-//    
-//    NSLog (@"To make sure this is working: %u", arc4random_uniform((uint32_t) [[self.theGame.quotesReadyForQuiz valueForKey:allKeys[randomNumberToChoosePerson]] count]));
-//    
-//    NSArray *listOfQuotesForPersonChosen = [self.theGame.quotesReadyForQuiz valueForKey:randomPersonChosen];
-//    NSString *quoteChosen = listOfQuotesForPersonChosen[randomNumberFromAmountOfQuotesOfPerson];
-//    
-//    NSLog (@"The random quote for %@ is %@", randomPersonChosen, quoteChosen);
-//    
-//    NSString *helloAgain = (@"The color is blue");
-//    
-//    NSMutableArray *testing = [[NSMutableArray alloc] init];
-//    
-//    [testing addObject:quoteChosen];
-//    [testing addObject:helloAgain];
-//
-//    NSString *jimIsTesting = (@"The color is blue");
-//    
-//    
-//    
-//    if ([testing containsObject:jimIsTesting]) {
-//        
-//        NSLog (@"Winner!");
-//    }
-//    
-//    else {
-//        NSLog (@"NOT A WINNER!");
-//    }
-//    
-    
-
-    
-    
-    
-   
-
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    //    Person *test = self.dataStore.quotesReadyForGame[0];
-    //
-    //    NSLog (@"%@", test.name);
-    //    NSArray *testQuotes = [test.quotes allObjects];
-    //
-    //    NSMutableArray *listOfMarioQuotes = [[NSMutableArray alloc] init];
-    //
-    //    for (Quotes *quote in testQuotes) {
-    //        [listOfMarioQuotes addObject:quote.quote];
-    //    }
-    //    NSLog (@"The quotes for %@ are %@", test.name, listOfMarioQuotes);
-    //
-    //    NSMutableDictionary *holdingThePersonAndQuotes = [[NSMutableDictionary alloc] init];
-    //
-    //
-    //    [holdingThePersonAndQuotes setValue:listOfMarioQuotes forKey:@"Mario"];
-    //
-    ////    for (NSString *quote in listOfMarioQuotes) {
-    ////        [holdingThePersonAndQuotes setValue:quote forKey:@"Mario"];
-    ////    }
-    //
-    //    NSLog (@" --------------- TESTING -----------");
-    //
-    //    NSLog(@"%@", holdingThePersonAndQuotes);
-    //
-    //
-    //    NSString *wrongAnswer = @"I like the color red";
-    //    NSString *rightAnswer = @"Here I go!";
-    //
-    //    NSMutableArray *jimTest = [[NSMutableArray alloc] init];
-    //    for (NSString *inn in [holdingThePersonAndQuotes valueForKey:@"Mario"]) {
-    //        [jimTest addObject:inn];
-    //    }
-    //
-    //    if ([jimTest containsObject:rightAnswer]) {
-    //        NSLog (@"MUCH MUCH BETTER WAY1!! WINNE");
-    //    }
-    //
-    //    if ([[holdingThePersonAndQuotes valueForKey:@"Mario"] containsObject:rightAnswer]) {
-    //        NSLog (@"WOW THIS WOULD BE GOOD, RIGHT ANSWER");
-    //    }
-    
-    
     
     
     
 }
 
-//- (NSString *)generateRandomQuestion {
-//    
-//    NSInteger totalNumberOfQuotes = 0;
-//    
-//    NSArray *allKeys = [self.theGame.quotesReadyForQuiz allKeys];
-//    
-//    for (NSUInteger i = 0 ; i < [self.theGame.quotesReadyForQuiz count] ; i++) {
-//        NSString *nameOfDude = allKeys[i];
-//        totalNumberOfQuotes += [[self.theGame.quotesReadyForQuiz valueForKey:nameOfDude] count];
-//    }
-//
-//    NSUInteger randomNumberForPerson = arc4random_uniform((uint32_t) predictionArray.count);
-//    
-//}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     NSFetchRequest *personQuoteRequest = [[NSFetchRequest alloc] initWithEntityName:@"Person"];
     self.dataStore.quotesReadyForGame = [self.dataStore.managedObjectContext executeFetchRequest:personQuoteRequest error:nil];
-    
-// [self.tableView reloadData] needs to be placed here.  Instead of calling on tableView, when I create a custom one to be put in the view, do we refresh that?
-    
-    
+    // [self.tableView reloadData] needs to be placed here.  Instead of calling on tableView, when I create a custom one to be put in the view, do we refresh that?
 }
-
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
@@ -217,145 +93,145 @@
  }
  */
 
-- (void)tappedButton:(UIButton *)button {
+//@"Mario"
+//@"Mitch Hedberg"
+//@"Finn The Human"
+//@"Larry David"
+
+- (IBAction)playButton:(id)sender {
+}
+
+
+- (IBAction)isaacButton:(id)sender {
     
-    if (button.layer.borderColor == [UIColor greenColor].CGColor) {
-        
-        NSLog (@"WE ARE DE-SELECTING THE BUTTON!");
-        
-        [[button layer] setBorderColor:[UIColor clearColor].CGColor];
-        
-        button.transform = CGAffineTransformMakeScale(1.8,1.8);
-        button.alpha = 0.0f;
-        
-        [UIView beginAnimations:@"button" context:nil];
-        [UIView setAnimationDuration:0.50];
-        button.transform = CGAffineTransformMakeScale(1,1);
-        button.alpha = 1.0f;
-        [UIView commitAnimations];
-    }
-    else {
+    [self tappedButton:sender withName:@"Mario"];
+}
+
+- (IBAction)carlButton:(id)sender {
     
-        [[button layer] setBorderWidth:3.0f];
-        
-        [[button layer] setBorderColor:[UIColor greenColor].CGColor];
-        
-        [UIView animateKeyframesWithDuration:0.6
-                                       delay:0.0
-                                     options:UIViewKeyframeAnimationOptionCalculationModeLinear
-                                  animations:^{
-                                      
-                                      button.transform = CGAffineTransformMakeScale(2.5, 2.5);
-                                      [UIView addKeyframeWithRelativeStartTime:0.0
-                                                              relativeDuration:1/3.0
-                                                                    animations:^{
-                                                                        button.transform = CGAffineTransformMakeRotation(4.0 * M_PI / 3.0);
-                                                                    }];
-                                      [UIView addKeyframeWithRelativeStartTime:1/3.0
-                                                              relativeDuration:1/3.0
-                                                                    animations:^{
-                                                                        
-                                                                        
-                                                                        button.transform = CGAffineTransformMakeRotation(2.0 * M_PI / 3.0);
-                                                                    }];
-                                      [UIView addKeyframeWithRelativeStartTime:2/3.0
-                                                              relativeDuration:1/3.0
-                                                                    animations:^{
-                                                                        button.transform = CGAffineTransformMakeRotation(0);
-                                                                    }];
-                                  }
-                                  completion:^(BOOL finished) {
-                                      [[button layer] setBorderWidth:2.5f];
-                                      [[button layer] setBorderColor:[UIColor greenColor].CGColor];
-                                  }];
-        
-        NSLog (@"WE ARE INITIALLY CLICKING THE BUTTON!");
-    }
+    [self tappedButton:sender withName:@"Finn The Human"];
+}
+
+- (IBAction)larryButton:(id)sender {
+    
+    [self tappedButton:sender withName:@"Finn The Human"];
+}
+- (IBAction)billButton:(id)sender {
+    
+    [self tappedButton:sender withName:@"Mitch Hedberg"];
 }
 
 - (IBAction)neilButton:(id)sender {
     
-    UIButton *button = (UIButton*)sender;
+    [self tappedButton:sender withName:@"Neil deGrasse Tyson"];
     
-    if (button.layer.borderColor == [UIColor greenColor].CGColor) {
-        
-        NSLog (@"TEST!");
-        
-        [[button layer] setBorderColor:[UIColor clearColor].CGColor];
+}
 
-        button.transform = CGAffineTransformMakeScale(1.8,1.8);
-        button.alpha = 0.0f;
+- (void)tappedButton:(UIButton *)button withName:(NSString *)nameOfPerson {
+    
+    if ([self.fourPeopleChosen count] == 4) {
         
-        [UIView beginAnimations:@"button" context:nil];
-        [UIView setAnimationDuration:0.50];
-        button.transform = CGAffineTransformMakeScale(1,1);
-        button.alpha = 1.0f;
-        [UIView commitAnimations];
+        [self tapToDeselectButton:button];
+        [self removePersonFromPoolWithName:nameOfPerson];
+        
+        self.playButtonProp.enabled = NO;
 
+        
+        for (Person *person in self.fourPeopleChosen) {
+            NSLog (@"This person is in the pool: %@", person.name);
+        }
     }
-    
     else {
-        
-        [[button layer] setBorderWidth:3.0f];
+        if (button.layer.borderColor == [UIColor greenColor].CGColor) {
+            
+            [self tapToDeselectButton:button];
+            [self removePersonFromPoolWithName:nameOfPerson];
+            for (Person *person in self.fourPeopleChosen) {
+                NSLog (@"This person is in the pool: %@", person.name);
+            }
+        }
+        else {
+            
+            [self tapToSelectButton:button];
+            [self addPersonToPoolToBePlayedWithName:nameOfPerson];
+            
+            if ([self.fourPeopleChosen count] == 4) {
+            self.playButtonProp.enabled = YES;
+            }
+            for (Person *person in self.fourPeopleChosen) {
+                NSLog (@"This person is in the pool: %@", person.name);
+            }
+            
+        }
+    }
+}
 
-        [[button layer] setBorderColor:[UIColor greenColor].CGColor];
+- (void)addPersonToPoolToBePlayedWithName:(NSString *)name {
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", name];
+    NSArray *filteredArray = [self.dataStore.quotesReadyForGame filteredArrayUsingPredicate:predicate];
+    Person *person = filteredArray[0];
+    [self.fourPeopleChosen addObject:person];
+}
 
+- (void)removePersonFromPoolWithName:(NSString *)name {
+
+    for (Person *person in self.fourPeopleChosen) {
+        if ([person.name isEqualToString:name]) {
+            [self.fourPeopleChosen removeObject:person];
+            break;
+        }
+    }
+}
+
+
+- (void)tapToSelectButton:(UIButton *)button {
+    [[button layer] setBorderWidth:3.0f];
+    
+    [[button layer] setBorderColor:[UIColor greenColor].CGColor];
+    
     [UIView animateKeyframesWithDuration:0.6
                                    delay:0.0
                                  options:UIViewKeyframeAnimationOptionCalculationModeLinear
                               animations:^{
-                                  
                                   button.transform = CGAffineTransformMakeScale(2.5, 2.5);
-
                                   [UIView addKeyframeWithRelativeStartTime:0.0
                                                           relativeDuration:1/3.0
                                                                 animations:^{
-                                                                    
                                                                     button.transform = CGAffineTransformMakeRotation(4.0 * M_PI / 3.0);
-
                                                                 }];
-                                  
-                                  
                                   [UIView addKeyframeWithRelativeStartTime:1/3.0
                                                           relativeDuration:1/3.0
                                                                 animations:^{
-                                                                    
-                            
                                                                     button.transform = CGAffineTransformMakeRotation(2.0 * M_PI / 3.0);
-
-                                                                    
                                                                 }];
-                                  
-                                  
                                   [UIView addKeyframeWithRelativeStartTime:2/3.0
                                                           relativeDuration:1/3.0
                                                                 animations:^{
                                                                     button.transform = CGAffineTransformMakeRotation(0);
                                                                 }];
-                                  
                               }
                               completion:^(BOOL finished) {
-                                  
                                   [[button layer] setBorderWidth:2.5f];
                                   [[button layer] setBorderColor:[UIColor greenColor].CGColor];
-                                  
-
-
-
                               }];
-        
-        NSLog (@"Should run once");
-        
     
-    
-    }
-
-
-    
+    NSLog (@"WE ARE INITIALLY CLICKING THE BUTTON!");
 }
-- (IBAction)billButton:(id)sender {
+
+- (void)tapToDeselectButton:(UIButton *)button {
+    NSLog (@"WE ARE DE-SELECTING THE BUTTON!");
     
+    [[button layer] setBorderColor:[UIColor clearColor].CGColor];
     
+    button.transform = CGAffineTransformMakeScale(1.8,1.8);
+    button.alpha = 0.0f;
+    
+    [UIView beginAnimations:@"button" context:nil];
+    [UIView setAnimationDuration:0.50];
+    button.transform = CGAffineTransformMakeScale(1,1);
+    button.alpha = 1.0f;
+    [UIView commitAnimations];
 }
 
 

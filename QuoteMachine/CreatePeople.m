@@ -132,6 +132,13 @@
 - (void)setLarryDavid:(Person *)person {
     
     person.name = @"Larry David";
+    person.fieldOfStudy = @"Comedy";
+    person.summary = @"Lawrence Gene Larry David is an American comedian, writer, actor, and television producer. He was the co-creator, with Jerry Seinfeld, of the television series Seinfeld, and was its head writer and executive producer from 1989 to 1996.";
+    
+    
+    
+    
+    
     
     
     

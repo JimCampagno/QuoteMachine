@@ -12,6 +12,7 @@
 @interface GameScreenViewController : UIViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) QuoteDataStore *dataStore;
+@property (strong, nonatomic) NSMutableArray *fourPeopleChosen;
 @property (strong, nonatomic) NSArray *managedPersonObjects;
 
 @end
