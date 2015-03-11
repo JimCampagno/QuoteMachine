@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B7D17681AAB610A0011946B /* QuoteScreenStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B7D17671AAB610A0011946B /* QuoteScreenStoryboard.storyboard */; };
+		1B7D176B1AAB61320011946B /* QuoteScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D176A1AAB61320011946B /* QuoteScreenViewController.m */; };
+		1B7D17711AACE99D0011946B /* UIView+distance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D17701AACE99D0011946B /* UIView+distance.m */; };
 		7D3AE0711AA36D8B001EE74B /* QuoteDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE0701AA36D8B001EE74B /* QuoteDataStore.m */; };
 		7D3AE0741AA3791E001EE74B /* MatchingTheQuotesGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE0731AA3791E001EE74B /* MatchingTheQuotesGame.m */; };
 		7D3AE0771AA37DBB001EE74B /* Quotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE0761AA37DBB001EE74B /* Quotes.m */; };
@@ -34,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B7D17671AAB610A0011946B /* QuoteScreenStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QuoteScreenStoryboard.storyboard; sourceTree = "<group>"; };
+		1B7D17691AAB61320011946B /* QuoteScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteScreenViewController.h; sourceTree = "<group>"; };
+		1B7D176A1AAB61320011946B /* QuoteScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteScreenViewController.m; sourceTree = "<group>"; };
+		1B7D176F1AACE99D0011946B /* UIView+distance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+distance.h"; sourceTree = "<group>"; };
+		1B7D17701AACE99D0011946B /* UIView+distance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+distance.m"; sourceTree = "<group>"; };
 		7D3AE06F1AA36D8B001EE74B /* QuoteDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteDataStore.h; sourceTree = "<group>"; };
 		7D3AE0701AA36D8B001EE74B /* QuoteDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteDataStore.m; sourceTree = "<group>"; };
 		7D3AE0721AA3791E001EE74B /* MatchingTheQuotesGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchingTheQuotesGame.h; sourceTree = "<group>"; };
@@ -113,12 +121,17 @@
 				7D3AE0731AA3791E001EE74B /* MatchingTheQuotesGame.m */,
 				7D3AE06F1AA36D8B001EE74B /* QuoteDataStore.h */,
 				7D3AE0701AA36D8B001EE74B /* QuoteDataStore.m */,
+				7D3AE07C1AA37F57001EE74B /* CreatePeople.m */,
+				7D3AE07B1AA37F57001EE74B /* CreatePeople.h */,
+				7D42D6091A9FBF32002738E7 /* LaunchScreen.xib */,
 				7D42D6201A9FC074002738E7 /* GameScreenViewController.h */,
 				7D42D6211A9FC074002738E7 /* GameScreenViewController.m */,
-				7D3AE07B1AA37F57001EE74B /* CreatePeople.h */,
-				7D3AE07C1AA37F57001EE74B /* CreatePeople.m */,
 				7D42D6041A9FBF32002738E7 /* Main.storyboard */,
-				7D42D6091A9FBF32002738E7 /* LaunchScreen.xib */,
+				1B7D176F1AACE99D0011946B /* UIView+distance.h */,
+				1B7D17701AACE99D0011946B /* UIView+distance.m */,
+				1B7D17691AAB61320011946B /* QuoteScreenViewController.h */,
+				1B7D176A1AAB61320011946B /* QuoteScreenViewController.m */,
+				1B7D17671AAB610A0011946B /* QuoteScreenStoryboard.storyboard */,
 				7D42D5F71A9FBF32002738E7 /* Supporting Files */,
 			);
 			path = QuoteMachine;
@@ -232,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B7D17681AAB610A0011946B /* QuoteScreenStoryboard.storyboard in Resources */,
 				7D42D6061A9FBF32002738E7 /* Main.storyboard in Resources */,
 				7D42D60B1A9FBF32002738E7 /* LaunchScreen.xib in Resources */,
 				7D42D6081A9FBF32002738E7 /* Images.xcassets in Resources */,
@@ -256,8 +270,10 @@
 				7D3AE0741AA3791E001EE74B /* MatchingTheQuotesGame.m in Sources */,
 				7D3AE07A1AA37DBC001EE74B /* Person.m in Sources */,
 				7D3AE0801AA38051001EE74B /* Person+Methods.m in Sources */,
+				1B7D176B1AAB61320011946B /* QuoteScreenViewController.m in Sources */,
 				7D42D5FD1A9FBF32002738E7 /* AppDelegate.m in Sources */,
 				7D42D5FA1A9FBF32002738E7 /* main.m in Sources */,
+				1B7D17711AACE99D0011946B /* UIView+distance.m in Sources */,
 				7D42D6221A9FC074002738E7 /* GameScreenViewController.m in Sources */,
 				7D3AE0771AA37DBB001EE74B /* Quotes.m in Sources */,
 				7D3AE07D1AA37F57001EE74B /* CreatePeople.m in Sources */,
