@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4C64CBDBCC786A5C2425F4C2"
-               BuildableName = "libPods-QuoteMachine-RBStoryboardLink.a"
-               BlueprintName = "Pods-QuoteMachine-RBStoryboardLink"
+               BlueprintIdentifier = "1395BB81277705C0309C60FB"
+               BuildableName = "libPods-QuoteMachine-Shimmer.a"
+               BlueprintName = "Pods-QuoteMachine-Shimmer"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

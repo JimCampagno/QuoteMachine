@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-QuoteMachine-Shimmer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-QuoteMachine.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>24142EC9E0B829C3C074B09A</key>
+		<key>1395BB81277705C0309C60FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>36AFE8069BC7DB2EFBD7F13A</key>
+		<key>4C64CBDBCC786A5C2425F4C2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CD8BC7A152C035D13809D4F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

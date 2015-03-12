@@ -4,6 +4,7 @@
 target 'QuoteMachine' do
 
 pod 'RBStoryboardLink', '~> 0.1'
+pod 'Shimmer', '~> 1.0'
 
 end
 

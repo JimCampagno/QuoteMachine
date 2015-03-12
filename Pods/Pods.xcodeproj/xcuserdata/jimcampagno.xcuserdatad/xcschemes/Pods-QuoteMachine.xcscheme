@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "36AFE8069BC7DB2EFBD7F13A"
+               BlueprintIdentifier = "CD8BC7A152C035D13809D4F3"
                BuildableName = "libPods-QuoteMachine.a"
                BlueprintName = "Pods-QuoteMachine"
                ReferencedContainer = "container:Pods.xcodeproj">

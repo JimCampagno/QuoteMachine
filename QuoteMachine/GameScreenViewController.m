@@ -71,21 +71,6 @@
     self.theGame = [[MatchingTheQuotesGame alloc] initWithPeople:self.dataStore.quotesReadyForGame];
     
     
-    NSString *quoteChosen = [self.theGame drawAQuoteToDisplay];
-    NSLog (@"The quote chosen --- %@", quoteChosen);
-    
-    Person *someone = self.dataStore.quotesReadyForGame[1];
-    NSLog (@"The person we clicked was %@", someone.name);
-    
-    if ([self.theGame isPerson:someone matchedToQuote:quoteChosen]) {
-        
-        NSLog (@"Congrats Jim, this is working!");
-    }
-    else {
-        NSLog (@"DIdn't pick the right person");
-    }
-    
-    
     
     
 }

@@ -28,7 +28,7 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o6h-ok-hx6">
                                 <rect key="frame" x="104" y="277" width="166" height="113"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xd0-IJ-EF1">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xd0-IJ-EF1">
                                 <rect key="frame" x="119" y="319" width="40" height="30"/>
                                 <state key="normal" title="Reset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,8 +67,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djX-kl-u9Q">
+                                <rect key="frame" x="119" y="58" width="180" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                <color key="textColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="0.63" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Who said it? Drag the person below the quote" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSL-oa-uDp">
+                                <rect key="frame" x="33" y="446" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -77,11 +88,13 @@
                         <outlet property="billNye" destination="uAQ-lA-1I0" id="ZoJ-Cb-OeI"/>
                         <outlet property="carlSagan" destination="fcq-3W-UEQ" id="nEy-ck-TdV"/>
                         <outlet property="dragContainer" destination="7NN-fg-ex8" id="igd-Wg-woN"/>
+                        <outlet property="dragHereLabel" destination="LSL-oa-uDp" id="PCy-UM-HG2"/>
                         <outlet property="isaacNewton" destination="Ilb-cC-RYb" id="DFF-oi-j6Q"/>
                         <outlet property="neilTyson" destination="Jcg-HJ-rA0" id="6JM-L3-Jva"/>
                         <outlet property="quoteContainer" destination="81S-Uf-1VO" id="PZY-KZ-vso"/>
                         <outlet property="quoteLabel" destination="NXM-rJ-UZI" id="tOr-S7-MGS"/>
                         <outlet property="resetButton" destination="xd0-IJ-EF1" id="4LW-BG-j0X"/>
+                        <outlet property="scoreOfGame" destination="djX-kl-u9Q" id="gAT-Lh-v6y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvR-uH-Wjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
