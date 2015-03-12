@@ -21,7 +21,6 @@
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81S-Uf-1VO">
                                 <rect key="frame" x="0.0" y="239" width="375" height="189"/>
-                                <color key="backgroundColor" red="1" green="0.84772183924212585" blue="0.85966266451568296" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7NN-fg-ex8">
                                 <rect key="frame" x="0.0" y="189" width="375" height="249"/>
@@ -62,8 +61,14 @@
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
                                 </accessibility>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXM-rJ-UZI">
+                                <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -75,12 +80,13 @@
                         <outlet property="isaacNewton" destination="Ilb-cC-RYb" id="DFF-oi-j6Q"/>
                         <outlet property="neilTyson" destination="Jcg-HJ-rA0" id="6JM-L3-Jva"/>
                         <outlet property="quoteContainer" destination="81S-Uf-1VO" id="PZY-KZ-vso"/>
+                        <outlet property="quoteLabel" destination="NXM-rJ-UZI" id="tOr-S7-MGS"/>
                         <outlet property="resetButton" destination="xd0-IJ-EF1" id="4LW-BG-j0X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvR-uH-Wjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="371" y="356"/>
+            <point key="canvasLocation" x="342" y="412"/>
         </scene>
     </scenes>
     <resources>

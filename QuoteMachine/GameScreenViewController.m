@@ -46,40 +46,9 @@
 - (IBAction)barbaraButton:(id)sender;
 - (IBAction)marieButton:(id)sender;
 
-
-
-
-
 @end
 
-//- (IBAction)isaacButton:(id)sender {
-//
-//    [self tappedButton:sender withName:@"Mario"];
-//}
-//
-//- (IBAction)carlButton:(id)sender {
-//
-//    [self tappedButton:sender withName:@"Finn The Human"];
-//}
-//
-//- (IBAction)larryButton:(id)sender {
-//
-//    [self tappedButton:sender withName:@"Finn The Human"];
-//}
-//
-//- (IBAction)tinaButton:(id)sender {
-//}
-//
-//- (IBAction)mitchButton:(id)sender {
-//}
-//- (IBAction)billButton:(id)sender {
-//
-//    [self tappedButton:sender withName:@"Mitch Hedberg"];
-//}
-//
-//- (IBAction)neilButton:(id)sender {
-//
-//    [self tappedButton:sender withName:@"Neil deGrasse Tyson"];
+
 
 @implementation GameScreenViewController
 

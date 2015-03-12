@@ -39,6 +39,8 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *resetButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *quoteLabel;
+
 @property (strong, nonatomic) IBOutlet UIView *answerDragArea;
 
 @property (strong, nonatomic) NSLayoutConstraint *xPositionFirstImage;
@@ -53,6 +55,11 @@
 @property (strong, nonatomic) NSLayoutConstraint *yResetButton;
 @property (strong, nonatomic) NSLayoutConstraint *xAnswerDragArea;
 @property (strong, nonatomic) NSLayoutConstraint *yAnswerDragArea;
+
+@property (strong, nonatomic) NSLayoutConstraint *quoteLabelX;
+@property (strong, nonatomic) NSLayoutConstraint *quoteLabelY;
+@property (strong, nonatomic) NSLayoutConstraint *quoteLabelLeft;
+@property (strong, nonatomic) NSLayoutConstraint *quoteLabelRight;
 
 @property (nonatomic) CGPoint oldPosition;
 
@@ -80,16 +87,43 @@
     
 }
 
+
+
+- (void)displayNewQuote {
+    
+    [UIView animateWithDuration:4.0 animations:^{
+        self.quoteLabel.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        self.quoteLabel.text = [self.theUltimateGame drawAQuoteToDisplay];
+        [UIView animateWithDuration:4.0 animations:^{
+            self.quoteLabel.alpha = 1.0f;
+        }];
+    }];
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
-    //This is working
+    self.quoteLabel.numberOfLines = 0;
+    self.quoteLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.quoteLabel.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.quoteLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    
+    self.quoteLabel.text = @"";
+
+    [UIView animateWithDuration:4.0 animations:^{
+        self.quoteLabel.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        self.quoteLabel.text = [self.theUltimateGame drawAQuoteToDisplay];
+        [UIView animateWithDuration:4.0 animations:^{
+            self.quoteLabel.alpha = 1.0f;
+        }];
+    }];
+    
     NSLog (@"%@", [self.theUltimateGame drawAQuoteToDisplay]);
     
-//    person.thumbnailImage = [UIImage imageNamed:@"superMario"];
-
-
     
     Person *one = self.peopleThatWereChosen[0];
     NSString *nameOfOne = one.name;
@@ -114,11 +148,7 @@
     
     
    
-    
-    
-        
 
-    
     
 //    UIImage *image = [UIImage imageNamed:@"anitaBorg"];
 //    [self.billNye setImage:image];
@@ -187,6 +217,7 @@
     [self.fourthImage removeConstraints:self.fourthImage.constraints];
     [self.resetButton removeConstraints:self.resetButton.constraints];
     [self.answerDragArea removeConstraints:self.answerDragArea.constraints];
+    [self.quoteLabel removeConstraints:self.quoteLabel.constraints];
     
     self.quoteContainer.translatesAutoresizingMaskIntoConstraints = NO;
     self.dragContainer.translatesAutoresizingMaskIntoConstraints = NO;
@@ -196,6 +227,7 @@
     self.thirdImage.translatesAutoresizingMaskIntoConstraints = NO;
     self.fourthImage.translatesAutoresizingMaskIntoConstraints = NO;
     self.answerDragArea.translatesAutoresizingMaskIntoConstraints = NO;
+    self.quoteLabel.translatesAutoresizingMaskIntoConstraints = NO;
 }
 -(void)removeSecondImageConstraint
 {
@@ -211,7 +243,14 @@
                             @"answerContainer":self.answerContainer};
     
     //Quote Container Restraints
-    NSLayoutConstraint *quoteContainerWidth = [NSLayoutConstraint constraintWithItem:self.quoteContainer attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *quoteContainerWidth = [NSLayoutConstraint
+                                               constraintWithItem:self.quoteContainer
+                                               attribute:NSLayoutAttributeWidth
+                                               relatedBy:NSLayoutRelationEqual
+                                               toItem:self.view
+                                               attribute:NSLayoutAttributeWidth
+                                               multiplier:1.0
+                                               constant:0.0];
     
     NSLayoutConstraint *quoteContainerHeight = [NSLayoutConstraint constraintWithItem:self.quoteContainer attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:.3333 constant:0.0];
     
@@ -231,8 +270,70 @@
 
 -(void)setImageXAndYContraints
 {
-    self.xPositionFirstImage = [NSLayoutConstraint constraintWithItem:self.firstImage attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.answerContainer attribute:NSLayoutAttributeCenterX multiplier:0.25 constant:0.0];
-    self.yPositionFirstImage = [NSLayoutConstraint constraintWithItem:self.firstImage attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.answerContainer attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];
+    
+    
+    self.quoteLabelLeft = [NSLayoutConstraint
+                        constraintWithItem:self.quoteLabel
+                        attribute:NSLayoutAttributeLeft
+                        relatedBy:NSLayoutRelationEqual
+                        toItem:self.view
+                        attribute:NSLayoutAttributeLeft
+                        multiplier:1.0
+                        constant:0.0];
+    
+    self.quoteLabelRight = [NSLayoutConstraint
+                           constraintWithItem:self.quoteLabel
+                           attribute:NSLayoutAttributeRight
+                           relatedBy:NSLayoutRelationEqual
+                           toItem:self.view
+                           attribute:NSLayoutAttributeRight
+                           multiplier:1.0
+                           constant:0.0];
+    
+    
+    
+    
+    
+    
+    self.quoteLabelX = [NSLayoutConstraint
+                                constraintWithItem:self.quoteLabel
+                                attribute:NSLayoutAttributeCenterX
+                                relatedBy:NSLayoutRelationEqual
+                                toItem:self.view
+                                attribute:NSLayoutAttributeCenterX
+                                multiplier:1.0
+                                constant:0.0];
+    
+    self.quoteLabelY = [NSLayoutConstraint
+                                constraintWithItem:self.quoteLabel
+                                attribute:NSLayoutAttributeCenterY
+                                relatedBy:NSLayoutRelationEqual
+                                toItem:self.view
+                                attribute:NSLayoutAttributeCenterY
+                                multiplier:1.0
+                                constant:-120.0];
+    
+    
+
+    
+
+    self.xPositionFirstImage = [NSLayoutConstraint
+                                constraintWithItem:self.firstImage
+                                attribute:NSLayoutAttributeCenterX
+                                relatedBy:NSLayoutRelationEqual
+                                toItem:self.answerContainer
+                                attribute:NSLayoutAttributeCenterX
+                                multiplier:0.25
+                                constant:0.0];
+    
+    self.yPositionFirstImage = [NSLayoutConstraint
+                                constraintWithItem:self.firstImage
+                                attribute:NSLayoutAttributeCenterY
+                                relatedBy:NSLayoutRelationEqual
+                                toItem:self.answerContainer
+                                attribute:NSLayoutAttributeCenterY
+                                multiplier:1.0
+                                constant:0.0];
     
     self.xPositionSecondImage = [NSLayoutConstraint constraintWithItem:self.secondImage attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.answerContainer attribute:NSLayoutAttributeCenterX multiplier:0.75 constant:0.0];
     self.yPositionSecondImage = [NSLayoutConstraint constraintWithItem:self.secondImage attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.answerContainer attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];
@@ -250,6 +351,11 @@
     //Answer Drag Area Constraint
     self.xAnswerDragArea = [NSLayoutConstraint constraintWithItem:self.answerDragArea attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.dragContainer attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
     self.yAnswerDragArea = [NSLayoutConstraint constraintWithItem:self.answerDragArea attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.dragContainer attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];
+    
+    [self.view addConstraint:self.quoteLabelX];
+    [self.view addConstraint:self.quoteLabelY];
+    [self.view addConstraint:self.quoteLabelLeft];
+    [self.view addConstraint:self.quoteLabelRight];
     
     [self.view addConstraint:self.xPositionFirstImage];
     [self.view addConstraint:self.yPositionFirstImage];
@@ -330,6 +436,7 @@
     {
         self.oldPosition = fingerLocation;
         [self distanceBetweenFirstImageAndAnswerDragArea];
+        NSLog (@"This is the initial drag when someone is trying to drag an item.");
     }
     else if (gesture.state == UIGestureRecognizerStateEnded)
     {
@@ -340,6 +447,31 @@
             self.xPositionFirstImage.constant = 140;
             self.yPositionFirstImage.constant = -222;
             [self.view layoutIfNeeded];
+            
+            if ([self.theUltimateGame isPerson:self.peopleThatWereChosen[0] matchedToQuote:self.quoteLabel.text])
+            {
+                
+                [[self.view layer] setBackgroundColor:[UIColor greenColor].CGColor];
+
+                NSLog (@"WINNER WINNER WINNER!!!");
+                
+                [[self.view layer] setBackgroundColor:[UIColor grayColor].CGColor];
+                
+                
+                [UIView animateWithDuration:1.5 animations:^{
+                    self.xPositionFirstImage.constant = 0;
+                    self.yPositionFirstImage.constant = 0;
+                    [self.view layoutIfNeeded];
+                    [self.answerDragArea.layer setBorderColor:[UIColor grayColor].CGColor];
+                    
+                    [self displayNewQuote];
+                    
+                }];
+
+                
+
+            }
+
         }];
         }
         else
@@ -349,6 +481,7 @@
             self.yPositionFirstImage.constant = 0;
             [self.view layoutIfNeeded];
             [self.answerDragArea.layer setBorderColor:[UIColor grayColor].CGColor];
+            NSLog (@"This means it has been let go into an area that wasn't the answer portion.");
             }];
         }
     }
@@ -372,6 +505,7 @@
     {
         self.oldPosition = fingerLocation;
         [self distanceBetweenSecondImageAndAnswerDragArea];
+        NSLog (@"Initial drag");
     }
     else if (gesture.state == UIGestureRecognizerStateEnded)
     {
@@ -382,6 +516,30 @@
                 self.xPositionSecondImage.constant = 46;
                 self.yPositionSecondImage.constant = -222;
                 [self.view layoutIfNeeded];
+                NSLog (@"This has been dragged and let go into the right area");
+                
+                if ([self.theUltimateGame isPerson:self.peopleThatWereChosen[1] matchedToQuote:self.quoteLabel.text])
+                {
+                    [[self.view layer] setBackgroundColor:[UIColor greenColor].CGColor];
+
+                    NSLog (@"WINNER WINNER WINNER!!!");
+                    [[self.view layer] setBackgroundColor:[UIColor grayColor].CGColor];
+                    
+#warning test
+                    [UIView animateWithDuration:1.5 animations:^{
+                        self.xPositionSecondImage.constant = 0;
+                        self.yPositionSecondImage.constant = 0;
+                        [self.view layoutIfNeeded];
+                        [self.answerDragArea.layer setBorderColor:[UIColor grayColor].CGColor];
+                        
+                        [self displayNewQuote];
+
+                    }];
+
+                    
+                    
+
+                }
             }];
         }
         else
@@ -391,6 +549,7 @@
                 self.yPositionSecondImage.constant = 0;
                 [self.view layoutIfNeeded];
                 [self.answerDragArea.layer setBorderColor:[UIColor grayColor].CGColor];
+                NSLog (@"Dragged and let go into wrong area");
             }];
         }
     }
@@ -414,6 +573,7 @@
     {
         self.oldPosition = fingerLocation;
         [self distanceBetweenThirdImageAndAnswerDragArea];
+        NSLog (@"Initial drag");
     }
     else if (gesture.state == UIGestureRecognizerStateEnded)
     {
@@ -424,6 +584,27 @@
                 self.xPositionThirdImage.constant = -47;
                 self.yPositionThirdImage.constant = -222;
                 [self.view layoutIfNeeded];
+                NSLog (@"Dragged into the right area and let go");
+                if ([self.theUltimateGame isPerson:self.peopleThatWereChosen[2] matchedToQuote:self.quoteLabel.text])
+                {
+                    [[self.view layer] setBackgroundColor:[UIColor greenColor].CGColor];
+
+                    NSLog (@"WINNER WINNER WINNER!!!");
+                    [[self.view layer] setBackgroundColor:[UIColor grayColor].CGColor];
+                    
+#warning test
+                    [UIView animateWithDuration:1.5 animations:^{
+                        self.xPositionThirdImage.constant = 0;
+                        self.yPositionThirdImage.constant = 0;
+                        [self.view layoutIfNeeded];
+                        [self.answerDragArea.layer setBorderColor:[UIColor grayColor].CGColor];
+                        
+                        [self displayNewQuote];
+
+                    }];
+
+
+                }
             }];
         }
         else
@@ -433,6 +614,7 @@
                 self.yPositionThirdImage.constant = 0;
                 [self.view layoutIfNeeded];
                 [self.answerDragArea.layer setBorderColor:[UIColor grayColor].CGColor];
+                NSLog (@"Dragged into the wrong area and let go");
             }];
         }
     }
@@ -456,6 +638,7 @@
     {
         self.oldPosition = fingerLocation;
         [self distanceBetweenFourthImageAndAnswerDragArea];
+        NSLog (@"Initial drag");
     }
     else if (gesture.state == UIGestureRecognizerStateEnded)
     {
@@ -466,6 +649,29 @@
                 self.xPositionFourthImage.constant = -141;
                 self.yPositionFourthImage.constant = -222;
                 [self.view layoutIfNeeded];
+                
+                NSLog (@"Dragged into the right area and let go");
+                if ([self.theUltimateGame isPerson:self.peopleThatWereChosen[3] matchedToQuote:self.quoteLabel.text])
+                {
+                    
+                    [[self.view layer] setBackgroundColor:[UIColor greenColor].CGColor];
+                    NSLog (@"WINNER WINNER WINNER!!!");
+                    [[self.view layer] setBackgroundColor:[UIColor grayColor].CGColor];
+
+#warning testing
+                    [UIView animateWithDuration:1.5 animations:^{
+                        self.xPositionFourthImage.constant = 0;
+                        self.yPositionFourthImage.constant = 0;
+                        [self.view layoutIfNeeded];
+                        [self.answerDragArea.layer setBorderColor:[UIColor grayColor].CGColor];
+                        
+                        [self displayNewQuote];
+
+                    }];
+
+                    
+                }
+                
             }];
         }
         else
@@ -475,6 +681,7 @@
                 self.yPositionFourthImage.constant = 0;
                 [self.view layoutIfNeeded];
                 [self.answerDragArea.layer setBorderColor:[UIColor grayColor].CGColor];
+                NSLog (@"Dragged into the wrong are and let go");
             }];
         }
     }
