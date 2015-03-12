@@ -30,9 +30,56 @@
 - (IBAction)isaacButton:(id)sender;
 - (IBAction)carlButton:(id)sender;
 - (IBAction)larryButton:(id)sender;
+- (IBAction)tinaButton:(id)sender;
+- (IBAction)mitchButton:(id)sender;
+- (IBAction)amyButton:(id)sender;
+- (IBAction)marioButton:(id)sender;
+- (IBAction)finnButton:(id)sender;
+- (IBAction)homerButton:(id)sender;
+- (IBAction)ericButton:(id)sender;
+- (IBAction)michaelButton:(id)sender;
+- (IBAction)aliButton:(id)sender;
+- (IBAction)stuartButton:(id)sender;
+- (IBAction)vinceButton:(id)sender;
+- (IBAction)janeButton:(id)sender;
+- (IBAction)anitaButton:(id)sender;
+- (IBAction)barbaraButton:(id)sender;
+- (IBAction)marieButton:(id)sender;
+
+
+
+
 
 @end
 
+//- (IBAction)isaacButton:(id)sender {
+//
+//    [self tappedButton:sender withName:@"Mario"];
+//}
+//
+//- (IBAction)carlButton:(id)sender {
+//
+//    [self tappedButton:sender withName:@"Finn The Human"];
+//}
+//
+//- (IBAction)larryButton:(id)sender {
+//
+//    [self tappedButton:sender withName:@"Finn The Human"];
+//}
+//
+//- (IBAction)tinaButton:(id)sender {
+//}
+//
+//- (IBAction)mitchButton:(id)sender {
+//}
+//- (IBAction)billButton:(id)sender {
+//
+//    [self tappedButton:sender withName:@"Mitch Hedberg"];
+//}
+//
+//- (IBAction)neilButton:(id)sender {
+//
+//    [self tappedButton:sender withName:@"Neil deGrasse Tyson"];
 
 @implementation GameScreenViewController
 
@@ -98,13 +145,13 @@
     
     
     QuoteScreenViewController *vc = (QuoteScreenViewController *)scene;
-
+    
     vc.peopleThatWereChosen = self.fourPeopleChosen;
-//
-//            [[vc label] setText:[NSString stringWithFormat:
-//                                 @"This text has been set in code from %@ using %@",
-//                                 NSStringFromClass([self class]),
-//                                 NSStringFromSelector(_cmd)]];
+    //
+    //            [[vc label] setText:[NSString stringWithFormat:
+    //                                 @"This text has been set in code from %@ using %@",
+    //                                 NSStringFromClass([self class]),
+    //                                 NSStringFromSelector(_cmd)]];
     
     
 }
@@ -118,31 +165,108 @@
     
 }
 
-
-- (IBAction)isaacButton:(id)sender {
-    
-    [self tappedButton:sender withName:@"Mario"];
-}
-
-- (IBAction)carlButton:(id)sender {
-    
-    [self tappedButton:sender withName:@"Finn The Human"];
-}
-
-- (IBAction)larryButton:(id)sender {
-    
-    [self tappedButton:sender withName:@"Finn The Human"];
-}
-- (IBAction)billButton:(id)sender {
-    
-    [self tappedButton:sender withName:@"Mitch Hedberg"];
-}
-
 - (IBAction)neilButton:(id)sender {
-    
     [self tappedButton:sender withName:@"Neil deGrasse Tyson"];
     
 }
+
+- (IBAction)billButton:(id)sender {
+    [self tappedButton:sender withName:@"Bill Nye"];
+
+}
+
+- (IBAction)isaacButton:(id)sender {
+    [self tappedButton:sender withName:@"Isaac Newton"];
+
+}
+
+- (IBAction)carlButton:(id)sender {
+    [self tappedButton:sender withName:@"Carl Sagan"];
+
+}
+
+- (IBAction)larryButton:(id)sender {
+    [self tappedButton:sender withName:@"Larry David"];
+
+}
+
+- (IBAction)tinaButton:(id)sender {
+    [self tappedButton:sender withName:@"Tina Fey"];
+
+}
+
+- (IBAction)mitchButton:(id)sender {
+    [self tappedButton:sender withName:@"Mitch Hedberg"];
+
+}
+
+- (IBAction)amyButton:(id)sender {
+    [self tappedButton:sender withName:@"Amy Poehler"];
+
+}
+
+- (IBAction)marioButton:(id)sender {
+    [self tappedButton:sender withName:@"Mario"];
+
+}
+
+- (IBAction)finnButton:(id)sender {
+    [self tappedButton:sender withName:@"Finn The Human"];
+
+}
+
+- (IBAction)homerButton:(id)sender {
+    [self tappedButton:sender withName:@"Homer Simpson"];
+
+}
+
+- (IBAction)ericButton:(id)sender {
+    [self tappedButton:sender withName:@"Eric Cartman"];
+
+}
+
+- (IBAction)michaelButton:(id)sender {
+    [self tappedButton:sender withName:@"Michael Jordan"];
+
+}
+
+- (IBAction)aliButton:(id)sender {
+    [self tappedButton:sender withName:@"Muhammad Ali"];
+
+}
+
+- (IBAction)stuartButton:(id)sender {
+    [self tappedButton:sender withName:@"Stuart Scott"];
+
+}
+
+- (IBAction)vinceButton:(id)sender {
+    [self tappedButton:sender withName:@"Vince Lombardi"];
+
+}
+
+- (IBAction)janeButton:(id)sender {
+    [self tappedButton:sender withName:@"Jane Goodall"];
+
+}
+
+- (IBAction)anitaButton:(id)sender {
+    [self tappedButton:sender withName:@"Anita Borg"];
+
+}
+
+- (IBAction)barbaraButton:(id)sender {
+    [self tappedButton:sender withName:@"Barbara McClintock"];
+
+}
+
+- (IBAction)marieButton:(id)sender {
+    [self tappedButton:sender withName:@"Marie Curie"];
+
+}
+
+
+
 
 - (void)tappedButton:(UIButton *)button withName:(NSString *)nameOfPerson {
     
