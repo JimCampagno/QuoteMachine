@@ -9,8 +9,19 @@
 #import "QuoteScreenViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIView+distance.h"
+#import "QuoteDataStore.h"
+#import <CoreData/CoreData.h>
+#import "Person+Methods.h"
+#import "Quotes.h"
+#import "MatchingTheQuotesGame.h"
+#import "RBStoryboardLink.h"
+
 
 @interface QuoteScreenViewController ()
+
+
+@property (strong, nonatomic) MatchingTheQuotesGame *theUltimateGame;
+
 
 @property (strong, nonatomic) IBOutlet UIView *quoteContainer;
 @property (strong, nonatomic) IBOutlet UIView *dragContainer;
@@ -52,14 +63,71 @@
 
 @implementation QuoteScreenViewController
 
+
+- (NSArray *)peopleThatWereChosen {
+    if (!_peopleThatWereChosen) {
+        _peopleThatWereChosen = [[NSArray alloc] init];
+    }
+    return _peopleThatWereChosen;
+}
+
+- (MatchingTheQuotesGame *)theUltimateGame {
+    if (!_theUltimateGame) {
+        _theUltimateGame = [[MatchingTheQuotesGame alloc] initWithPeople:self.peopleThatWereChosen];
+    }
+    
+    return _theUltimateGame;
+    
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
-    self.firstImage = self.carlSagan;
-    self.secondImage = self.billNye;
-    self.thirdImage = self.isaacNewton;
-    self.fourthImage = self.neilTyson;
+    //This is working
+    NSLog (@"%@", [self.theUltimateGame drawAQuoteToDisplay]);
+    
+//    person.thumbnailImage = [UIImage imageNamed:@"superMario"];
+
+
+    
+    Person *one = self.peopleThatWereChosen[0];
+    NSString *nameOfOne = one.name;
+    UIImage *imageOne = [UIImage imageNamed:nameOfOne];
+    [self.carlSagan setImage:imageOne];
+
+    
+    Person *two = self.peopleThatWereChosen[1];
+    NSString *nameOfTwo = two.name;
+    UIImage *imageTwo = [UIImage imageNamed:nameOfTwo];
+    [self.billNye setImage:imageTwo];
+    
+    Person *three = self.peopleThatWereChosen[2];
+    NSString *nameOfThree = three.name;
+    UIImage *imageThree = [UIImage imageNamed:nameOfThree];
+    [self.isaacNewton setImage:imageThree];
+    
+    Person *four = self.peopleThatWereChosen[3];
+    NSString *nameOfFour = four.name;
+    UIImage *imageFour = [UIImage imageNamed:nameOfFour];
+    [self.neilTyson setImage:imageFour];
+    
+    
+   
+    
+    
+        
+
+    
+    
+//    UIImage *image = [UIImage imageNamed:@"anitaBorg"];
+//    [self.billNye setImage:image];
+    
+    
+    self.firstImage = self.carlSagan;   //Refactor, should say firstPerson, not self.carlSagan
+    self.secondImage = self.billNye;    //Refactor, should say secondPerson, not self.billNye
+    self.thirdImage = self.isaacNewton; //Refactor, should say thirdPerson, not self.isaacNewton
+    self.fourthImage = self.neilTyson;  //Refactor, should say fourthPerson, not self.neilTyson
     
     [self removeConstraints];
     [self setContainerConstraints];

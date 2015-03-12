@@ -46,8 +46,4 @@
 - (void)setBarbaraMcClintock:(Person *)person;
 - (void)setMarieCurie:(Person *)person;
 
-
-
-
-
 @end

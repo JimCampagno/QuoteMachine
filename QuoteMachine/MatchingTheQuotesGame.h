@@ -13,13 +13,13 @@
 
 @interface MatchingTheQuotesGame : NSObject
 
-@property (strong, nonatomic) NSMutableDictionary *quotesReadyForQuiz; //This is complete and has been implemented as part of the initWithPeople method below.
-@property (strong, nonatomic) NSNumber *scoreOfGame; //This has been set to @0, no logic has been established yet.
-@property (strong, nonatomic) NSMutableArray *holdingTheQuotesAlreadyDisplayed; // This has been implemented and SHOULD work. Did some minor testing here (not testing within the view)
-@property (strong, nonatomic) NSString *randomQuotePicked; // THis apperas to be working, text within the controller
+@property (strong, nonatomic) NSMutableDictionary *quotesReadyForQuiz;
+@property (strong, nonatomic) NSNumber *scoreOfGame;
+@property (strong, nonatomic) NSMutableArray *holdingTheQuotesAlreadyDisplayed;
+@property (strong, nonatomic) NSString *randomQuotePicked;
 
-- (instancetype)initWithPeople:(NSArray *)people; //This is complete and has been implemented.
-- (BOOL)isPerson:(Person *)person matchedToQuote:(NSString *)quote; //Implemented but it's not doing anything to the score.
-- (NSString *)drawAQuoteToDisplay; //This has been implemented.
+- (instancetype)initWithPeople:(NSArray *)people;
+- (BOOL)isPerson:(Person *)person matchedToQuote:(NSString *)quote;
+- (NSString *)drawAQuoteToDisplay;
 
 @end

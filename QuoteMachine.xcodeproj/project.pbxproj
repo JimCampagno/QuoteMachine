@@ -19,11 +19,12 @@
 		7D42D5FA1A9FBF32002738E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D42D5F91A9FBF32002738E7 /* main.m */; };
 		7D42D5FD1A9FBF32002738E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D42D5FC1A9FBF32002738E7 /* AppDelegate.m */; };
 		7D42D6001A9FBF32002738E7 /* QuoteMachine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D42D5FE1A9FBF32002738E7 /* QuoteMachine.xcdatamodeld */; };
-		7D42D6061A9FBF32002738E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D42D6041A9FBF32002738E7 /* Main.storyboard */; };
 		7D42D6081A9FBF32002738E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D42D6071A9FBF32002738E7 /* Images.xcassets */; };
 		7D42D60B1A9FBF32002738E7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D42D6091A9FBF32002738E7 /* LaunchScreen.xib */; };
 		7D42D6171A9FBF32002738E7 /* QuoteMachineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D42D6161A9FBF32002738E7 /* QuoteMachineTests.m */; };
 		7D42D6221A9FC074002738E7 /* GameScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D42D6211A9FC074002738E7 /* GameScreenViewController.m */; };
+		7D5168E81AB1050F0092A5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5168E61AB1050F0092A5E5 /* Main.storyboard */; };
+		F8FC3633FC7D81A1839C4DAF /* libPods-QuoteMachine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0E51941320B362DA921A41 /* libPods-QuoteMachine.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +61,6 @@
 		7D42D5FB1A9FBF32002738E7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D42D5FC1A9FBF32002738E7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7D42D5FF1A9FBF32002738E7 /* QuoteMachine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuoteMachine.xcdatamodel; sourceTree = "<group>"; };
-		7D42D6051A9FBF32002738E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D42D6071A9FBF32002738E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7D42D60A1A9FBF32002738E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7D42D6101A9FBF32002738E7 /* QuoteMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuoteMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +68,10 @@
 		7D42D6161A9FBF32002738E7 /* QuoteMachineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuoteMachineTests.m; sourceTree = "<group>"; };
 		7D42D6201A9FC074002738E7 /* GameScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScreenViewController.h; sourceTree = "<group>"; };
 		7D42D6211A9FC074002738E7 /* GameScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScreenViewController.m; sourceTree = "<group>"; };
+		7D5168E71AB1050F0092A5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8B0E51941320B362DA921A41 /* libPods-QuoteMachine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QuoteMachine.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF43B142619056DDF31A6059 /* Pods-QuoteMachine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteMachine.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteMachine/Pods-QuoteMachine.release.xcconfig"; sourceTree = "<group>"; };
+		F7A19373B3C064CE3494CC9A /* Pods-QuoteMachine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteMachine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteMachine/Pods-QuoteMachine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8FC3633FC7D81A1839C4DAF /* libPods-QuoteMachine.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,12 +93,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02F83B7B60C52C15C38B36C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F7A19373B3C064CE3494CC9A /* Pods-QuoteMachine.debug.xcconfig */,
+				AF43B142619056DDF31A6059 /* Pods-QuoteMachine.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2CF86429466B0A19C62CAC9B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B0E51941320B362DA921A41 /* libPods-QuoteMachine.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7D42D5EB1A9FBF32002738E7 = {
 			isa = PBXGroup;
 			children = (
 				7D42D5F61A9FBF32002738E7 /* QuoteMachine */,
 				7D42D6131A9FBF32002738E7 /* QuoteMachineTests */,
 				7D42D5F51A9FBF32002738E7 /* Products */,
+				02F83B7B60C52C15C38B36C5 /* Pods */,
+				2CF86429466B0A19C62CAC9B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,17 +145,17 @@
 				7D3AE0731AA3791E001EE74B /* MatchingTheQuotesGame.m */,
 				7D3AE06F1AA36D8B001EE74B /* QuoteDataStore.h */,
 				7D3AE0701AA36D8B001EE74B /* QuoteDataStore.m */,
-				7D3AE07C1AA37F57001EE74B /* CreatePeople.m */,
 				7D3AE07B1AA37F57001EE74B /* CreatePeople.h */,
+				7D3AE07C1AA37F57001EE74B /* CreatePeople.m */,
 				7D42D6091A9FBF32002738E7 /* LaunchScreen.xib */,
+				7D5168E61AB1050F0092A5E5 /* Main.storyboard */,
+				1B7D17671AAB610A0011946B /* QuoteScreenStoryboard.storyboard */,
 				7D42D6201A9FC074002738E7 /* GameScreenViewController.h */,
 				7D42D6211A9FC074002738E7 /* GameScreenViewController.m */,
-				7D42D6041A9FBF32002738E7 /* Main.storyboard */,
 				1B7D176F1AACE99D0011946B /* UIView+distance.h */,
 				1B7D17701AACE99D0011946B /* UIView+distance.m */,
 				1B7D17691AAB61320011946B /* QuoteScreenViewController.h */,
 				1B7D176A1AAB61320011946B /* QuoteScreenViewController.m */,
-				1B7D17671AAB610A0011946B /* QuoteScreenStoryboard.storyboard */,
 				7D42D5F71A9FBF32002738E7 /* Supporting Files */,
 			);
 			path = QuoteMachine;
@@ -172,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7D42D61A1A9FBF32002738E7 /* Build configuration list for PBXNativeTarget "QuoteMachine" */;
 			buildPhases = (
+				A2B8DCC1635678C02C6EB001 /* Check Pods Manifest.lock */,
 				7D42D5F01A9FBF32002738E7 /* Sources */,
 				7D42D5F11A9FBF32002738E7 /* Frameworks */,
 				7D42D5F21A9FBF32002738E7 /* Resources */,
+				A59F1B356C9EFEEED56A2A84 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,9 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B7D17681AAB610A0011946B /* QuoteScreenStoryboard.storyboard in Resources */,
-				7D42D6061A9FBF32002738E7 /* Main.storyboard in Resources */,
 				7D42D60B1A9FBF32002738E7 /* LaunchScreen.xib in Resources */,
 				7D42D6081A9FBF32002738E7 /* Images.xcassets in Resources */,
+				7D5168E81AB1050F0092A5E5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +286,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A2B8DCC1635678C02C6EB001 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A59F1B356C9EFEEED56A2A84 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuoteMachine/Pods-QuoteMachine-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7D42D5F01A9FBF32002738E7 /* Sources */ = {
@@ -300,20 +359,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7D42D6041A9FBF32002738E7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7D42D6051A9FBF32002738E7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7D42D6091A9FBF32002738E7 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7D42D60A1A9FBF32002738E7 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		7D5168E61AB1050F0092A5E5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D5168E71AB1050F0092A5E5 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -397,6 +456,7 @@
 		};
 		7D42D61B1A9FBF32002738E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7A19373B3C064CE3494CC9A /* Pods-QuoteMachine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = QuoteMachine/Info.plist;
@@ -407,6 +467,7 @@
 		};
 		7D42D61C1A9FBF32002738E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF43B142619056DDF31A6059 /* Pods-QuoteMachine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = QuoteMachine/Info.plist;

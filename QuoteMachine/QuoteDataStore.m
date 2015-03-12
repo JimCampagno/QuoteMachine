@@ -54,17 +54,64 @@
     Person *neil = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
     [objectToSetPeople setNeilDegrasseTyson:neil];
     
+    Person *bill = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setBillNye:bill];
+    
+    Person *carl = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setCarlSagan:carl];
+    
+    Person *isaac = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setisaacNewton:isaac];
+    
     Person *mario = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
     [objectToSetPeople setSuperMario:mario];
-    
-    Person *mitch = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setMitchHedberg:mitch];
     
     Person *finn = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
     [objectToSetPeople setFinnTheHuman:finn];
     
+    Person *homer = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setHomerSimpson:homer];
     
+    Person *eric = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setEricCartman:eric];
     
+    Person *mitch = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setMitchHedberg:mitch];
+    
+    Person *larry = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setLarryDavid:larry];
+    
+    Person *tina = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setTinaFey:tina];
+    
+    Person *amy = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setAmyPoehler:amy];
+    
+    Person *michael = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setMichaelJordan:michael];
+    
+    Person *ali = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setMuhammadAli:ali];
+    
+    Person *stuart = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setStuartScott:stuart];
+    
+    Person *vince = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setVinceLombardi:vince];
+    
+    Person *jane = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setJaneGoodall:jane];
+    
+    Person *anita = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setAnitaBorg:anita];
+    
+    Person *barbara = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setBarbaraMcClintock:barbara];
+    
+    Person *marie = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+    [objectToSetPeople setMarieCurie:marie];
+    
+
     [self saveContext];
     [self fetchData];
     

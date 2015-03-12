@@ -13,6 +13,10 @@
 #import "Person+Methods.h"
 #import "Quotes.h"
 #import "MatchingTheQuotesGame.h"
+#import "QuoteScreenViewController.h"
+#import "RBStoryboardLink.h"
+
+
 
 @interface GameScreenViewController ()
 
@@ -83,22 +87,35 @@
     [super didReceiveMemoryWarning];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
-//@"Mario"
-//@"Mitch Hedberg"
-//@"Finn The Human"
-//@"Larry David"
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    NSLog (@"Test");
+    id scene = [segue destinationViewController];
+    
+    
+    
+    QuoteScreenViewController *vc = (QuoteScreenViewController *)scene;
+
+    vc.peopleThatWereChosen = self.fourPeopleChosen;
+//
+//            [[vc label] setText:[NSString stringWithFormat:
+//                                 @"This text has been set in code from %@ using %@",
+//                                 NSStringFromClass([self class]),
+//                                 NSStringFromSelector(_cmd)]];
+    
+    
+}
+
+
+
 
 - (IBAction)playButton:(id)sender {
+    
+    
+    
 }
 
 
@@ -135,7 +152,7 @@
         [self removePersonFromPoolWithName:nameOfPerson];
         
         self.playButtonProp.enabled = NO;
-
+        
         
         for (Person *person in self.fourPeopleChosen) {
             NSLog (@"This person is in the pool: %@", person.name);
@@ -156,7 +173,7 @@
             [self addPersonToPoolToBePlayedWithName:nameOfPerson];
             
             if ([self.fourPeopleChosen count] == 4) {
-            self.playButtonProp.enabled = YES;
+                self.playButtonProp.enabled = YES;
             }
             for (Person *person in self.fourPeopleChosen) {
                 NSLog (@"This person is in the pool: %@", person.name);
@@ -175,7 +192,7 @@
 }
 
 - (void)removePersonFromPoolWithName:(NSString *)name {
-
+    
     for (Person *person in self.fourPeopleChosen) {
         if ([person.name isEqualToString:name]) {
             [self.fourPeopleChosen removeObject:person];

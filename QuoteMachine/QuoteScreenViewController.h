@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class MatchingTheQuotesGame;
+
 @interface QuoteScreenViewController : UIViewController
+
+@property (strong, nonatomic) NSArray *peopleThatWereChosen;
 
 @end
