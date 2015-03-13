@@ -70,9 +70,6 @@
     
     self.theGame = [[MatchingTheQuotesGame alloc] initWithPeople:self.dataStore.quotesReadyForGame];
     
-    
-    
-    
 }
 
 
