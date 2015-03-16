@@ -558,6 +558,7 @@
                     
                     [self increaseScoreByOne];
                     
+                
                     [[self.view layer] setBackgroundColor:[UIColor lightGrayColor].CGColor];
                     
                     [UIView animateWithDuration:1.5 animations:^{
@@ -574,6 +575,7 @@
                 else {
                     
                     [[self.view layer] setBackgroundColor:[UIColor redColor].CGColor];
+                    
                     
                     [[self.view layer] setBackgroundColor:[UIColor lightGrayColor].CGColor];
                     

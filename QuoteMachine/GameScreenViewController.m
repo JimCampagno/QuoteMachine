@@ -79,6 +79,7 @@
     NSFetchRequest *personQuoteRequest = [[NSFetchRequest alloc] initWithEntityName:@"Person"];
     self.dataStore.quotesReadyForGame = [self.dataStore.managedObjectContext executeFetchRequest:personQuoteRequest error:nil];
     // [self.tableView reloadData] needs to be placed here.  Instead of calling on tableView, when I create a custom one to be put in the view, do we refresh that?
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -278,34 +279,41 @@
 
 
 - (void)tapToSelectButton:(UIButton *)button {
-    [[button layer] setBorderWidth:3.0f];
     
+    [[button layer] setBorderWidth:3.0f];
     [[button layer] setBorderColor:[UIColor greenColor].CGColor];
+    
     
     [UIView animateKeyframesWithDuration:0.6
                                    delay:0.0
                                  options:UIViewKeyframeAnimationOptionCalculationModeLinear
                               animations:^{
+                                  
                                   button.transform = CGAffineTransformMakeScale(2.5, 2.5);
+                                  
                                   [UIView addKeyframeWithRelativeStartTime:0.0
                                                           relativeDuration:1/3.0
                                                                 animations:^{
-                                                                    button.transform = CGAffineTransformMakeRotation(4.0 * M_PI / 3.0);
+                                                        
+                                                                    button.transform = CGAffineTransformMakeRotation(M_PI + (M_PI/4));
                                                                 }];
+                                  
                                   [UIView addKeyframeWithRelativeStartTime:1/3.0
                                                           relativeDuration:1/3.0
                                                                 animations:^{
-                                                                    button.transform = CGAffineTransformMakeRotation(2.0 * M_PI / 3.0);
+                                                                    
+                                                                    button.transform = CGAffineTransformMakeRotation(M_PI - (M_PI/4));
                                                                 }];
+
                                   [UIView addKeyframeWithRelativeStartTime:2/3.0
                                                           relativeDuration:1/3.0
                                                                 animations:^{
+                                                                    
                                                                     button.transform = CGAffineTransformMakeRotation(0);
                                                                 }];
                               }
                               completion:^(BOOL finished) {
                                   [[button layer] setBorderWidth:2.5f];
-                                  [[button layer] setBorderColor:[UIColor greenColor].CGColor];
                               }];
     
     NSLog (@"WE ARE INITIALLY CLICKING THE BUTTON!");
