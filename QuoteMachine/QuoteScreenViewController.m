@@ -59,9 +59,22 @@
 @property (strong, nonatomic) NSLayoutConstraint *dragLabelY;
 @property (strong, nonatomic) NSLayoutConstraint *dragLabelLeft;
 @property (strong, nonatomic) NSLayoutConstraint *dragLabelRight;
+@property (strong, nonatomic) NSLayoutConstraint *timerLabelX;
+@property (strong, nonatomic) NSLayoutConstraint *timerLabelY;
+@property (strong, nonatomic) NSLayoutConstraint *timerTextLabelY;
+@property (strong, nonatomic) NSLayoutConstraint *timerTextLabelX;
+
 @property (nonatomic) CGPoint oldPosition;
 
+
 - (IBAction)resetButton:(id)sender;
+
+//Timer Properties
+@property (strong, nonatomic) IBOutlet UILabel *timerLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timerTextLabel;
+
+@property (strong, nonatomic) NSTimer *timer;
+@property (nonatomic) int mainInt;
 
 @end
 
@@ -93,6 +106,12 @@
     
         [[self.view layer] setBackgroundColor:[UIColor orangeColor].CGColor];
         
+        self.timerTextLabel.text = @"";
+        self.timerLabel.text = @"";
+        self.timerLabel.textColor = [UIColor blackColor];
+        self.timerLabel.font=[self.timerLabel.font fontWithSize:31];
+        [self.timer invalidate];
+
     }
     else {
         
@@ -180,6 +199,7 @@
     [self setImageXAndYContraints];
     [self setRoundedCornersForImages];
     [self gestureSetup];
+    [self timeStart];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -233,6 +253,9 @@
     [self.quoteLabel removeConstraints:self.quoteLabel.constraints];
     [self.scoreOfGame removeConstraints:self.scoreOfGame.constraints];
     [self.dragHereLabel removeConstraints:self.dragHereLabel.constraints];
+    [self.timerLabel removeConstraints:self.timerLabel.constraints];
+    [self.timerTextLabel removeConstraints:self.timerTextLabel.constraints];
+    
     self.quoteContainer.translatesAutoresizingMaskIntoConstraints = NO;
     self.dragContainer.translatesAutoresizingMaskIntoConstraints = NO;
     self.answerContainer.translatesAutoresizingMaskIntoConstraints = NO;
@@ -244,6 +267,9 @@
     self.quoteLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.scoreOfGame.translatesAutoresizingMaskIntoConstraints = NO;
     self.dragHereLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.timerLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.timerTextLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
 }
 -(void)removeSecondImageConstraint
 {
@@ -430,6 +456,14 @@
     self.xAnswerDragArea = [NSLayoutConstraint constraintWithItem:self.answerDragArea attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.dragContainer attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
     self.yAnswerDragArea = [NSLayoutConstraint constraintWithItem:self.answerDragArea attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.dragContainer attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];
     
+    self.timerLabelX = [NSLayoutConstraint constraintWithItem:self.timerLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.answerContainer attribute:NSLayoutAttributeCenterX multiplier:1.45 constant:0.0];
+    
+    self.timerLabelY = [NSLayoutConstraint constraintWithItem:self.timerLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.answerContainer attribute:NSLayoutAttributeCenterY multiplier:0.85 constant:0.0];
+    
+    self.timerTextLabelX = [NSLayoutConstraint constraintWithItem:self.timerTextLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.answerContainer attribute:NSLayoutAttributeCenterX multiplier:1.15 constant:0.0];
+    
+    self.timerTextLabelY = [NSLayoutConstraint constraintWithItem:self.timerTextLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.answerContainer attribute:NSLayoutAttributeCenterY multiplier:0.85 constant:0.0];
+    
     [self.view addConstraint:self.scoreOfGameLeft];
     [self.view addConstraint:self.scoreOfGameRight];
     [self.view addConstraint:self.scoreOfGameX];
@@ -457,6 +491,12 @@
     [self.view addConstraint:self.yResetButton];
     [self.view addConstraint:self.xAnswerDragArea];
     [self.view addConstraint:self.yAnswerDragArea];
+    
+    [self.view addConstraint:self.timerLabelX];
+    [self.view addConstraint:self.timerLabelY];
+    
+    [self.view addConstraint:self.timerTextLabelX];
+    [self.view addConstraint:self.timerTextLabelY];
 }
 
 -(void)setHeightAndWidthImageConstraints
@@ -524,13 +564,11 @@
 
 -(void)dragFirstImage:(UIPanGestureRecognizer *)gesture
 {
-    
     [UIView animateWithDuration:1.0 animations:^{
         self.dragHereLabel.alpha = 0.0f;
     }];
 
     self.dragHereLabel.alpha = 0.0f;
-    
     
     double distanceFirstImage = [self.firstImage distanceToView:self.answerDragArea];
     
@@ -555,8 +593,8 @@
                 {
                     
                     [[self.view layer] setBackgroundColor:[UIColor greenColor].CGColor];
-                    
                     [self increaseScoreByOne];
+                    [self timeStart];
                     
                     [[self.view layer] setBackgroundColor:[UIColor lightGrayColor].CGColor];
                     
@@ -574,6 +612,7 @@
                 else {
                     
                     [[self.view layer] setBackgroundColor:[UIColor redColor].CGColor];
+                    [self timeStart];
                     
                     [[self.view layer] setBackgroundColor:[UIColor lightGrayColor].CGColor];
                     
@@ -643,6 +682,7 @@
                     NSLog (@"WINNER WINNER WINNER!!!");
                     
                     [self increaseScoreByOne];
+                    [self timeStart];
                     
                     [[self.view layer] setBackgroundColor:[UIColor lightGrayColor].CGColor];
                     
@@ -659,6 +699,7 @@
                 else {
                     
                     [[self.view layer] setBackgroundColor:[UIColor redColor].CGColor];
+                    [self timeStart];
                     
                     [[self.view layer] setBackgroundColor:[UIColor lightGrayColor].CGColor];
                     
@@ -727,6 +768,7 @@
                     
                     NSLog (@"WINNER WINNER WINNER!!!");
                     [self increaseScoreByOne];
+                    [self timeStart];
                     
                     [[self.view layer] setBackgroundColor:[UIColor lightGrayColor].CGColor];
                     
@@ -743,6 +785,7 @@
                 else {
                     
                     [[self.view layer] setBackgroundColor:[UIColor redColor].CGColor];
+                    [self timeStart];
                     
                     [[self.view layer] setBackgroundColor:[UIColor lightGrayColor].CGColor];
                     
@@ -812,6 +855,7 @@
                     [[self.view layer] setBackgroundColor:[UIColor greenColor].CGColor];
                     NSLog (@"WINNER WINNER WINNER!!!");
                     [self increaseScoreByOne];
+                    [self timeStart];
                     
                     [[self.view layer] setBackgroundColor:[UIColor lightGrayColor].CGColor];
                     
@@ -828,6 +872,7 @@
                 else {
                     [[self.view layer] setBackgroundColor:[UIColor redColor].CGColor];
                     NSLog (@"LOSER LOSER LOSER!!!");
+                    [self timeStart];
                     [[self.view layer] setBackgroundColor:[UIColor lightGrayColor].CGColor];
                     
                     [UIView animateWithDuration:1.5 animations:^{
@@ -948,6 +993,8 @@
     }];
 }
 
+
+
 /*
  #pragma mark - Navigation
  
@@ -957,6 +1004,51 @@
  // Pass the selected object to the new view controller.
  }
  */
+-(void)countDown
+{
+    self.timerLabel.textColor = [UIColor blackColor];
+    self.timerLabel.font=[self.timerLabel.font fontWithSize:31];
+    self.mainInt -= 1;
+    self.timerLabel.text = [NSString stringWithFormat:@"%i", self.mainInt];
+    if (self.mainInt < 6 && self.mainInt > 0)
+//    {
+//        [UIView animateKeyframesWithDuration:1.0 delay:0 options:0 animations:^{
+//            
+//            [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:0.5 animations:^{
+//                self.timerLabel.textColor = [UIColor redColor];
+//                self.timerLabel.font=[self.timerLabel.font fontWithSize:70];
+//            }];
+//            [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:0.5 animations:^{
+//                self.timerLabel.textColor = [UIColor redColor];
+//                self.timerLabel.font=[self.timerLabel.font fontWithSize:31];
+//            }];
+//        }completion:^(BOOL finished){
+//        }];
+//    }
+    {
+        [UIView animateWithDuration:1.0 animations:^{
+            self.timerLabel.textColor = [UIColor redColor];
+            self.timerLabel.font=[self.timerLabel.font fontWithSize:70];
+        }];
+    }
+    else if(self.mainInt == 0)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+        [self.timer invalidate];
+        [self displayNewQuote];
+        self.timerLabel.textColor = [UIColor blackColor];
+        self.timerLabel.font=[self.timerLabel.font fontWithSize:31];
+        [self timeStart];
+        }];
+    }
+}
 
+-(void)timeStart
+{
+    [self.timer invalidate];
+    self.timerLabel.text = @"10";
+    self.mainInt = 10;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
+}
 
 @end
