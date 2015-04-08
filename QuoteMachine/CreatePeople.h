@@ -16,8 +16,11 @@
 
 - (instancetype)init;
 
+//CreateAllPeopleAtOnce
++ (void)createAllOfTheVariousPeopleWithContext:(NSManagedObjectContext *)context;
+
 //Scientists
-- (void)setNeilDegrasseTyson:(Person *)person;
++ (void)setNeilDegrasseTysonWithMOC:(NSManagedObjectContext *)moContext;
 - (void)setBillNye:(Person *)person;
 - (void)setCarlSagan:(Person *)person;
 - (void)setisaacNewton:(Person *)person;

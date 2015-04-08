@@ -30,15 +30,49 @@
     return self;
 }
 
++ (void)createQuotes:(Person *)person
+          withQuote1:(NSString *)quote1
+              Quote2:(NSString *)quote2
+              Quote3:(NSString *)quote3
+           MOContext:(NSManagedObjectContext *)context {
+    
+    Quotes *quoteOfPerson1 =
+    [NSEntityDescription insertNewObjectForEntityForName:@"Quotes"
+                                  inManagedObjectContext:context];
+    Quotes *quoteOfPerson2 =
+    [NSEntityDescription insertNewObjectForEntityForName:@"Quotes"
+                                  inManagedObjectContext:context];
+    Quotes *quoteOfPerson3 =
+    [NSEntityDescription insertNewObjectForEntityForName:@"Quotes"
+                                  inManagedObjectContext:context];
+    quoteOfPerson1.quote = quote1;
+    quoteOfPerson2.quote = quote2;
+    quoteOfPerson3.quote = quote3;
+    quoteOfPerson1.person = person;
+    quoteOfPerson2.person = person;
+    quoteOfPerson3.person = person;
+    [person addQuotesObject:quoteOfPerson1];
+    [person addQuotesObject:quoteOfPerson2];
+    [person addQuotesObject:quoteOfPerson3];
+}
+
 - (void)createQuotesForPerson:(Person *)person
                    withQuote1:(NSString *)quote1
                    withQuote2:(NSString *)quote2
                    withQuote3:(NSString *)quote3 {
     
-    Quotes *quoteOfPerson1 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStoreForCreate.managedObjectContext];
-    Quotes *quoteOfPerson2 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStoreForCreate.managedObjectContext];
-    Quotes *quoteOfPerson3 = [NSEntityDescription insertNewObjectForEntityForName:@"Quotes" inManagedObjectContext:self.dataStoreForCreate.managedObjectContext];
-    
+    Quotes *quoteOfPerson1 = [NSEntityDescription
+                              insertNewObjectForEntityForName:@"Quotes"
+                              inManagedObjectContext:self.dataStoreForCreate
+                              .managedObjectContext];
+    Quotes *quoteOfPerson2 = [NSEntityDescription
+                              insertNewObjectForEntityForName:@"Quotes"
+                              inManagedObjectContext:self.dataStoreForCreate
+                              .managedObjectContext];
+    Quotes *quoteOfPerson3 = [NSEntityDescription
+                              insertNewObjectForEntityForName:@"Quotes"
+                              inManagedObjectContext:self.dataStoreForCreate
+                              .managedObjectContext];
     quoteOfPerson1.quote = quote1;
     quoteOfPerson2.quote = quote2;
     quoteOfPerson3.quote = quote3;
@@ -52,19 +86,58 @@
     [person addQuotesObject:quoteOfPerson3];
 }
 
-- (void)setNeilDegrasseTyson:(Person *)person {
++ (void)createPerson:(Person *)person
+            WithName:(NSString *)name
+        FieldOfStudy:(NSString *)fos
+             Summary:(NSString *)summary
+      ThumbnailImage:(UIImage *)image
+        ProfileImage:(UIImage *)profImage {
     
-    person.name = @"Neil deGrasse Tyson";
-    person.fieldOfStudy = @"Science";
-    person.summary = @"Neil deGrasse Tyson is an American astrophysicist, cosmologist, author, and science communicator. Since 1996, he has been the Frederick P. Rose Director of the Hayden Planetarium at the Rose Center for Earth and Space in New York City.";
-//    person.thumbnailImage = [UIImage imageNamed:@"neilDegrasseTyson"];
-    person.profilePicture = [UIImage imageNamed:@"neilDegrasseTysonProfilePicture"];
+    person.name = name;
+    person.fieldOfStudy = fos;
+    person.summary = summary;
+    person.thumbnailImage = image;
+    person.profilePicture = profImage;
+}
+
++ (void)createAllOfTheVariousPeopleWithContext:(NSManagedObjectContext *)context {
     
-    NSString *neilQuote1 = @"We are part of this universe; we are in this universe, but perhaps more important than both of those facts, is that the universe is in us";
-    NSString *neilQuote2 = @"The only way you can invent tomorrow is if you break out of the enclosure that the school system has provided for you by the exams written by people who are trained in another generation.";
-    NSString *neilQuote3 = @"I said that if an alien came to visit, I'd be embarrassed to tell them that we fight wars to pull fossil fuels out of the ground to run our transportation. They'd be like, 'What?'";
+    [CreatePeople setNeilDegrasseTysonWithMOC:context];
     
-    [self createQuotesForPerson:person withQuote1:neilQuote1 withQuote2:neilQuote2 withQuote3:neilQuote3];
+    
+}
+
+
++ (void)setNeilDegrasseTysonWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *neil = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:neil
+                  WithName:@"Neil deGrasse Tyson"
+              FieldOfStudy:@"Science"
+                   Summary:@"Neil deGrasse Tyson is an American astrophysicist, cosmologist, author, and science communicator. Since 1996, he has been the Frederick P. Rose Director of the Hayden Planetarium at the Rose Center for Earth and Space in New York City."
+            ThumbnailImage:[UIImage imageNamed:@"Neil deGrasse Tyson"]
+              ProfileImage:[UIImage imageNamed:@"neilDegrasseTysonProfilePicture"]];
+    
+    [CreatePeople createQuotes:neil
+                    withQuote1:@"We are part of this universe; we are in this universe, but perhaps more important than both of those facts, is that the universe is in us"
+                        Quote2:@"The only way you can invent tomorrow is if you break out of the enclosure that the school system has provided for you by the exams written by people who are trained in another generation."
+                        Quote3:@"I said that if an alien came to visit, I'd be embarrassed to tell them that we fight wars to pull fossil fuels out of the ground to run our transportation. They'd be like, 'What?'"
+                     MOContext:moContext];
+    
+//    neil.name = @"Neil deGrasse Tyson";
+//    neil.fieldOfStudy = @"Science";
+//    neil.summary = @"Neil deGrasse Tyson is an American astrophysicist, cosmologist, author, and science communicator. Since 1996, he has been the Frederick P. Rose Director of the Hayden Planetarium at the Rose Center for Earth and Space in New York City.";
+////    person.thumbnailImage = [UIImage imageNamed:@"neilDegrasseTyson"];
+//    neil.profilePicture = [UIImage imageNamed:@"neilDegrasseTysonProfilePicture"];
+//    
+//    NSString *neilQuote1 = @"We are part of this universe; we are in this universe, but perhaps more important than both of those facts, is that the universe is in us";
+//    NSString *neilQuote2 = @"The only way you can invent tomorrow is if you break out of the enclosure that the school system has provided for you by the exams written by people who are trained in another generation.";
+//    NSString *neilQuote3 = @"I said that if an alien came to visit, I'd be embarrassed to tell them that we fight wars to pull fossil fuels out of the ground to run our transportation. They'd be like, 'What?'";
+//    
+//    [CreatePeople createQuotes:neil withQuote1:neilQuote1 Quote2:neilQuote2 Quote3:neilQuote3 MOContext:moContext];
+//    
+////    [self createQuotesForPerson:person withQuote1:neilQuote1 withQuote2:neilQuote2 withQuote3:neilQuote3];
     
 }
 

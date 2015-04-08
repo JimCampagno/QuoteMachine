@@ -51,8 +51,12 @@
 - (void)generateGame {
     CreatePeople *objectToSetPeople = [[CreatePeople alloc] init];
     
-    Person *neil = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setNeilDegrasseTyson:neil];
+    [CreatePeople createAllOfTheVariousPeopleWithContext:self.managedObjectContext];
+    
+//    [CreatePeople setNeilDegrasseTysonWithMOC:self.managedObjectContext];
+    
+//    Person *neil = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
+//    [objectToSetPeople setNeilDegrasseTyson:neil];
     
     Person *bill = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
     [objectToSetPeople setBillNye:bill];
@@ -118,6 +122,8 @@
     
 
 }
+
+
 
 - (void)fetchData {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Person"];

@@ -14,6 +14,9 @@
 
 @implementation MatchingTheQuotesGame
 
+
+#pragma mark - Initliazing Game
+
 - (instancetype)initWithPeople:(NSArray *)people {
     self = [super init];
     
@@ -35,35 +38,7 @@
     return self;
 }
 
-- (NSMutableArray *)holdingTheQuotesAlreadyDisplayed {
-    if (!_holdingTheQuotesAlreadyDisplayed) {
-        _holdingTheQuotesAlreadyDisplayed = [[NSMutableArray alloc] init];
-    }
-    
-    return _holdingTheQuotesAlreadyDisplayed;
-}
-
-- (NSMutableDictionary *)quotesReadyForQuiz {
-    if (!_quotesReadyForQuiz) {
-        _quotesReadyForQuiz = [[NSMutableDictionary alloc] init];
-    }
-    return _quotesReadyForQuiz;
-}
-
-- (NSNumber *)scoreOfGame {
-    if (!_scoreOfGame) {
-        _scoreOfGame = @0;
-    }
-    return _scoreOfGame;
-}
-
-- (NSString *)randomQuotePicked {
-    if (!_randomQuotePicked) {
-        _randomQuotePicked = [[NSString alloc] init];
-    }
-    
-    return _randomQuotePicked;
-}
+#pragma mark - Game logic
 
 - (BOOL)isPerson:(Person *)person matchedToQuote:(NSString *)quote {
     
@@ -98,6 +73,39 @@
     NSArray *listOfQuotesForPersonChosen = [self.quotesReadyForQuiz valueForKey:randomPersonChosen];
     self.randomQuotePicked = listOfQuotesForPersonChosen[randomQuoteNumber];
     
+}
+
+
+#pragma mark - Overriding Getters
+
+- (NSMutableArray *)holdingTheQuotesAlreadyDisplayed {
+    if (!_holdingTheQuotesAlreadyDisplayed) {
+        _holdingTheQuotesAlreadyDisplayed = [[NSMutableArray alloc] init];
+    }
+    
+    return _holdingTheQuotesAlreadyDisplayed;
+}
+
+- (NSMutableDictionary *)quotesReadyForQuiz {
+    if (!_quotesReadyForQuiz) {
+        _quotesReadyForQuiz = [[NSMutableDictionary alloc] init];
+    }
+    return _quotesReadyForQuiz;
+}
+
+- (NSNumber *)scoreOfGame {
+    if (!_scoreOfGame) {
+        _scoreOfGame = @0;
+    }
+    return _scoreOfGame;
+}
+
+- (NSString *)randomQuotePicked {
+    if (!_randomQuotePicked) {
+        _randomQuotePicked = [[NSString alloc] init];
+    }
+    
+    return _randomQuotePicked;
 }
 
 
