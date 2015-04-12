@@ -24,6 +24,8 @@
 		7D42D6171A9FBF32002738E7 /* QuoteMachineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D42D6161A9FBF32002738E7 /* QuoteMachineTests.m */; };
 		7D42D6221A9FC074002738E7 /* GameScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D42D6211A9FC074002738E7 /* GameScreenViewController.m */; };
 		7D5168E81AB1050F0092A5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5168E61AB1050F0092A5E5 /* Main.storyboard */; };
+		7DB1663F1ADA03C0002BBA30 /* DisplayPeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1663E1ADA03C0002BBA30 /* DisplayPeopleCell.m */; };
+		7DB166421ADA057C002BBA30 /* SelectScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB166411ADA057C002BBA30 /* SelectScreenViewController.m */; };
 		F8FC3633FC7D81A1839C4DAF /* libPods-QuoteMachine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0E51941320B362DA921A41 /* libPods-QuoteMachine.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,10 @@
 		7D42D6201A9FC074002738E7 /* GameScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScreenViewController.h; sourceTree = "<group>"; };
 		7D42D6211A9FC074002738E7 /* GameScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScreenViewController.m; sourceTree = "<group>"; };
 		7D5168E71AB1050F0092A5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7DB1663D1ADA03C0002BBA30 /* DisplayPeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayPeopleCell.h; sourceTree = "<group>"; };
+		7DB1663E1ADA03C0002BBA30 /* DisplayPeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayPeopleCell.m; sourceTree = "<group>"; };
+		7DB166401ADA057C002BBA30 /* SelectScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectScreenViewController.h; sourceTree = "<group>"; };
+		7DB166411ADA057C002BBA30 /* SelectScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectScreenViewController.m; sourceTree = "<group>"; };
 		8B0E51941320B362DA921A41 /* libPods-QuoteMachine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QuoteMachine.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF43B142619056DDF31A6059 /* Pods-QuoteMachine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteMachine.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteMachine/Pods-QuoteMachine.release.xcconfig"; sourceTree = "<group>"; };
 		F7A19373B3C064CE3494CC9A /* Pods-QuoteMachine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteMachine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteMachine/Pods-QuoteMachine.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +139,8 @@
 		7D42D5F61A9FBF32002738E7 /* QuoteMachine */ = {
 			isa = PBXGroup;
 			children = (
+				7DB166441ADA05A9002BBA30 /* Model */,
+				7DB166431ADA0581002BBA30 /* Changing The Game */,
 				7D42D5FB1A9FBF32002738E7 /* AppDelegate.h */,
 				7D42D5FC1A9FBF32002738E7 /* AppDelegate.m */,
 				7D3AE0781AA37DBC001EE74B /* Person.h */,
@@ -147,9 +155,6 @@
 				7D3AE0701AA36D8B001EE74B /* QuoteDataStore.m */,
 				7D3AE07B1AA37F57001EE74B /* CreatePeople.h */,
 				7D3AE07C1AA37F57001EE74B /* CreatePeople.m */,
-				7D42D6091A9FBF32002738E7 /* LaunchScreen.xib */,
-				7D5168E61AB1050F0092A5E5 /* Main.storyboard */,
-				1B7D17671AAB610A0011946B /* QuoteScreenStoryboard.storyboard */,
 				7D42D6201A9FC074002738E7 /* GameScreenViewController.h */,
 				7D42D6211A9FC074002738E7 /* GameScreenViewController.m */,
 				1B7D176F1AACE99D0011946B /* UIView+distance.h */,
@@ -164,6 +169,9 @@
 		7D42D5F71A9FBF32002738E7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7D42D6091A9FBF32002738E7 /* LaunchScreen.xib */,
+				7D5168E61AB1050F0092A5E5 /* Main.storyboard */,
+				1B7D17671AAB610A0011946B /* QuoteScreenStoryboard.storyboard */,
 				7D42D6071A9FBF32002738E7 /* Images.xcassets */,
 				7D42D5FE1A9FBF32002738E7 /* QuoteMachine.xcdatamodeld */,
 				7D42D5F81A9FBF32002738E7 /* Info.plist */,
@@ -187,6 +195,24 @@
 				7D42D6151A9FBF32002738E7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7DB166431ADA0581002BBA30 /* Changing The Game */ = {
+			isa = PBXGroup;
+			children = (
+				7DB1663D1ADA03C0002BBA30 /* DisplayPeopleCell.h */,
+				7DB1663E1ADA03C0002BBA30 /* DisplayPeopleCell.m */,
+				7DB166401ADA057C002BBA30 /* SelectScreenViewController.h */,
+				7DB166411ADA057C002BBA30 /* SelectScreenViewController.m */,
+			);
+			name = "Changing The Game";
+			sourceTree = "<group>";
+		};
+		7DB166441ADA05A9002BBA30 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,7 +357,9 @@
 				7D3AE0801AA38051001EE74B /* Person+Methods.m in Sources */,
 				1B7D176B1AAB61320011946B /* QuoteScreenViewController.m in Sources */,
 				7D42D5FD1A9FBF32002738E7 /* AppDelegate.m in Sources */,
+				7DB1663F1ADA03C0002BBA30 /* DisplayPeopleCell.m in Sources */,
 				7D42D5FA1A9FBF32002738E7 /* main.m in Sources */,
+				7DB166421ADA057C002BBA30 /* SelectScreenViewController.m in Sources */,
 				1B7D17711AACE99D0011946B /* UIView+distance.m in Sources */,
 				7D42D6221A9FC074002738E7 /* GameScreenViewController.m in Sources */,
 				7D3AE0771AA37DBB001EE74B /* Quotes.m in Sources */,

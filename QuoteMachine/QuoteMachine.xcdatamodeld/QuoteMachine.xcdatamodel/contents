@@ -6,6 +6,7 @@
         <attribute name="profilePicture" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnailImage" optional="YES" attributeType="Transformable" valueTransformerName="NSUnarchiveFromDataTransformerName" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="urlPathSmall" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="quotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Quotes" inverseName="person" inverseEntity="Quotes" syncable="YES"/>
     </entity>
     <entity name="Quotes" representedClassName="Quotes" syncable="YES">
@@ -13,7 +14,7 @@
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="quotes" inverseEntity="Person" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Person" positionX="-360" positionY="-63" width="128" height="135"/>
+        <element name="Person" positionX="-360" positionY="-63" width="128" height="150"/>
         <element name="Quotes" positionX="-137" positionY="-4" width="128" height="73"/>
     </elements>
 </model>
