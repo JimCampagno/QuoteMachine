@@ -98,6 +98,7 @@
     person.summary = summary;
     person.thumbnailImage = image;
     person.profilePicture = profImage;
+    
 }
 
 + (void)createAllOfTheVariousPeopleWithContext:(NSManagedObjectContext *)context {
