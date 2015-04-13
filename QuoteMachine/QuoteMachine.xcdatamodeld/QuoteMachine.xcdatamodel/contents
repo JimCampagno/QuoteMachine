@@ -5,7 +5,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profilePicture" optional="YES" attributeType="Transformable" valueTransformerName="ImageToDataTransformer" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="thumbnailImage" optional="YES" attributeType="Transformable" valueTransformerName="NSUnarchiveFromDataTransformerName" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="thumbnailImage" optional="YES" attributeType="Transformable" valueTransformerName="ImageToDataTransformer" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="urlPathSmall" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="quotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Quotes" inverseName="person" inverseEntity="Quotes" syncable="YES"/>
     </entity>
