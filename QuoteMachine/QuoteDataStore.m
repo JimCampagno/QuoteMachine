@@ -8,7 +8,7 @@
 
 #import "QuoteDataStore.h"
 #import "CreatePeople.h"
-#import "Person+Methods.h"
+#import "Person.h"
 #import "Quotes.h"
 #import <UIKit/UIKit.h>
 

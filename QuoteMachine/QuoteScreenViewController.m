@@ -11,7 +11,7 @@
 #import "UIView+distance.h"
 #import "QuoteDataStore.h"
 #import <CoreData/CoreData.h>
-#import "Person+Methods.h"
+#import "Person.h"
 #import "Quotes.h"
 #import "MatchingTheQuotesGame.h"
 #import "RBStoryboardLink.h"

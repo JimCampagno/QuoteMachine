@@ -8,7 +8,7 @@
 
 
 #import "MatchingTheQuotesGame.h"
-#import "Person+Methods.h"
+#import "Person.h"
 #import "Quotes.h"
 #import "QuoteDataStore.h"
 

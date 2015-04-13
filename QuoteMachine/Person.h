@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
 
 @class Quotes;
 
@@ -16,8 +17,8 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * fieldOfStudy;
 @property (nonatomic, retain) NSString * summary;
-@property (nonatomic, retain) id thumbnailImage;
-@property (nonatomic, retain) id profilePicture;
+@property (nonatomic, retain) UIImage *thumbnailImage;
+@property (nonatomic, retain) UIImage *profilePicture;
 @property (nonatomic, retain) NSSet *quotes;
 
 @end

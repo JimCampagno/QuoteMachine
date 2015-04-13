@@ -10,7 +10,7 @@
 #import "QuoteDataStore.h"
 #import <QuartzCore/QuartzCore.h>
 #import <CoreData/CoreData.h>
-#import "Person+Methods.h"
+#import "Person.h"
 #import "Quotes.h"
 #import "MatchingTheQuotesGame.h"
 #import "QuoteScreenViewController.h"

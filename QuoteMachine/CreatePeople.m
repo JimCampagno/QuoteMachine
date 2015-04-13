@@ -7,7 +7,7 @@
 //
 
 #import "CreatePeople.h"
-#import "Person+Methods.h"
+#import "Person.h"
 #import "Quotes.h"
 
 @interface CreatePeople ()
