@@ -49,6 +49,7 @@
 }
 
 - (void)generateGame {
+    
     CreatePeople *objectToSetPeople = [[CreatePeople alloc] init];
     
     [CreatePeople createAllOfTheVariousPeopleWithContext:self.managedObjectContext];

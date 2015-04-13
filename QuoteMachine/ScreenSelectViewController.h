@@ -1,5 +1,5 @@
 //
-//  SelectScreenViewController.h
+//  ScreenSelectViewController.h
 //  QuoteMachine
 //
 //  Created by Jim Campagno on 4/11/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelectScreenViewController : UIViewController
+@interface ScreenSelectViewController : UICollectionViewController
 
 @end
