@@ -21,19 +21,19 @@
 
 //Scientists
 + (void)setNeilDegrasseTysonWithMOC:(NSManagedObjectContext *)moContext;
-- (void)setBillNye:(Person *)person;
-- (void)setCarlSagan:(Person *)person;
-- (void)setisaacNewton:(Person *)person;
++ (void)setBillNyeWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setCarlSaganWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setisaacNewtonWithMOC:(NSManagedObjectContext *)moContext;
 
 //Cartoon Characters
-- (void)setSuperMario:(Person *)person;
-- (void)setFinnTheHuman:(Person *)person;
++ (void)setSuperMarioWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setFinnTheHumanWithMOC:(NSManagedObjectContext *)moContext;
 - (void)setHomerSimpson:(Person *)person;
 - (void)setEricCartman:(Person *)person;
 
 //Comedians
-- (void)setMitchHedberg:(Person *)person;
-- (void)setLarryDavid:(Person *)person;
++ (void)setMitchHedbergWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setLarryDavidWithMOC:(NSManagedObjectContext *)moContext;
 - (void)setTinaFey:(Person *)person;
 - (void)setAmyPoehler:(Person *)person;
 

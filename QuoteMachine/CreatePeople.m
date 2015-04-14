@@ -104,8 +104,13 @@
 + (void)createAllOfTheVariousPeopleWithContext:(NSManagedObjectContext *)context {
     
     [CreatePeople setNeilDegrasseTysonWithMOC:context];
-    
-    
+    [CreatePeople setSuperMarioWithMOC:context];
+    [CreatePeople setMitchHedbergWithMOC:context];
+    [CreatePeople setFinnTheHumanWithMOC:context];
+    [CreatePeople setLarryDavidWithMOC:context];
+    [CreatePeople setBillNyeWithMOC:context];
+    [CreatePeople setCarlSaganWithMOC:context];
+    [CreatePeople setisaacNewtonWithMOC:context];
 }
 
 
@@ -125,133 +130,135 @@
                         Quote2:@"The only way you can invent tomorrow is if you break out of the enclosure that the school system has provided for you by the exams written by people who are trained in another generation."
                         Quote3:@"I said that if an alien came to visit, I'd be embarrassed to tell them that we fight wars to pull fossil fuels out of the ground to run our transportation. They'd be like, 'What?'"
                      MOContext:moContext];
-    
-//    neil.name = @"Neil deGrasse Tyson";
-//    neil.fieldOfStudy = @"Science";
-//    neil.summary = @"Neil deGrasse Tyson is an American astrophysicist, cosmologist, author, and science communicator. Since 1996, he has been the Frederick P. Rose Director of the Hayden Planetarium at the Rose Center for Earth and Space in New York City.";
-////    person.thumbnailImage = [UIImage imageNamed:@"neilDegrasseTyson"];
-//    neil.profilePicture = [UIImage imageNamed:@"neilDegrasseTysonProfilePicture"];
-//    
-//    NSString *neilQuote1 = @"We are part of this universe; we are in this universe, but perhaps more important than both of those facts, is that the universe is in us";
-//    NSString *neilQuote2 = @"The only way you can invent tomorrow is if you break out of the enclosure that the school system has provided for you by the exams written by people who are trained in another generation.";
-//    NSString *neilQuote3 = @"I said that if an alien came to visit, I'd be embarrassed to tell them that we fight wars to pull fossil fuels out of the ground to run our transportation. They'd be like, 'What?'";
-//    
-//    [CreatePeople createQuotes:neil withQuote1:neilQuote1 Quote2:neilQuote2 Quote3:neilQuote3 MOContext:moContext];
-//    
-////    [self createQuotesForPerson:person withQuote1:neilQuote1 withQuote2:neilQuote2 withQuote3:neilQuote3];
-    
 }
 
-- (void)setSuperMario:(Person *)person {
++ (void)setSuperMarioWithMOC:(NSManagedObjectContext *)moContext {
     
-    person.name = @"Mario";
-    person.fieldOfStudy = @"Gaming";
-    person.summary = @"Mario is a fictional character in the Mario video game franchise, created by Nintendo's Japanese video game designer, Shigeru Miyamoto.";
-//    person.thumbnailImage = [UIImage imageNamed:@"superMario"];
-    // No profilepicture set yet
+    Person *mario = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
     
-    NSString *marioQuote1 = @"It's a-me, Mario!";
-    NSString *marioQuote2 = @"Here I go!";
-    NSString *marioQuote3 = @"Mama Mia!";
+    [CreatePeople createPerson:mario
+                      WithName:@"Mario"
+                  FieldOfStudy:@"Gaming"
+                       Summary:@"Mario is a fictional character in the Mario video game franchise, created by Nintendo's Japanese video game designer, Shigeru Miyamoto."
+                ThumbnailImage:[UIImage imageNamed:@"Mario"]
+                  ProfileImage:nil];
     
-    [self createQuotesForPerson:person withQuote1:marioQuote1 withQuote2:marioQuote2 withQuote3:marioQuote3];
+    [CreatePeople createQuotes:mario
+                    withQuote1:@"It's a-me, Mario!"
+                        Quote2:@"Here I go!"
+                        Quote3:@"Mama Mia!"
+                     MOContext:moContext];
 }
 
-- (void)setMitchHedberg:(Person *)person {
-
-    person.name = @"Mitch Hedberg";
-    person.fieldOfStudy = @"Comedy";
-    person.summary = @"Mitchell Lee Hedberg was an American stand-up comedian known for his surreal humor and unconventional comedic delivery. His comedy typically featured short, sometimes one-line jokes mixed with absurd elements and non sequiturs.";
-//    person.thumbnailImage = [UIImage imageNamed:@"mitchHedberg"];
-    // No profilepicture set yet
++ (void)setMitchHedbergWithMOC:(NSManagedObjectContext *)moContext {
     
-    NSString *mitchQuote1 = @"An escalator can never break: it can only become stairs. You should never see an Escalator Temporarily Out Of Order sign, just Escalator Temporarily Stairs. Sorry for the convenience.";
-    NSString *mitchQuote2 = @"Rice is great if you're really hungry and want to eat two thousand of something.";
-    NSString *mitchQuote3 = @"I don't have a girlfriend. But I do know a woman who'd be mad at me for saying that.";
+    Person *mitch = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
     
-    [self createQuotesForPerson:person withQuote1:mitchQuote1 withQuote2:mitchQuote2 withQuote3:mitchQuote3];
+    [CreatePeople createPerson:mitch
+                      WithName:@"Mitch Hedberg"
+                  FieldOfStudy:@"Comedy"
+                       Summary:@"Mitchell Lee Hedberg was an American stand-up comedian known for his surreal humor and unconventional comedic delivery. His comedy typically featured short, sometimes one-line jokes mixed with absurd elements and non sequiturs."
+                ThumbnailImage:[UIImage imageNamed:@"Mitch Hedberg"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:mitch
+                    withQuote1:@"An escalator can never break: it can only become stairs. You should never see an Escalator Temporarily Out Of Order sign, just Escalator Temporarily Stairs. Sorry for the convenience."
+                        Quote2:@"Rice is great if you're really hungry and want to eat two thousand of something."
+                        Quote3:@"I don't have a girlfriend. But I do know a woman who'd be mad at me for saying that."
+                     MOContext:moContext];
 }
 
-- (void)setFinnTheHuman:(Person *)person {
-
-    person.name = @"Finn The Human";
-    person.fieldOfStudy = @"Cartoon";
-    person.summary = @"Finn is a 15-year-old human. He is roughly five feet tall and is missing several teeth due to his habit of biting trees and rocks among other things.  Finn is, along with Jake the Dog, the main character of the American animated television series Adventure Time created by Pendleton Ward.";
-//    person.thumbnailImage = [UIImage imageNamed:@"finnTheHuman"];
-    // No profilepicture set yet
-
-    NSString *finnQuote1 = @"Everything small is just a smaller version of something big!";
-    NSString *finnQuote2 = @"Man, you're letting your brain dial turn your fear volume up.";
-    NSString *finnQuote3 = @"Imagination is for turbo-nerds who can't handle how kick-butt reality is!.";
++ (void)setFinnTheHumanWithMOC:(NSManagedObjectContext *)moContext {
     
-    [self createQuotesForPerson:person withQuote1:finnQuote1 withQuote2:finnQuote2 withQuote3:finnQuote3];
+    Person *finn = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:finn
+                      WithName:@"Finn The Human"
+                  FieldOfStudy:@"Cartoon"
+                       Summary:@"Finn is a 15-year-old human. He is roughly five feet tall and is missing several teeth due to his habit of biting trees and rocks among other things.  Finn is, along with Jake the Dog, the main character of the American animated television series Adventure Time created by Pendleton Ward."
+                ThumbnailImage:[UIImage imageNamed:@"Finn The Human"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:finn
+                    withQuote1:@"Everything small is just a smaller version of something big!"
+                        Quote2:@"Man, you're letting your brain dial turn your fear volume up."
+                        Quote3:@"Imagination is for turbo-nerds who can't handle how kick-butt reality is!."
+                     MOContext:moContext];
 }
 
 
-- (void)setLarryDavid:(Person *)person {
++ (void)setLarryDavidWithMOC:(NSManagedObjectContext *)moContext {
     
-    person.name = @"Larry David";
-    person.fieldOfStudy = @"Comedy";
-    person.summary = @"Lawrence Gene Larry David is an American comedian, writer, actor, and television producer. He was the co-creator, with Jerry Seinfeld, of the television series Seinfeld, and was its head writer and executive producer from 1989 to 1996.";
-//    person.thumbnailImage = [UIImage imageNamed:@"larryDavid"];
-    //no profilepicture set yet
+    Person *larry = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:larry
+                      WithName:@"Larry David"
+                  FieldOfStudy:@"Comedy"
+                       Summary:@"Lawrence Gene Larry David is an American comedian, writer, actor, and television producer. He was the co-creator, with Jerry Seinfeld, of the television series Seinfeld, and was its head writer and executive producer from 1989 to 1996."
+                ThumbnailImage:[UIImage imageNamed:@"Larry David"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:larry
+                    withQuote1:@"Anyone can be confident with a full head of hair. But a confident bald man - there's your diamond in the rough."
+                        Quote2:@"Trying on pants is one of the most humiliating things a man can suffer that doesn't involve a woman."
+                        Quote3:@"I tend to stay with the panic. I embrace the panic."
+                     MOContext:moContext];
+}
 
-    NSString *quote1 = @"Anyone can be confident with a full head of hair. But a confident bald man - there's your diamond in the rough.";
-    NSString *quote2 = @"Trying on pants is one of the most humiliating things a man can suffer that doesn't involve a woman.";
-    NSString *quote3 = @"I tend to stay with the panic. I embrace the panic.";
++ (void)setBillNyeWithMOC:(NSManagedObjectContext *)moContext {
     
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
+    Person *billNye = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:billNye
+                      WithName:@"Bill Nye"
+                  FieldOfStudy:@"Science"
+                       Summary:@"William Sanford Bill Nye (born November 27, 1955), popularly known as Bill Nye the Science Guy, is an American science educator, comedian, television host, actor, writer, scientist, and former mechanical engineer, best known as the host of the Disney/PBS children's science show Bill Nye the Science Guy (1993–98) and for his many subsequent appearances in popular media as a science educator."
+                ThumbnailImage:[UIImage imageNamed:@"Bill Nye"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:billNye
+                    withQuote1:@"Everybody who's a physician, who makes vaccines, who wants to find the cure for cancer. Everybody who wants to do any medical good for humankind got the passion for that before he or she was 10."
+                        Quote2:@"Hard to find anything lovelier than a tree. They grow at right angles to a tangent of the nominal sphere of the Earth."
+                        Quote3:@"To leave the world better than you found it, sometimes you have to pick up other people’s trash."
+                     MOContext:moContext];
     
 }
 
-- (void)setBillNye:(Person *)person {
++ (void)setCarlSaganWithMOC:(NSManagedObjectContext *)moContext {
     
-    person.name = @"Bill Nye";
-    person.fieldOfStudy = @"Science";
-    person.summary = @"William Sanford Bill Nye (born November 27, 1955), popularly known as Bill Nye the Science Guy, is an American science educator, comedian, television host, actor, writer, scientist, and former mechanical engineer, best known as the host of the Disney/PBS children's science show Bill Nye the Science Guy (1993–98) and for his many subsequent appearances in popular media as a science educator.";
-//    person.thumbnailImage = [UIImage imageNamed:@"billNye"];
-    //no profilepicture set yet
+    Person *carl = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
     
-    NSString *quote1 = @"Everybody who's a physician, who makes vaccines, who wants to find the cure for cancer. Everybody who wants to do any medical good for humankind got the passion for that before he or she was 10.";
-    NSString *quote2 = @"Hard to find anything lovelier than a tree. They grow at right angles to a tangent of the nominal sphere of the Earth.";
-    NSString *quote3 = @"To leave the world better than you found it, sometimes you have to pick up other people’s trash.";
+    [CreatePeople createPerson:carl
+                      WithName:@"Carl Sagan"
+                  FieldOfStudy:@"Science"
+                       Summary:@"Carl Edward Sagan was an American astronomer, cosmologist, astrophysicist, astrobiologist, author, science popularizer, and science communicator in astronomy and other natural sciences."
+                ThumbnailImage:[UIImage imageNamed:@"Carl Sagan"]
+                  ProfileImage:nil];
     
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
-    
+    [CreatePeople createQuotes:carl
+                    withQuote1:@"Somewhere, something incredible is waiting to be known."
+                        Quote2:@"The nitrogen in our DNA, the calcium in our teeth, the iron in our blood, the carbon in our apple pies were made in the interiors of collapsing stars. We are made of starstuff."
+                        Quote3:@"If you wish to make an apple pie from scratch, you must first invent the universe."
+                     MOContext:moContext];
 }
 
-- (void)setCarlSagan:(Person *)person {
++ (void)setisaacNewtonWithMOC:(NSManagedObjectContext *)moContext {
     
-    person.name = @"Carl Sagan";
-    person.fieldOfStudy = @"Science";
-    person.summary = @"Carl Edward Sagan was an American astronomer, cosmologist, astrophysicist, astrobiologist, author, science popularizer, and science communicator in astronomy and other natural sciences.";
-//    person.thumbnailImage = [UIImage imageNamed:@"carlSagan"];
+    Person *issac = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:issac
+                      WithName:@"Isaac Newton"
+                  FieldOfStudy:@"Science"
+                       Summary:@"Sir Isaac Newton PRS MP was an English physicist and mathematician who is widely recognised as one of the most influential scientists of all time and as a key figure in the scientific revolution"
+                ThumbnailImage:[UIImage imageNamed:@"Isaac Newton"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:issac
+                    withQuote1:@"If I have seen further it is by standing on the shoulders of Giants."
+                        Quote2:@"I do not know what I may appear to the world, but to myself I seem to have been only like a boy playing on the sea-shore, and diverting myself in now and then finding a smoother pebble or a prettier shell than ordinary, whilst the great ocean of truth lay all undiscovered before me"
+                        Quote3:@"Nature is pleased with simplicity. And nature is no dummy"
+                     MOContext:moContext];
 
-    
-    NSString *quote1 = @"Somewhere, something incredible is waiting to be known.";
-    NSString *quote2 = @"The nitrogen in our DNA, the calcium in our teeth, the iron in our blood, the carbon in our apple pies were made in the interiors of collapsing stars. We are made of starstuff.";
-    NSString *quote3 = @"If you wish to make an apple pie from scratch, you must first invent the universe.";
-    
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
-
-    
-}
-
-- (void)setisaacNewton:(Person *)person {
-    
-    person.name = @"Isaac Newton";
-    person.fieldOfStudy = @"Science";
-    person.summary = @"Sir Isaac Newton PRS MP was an English physicist and mathematician who is widely recognised as one of the most influential scientists of all time and as a key figure in the scientific revolution";
-//    person.thumbnailImage = [UIImage imageNamed:@"isaacNewton"];
-
-    
-    NSString *quote1 = @"If I have seen further it is by standing on the shoulders of Giants.";
-    NSString *quote2 = @"I do not know what I may appear to the world, but to myself I seem to have been only like a boy playing on the sea-shore, and diverting myself in now and then finding a smoother pebble or a prettier shell than ordinary, whilst the great ocean of truth lay all undiscovered before me";
-    NSString *quote3 = @"Nature is pleased with simplicity. And nature is no dummy";
-    
-    
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
-    
 }
 
 - (void)setTinaFey:(Person *)person {

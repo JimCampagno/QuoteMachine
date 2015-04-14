@@ -54,37 +54,11 @@
     
     [CreatePeople createAllOfTheVariousPeopleWithContext:self.managedObjectContext];
     
-//    [CreatePeople setNeilDegrasseTysonWithMOC:self.managedObjectContext];
-    
-//    Person *neil = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-//    [objectToSetPeople setNeilDegrasseTyson:neil];
-    
-    Person *bill = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setBillNye:bill];
-    
-    Person *carl = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setCarlSagan:carl];
-    
-    Person *isaac = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setisaacNewton:isaac];
-    
-    Person *mario = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setSuperMario:mario];
-    
-    Person *finn = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setFinnTheHuman:finn];
-    
     Person *homer = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
     [objectToSetPeople setHomerSimpson:homer];
     
     Person *eric = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
     [objectToSetPeople setEricCartman:eric];
-    
-    Person *mitch = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setMitchHedberg:mitch];
-    
-    Person *larry = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setLarryDavid:larry];
     
     Person *tina = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
     [objectToSetPeople setTinaFey:tina];
