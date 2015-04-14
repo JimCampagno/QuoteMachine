@@ -111,6 +111,10 @@
     [CreatePeople setBillNyeWithMOC:context];
     [CreatePeople setCarlSaganWithMOC:context];
     [CreatePeople setisaacNewtonWithMOC:context];
+    [CreatePeople setTinaFeyWithMOC:context];
+    [CreatePeople setAmyPoehlerWithMOC:context];
+    [CreatePeople setHomerSimpsonWithMOC:context];
+    [CreatePeople setEricCartmanWithMOC:context];
 }
 
 
@@ -261,69 +265,81 @@
 
 }
 
-- (void)setTinaFey:(Person *)person {
++ (void)setTinaFeyWithMOC:(NSManagedObjectContext *)moContext {
     
-    person.name = @"Tina Fey";
-    person.fieldOfStudy = @"Comedy";
-    person.summary = @"Elizabeth Stamatina Tina Fey is an American actress, comedian, writer, and producer. She is best known for her work on the NBC sketch comedy series Saturday Night Live (1998–2006), the critically acclaimed NBC comedy series 30 Rock (2006–2013), and films such as Mean Girls (2004), Baby Mama (2008), Date Night (2010), and Muppets Most Wanted (2014).";
-//    person.thumbnailImage = [UIImage imageNamed:@"tinaFey"];
-
+    Person *tina = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
     
-    NSString *quote1 = @"You could put a blond wig on a hot-water heater and some dude would try to f*** it";
-    NSString *quote2 = @"I feel about Photoshop the way some people feel about abortion. It is appalling and a tragic reflection on the moral decay of our society…unless I need it, in which case, everybody be cool";
-    NSString *quote3 = @"My ability to turn good news into anxiety is rivaled only by my ability to turn anxiety into chin acne.";
+    [CreatePeople createPerson:tina
+                      WithName:@"Tina Fey"
+                  FieldOfStudy:@"Comedy"
+                       Summary:@"Elizabeth Stamatina Tina Fey is an American actress, comedian, writer, and producer. She is best known for her work on the NBC sketch comedy series Saturday Night Live (1998–2006), the critically acclaimed NBC comedy series 30 Rock (2006–2013), and films such as Mean Girls (2004), Baby Mama (2008), Date Night (2010), and Muppets Most Wanted (2014)."
+                ThumbnailImage:[UIImage imageNamed:@"Tina Fey"]
+                  ProfileImage:nil];
     
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
-
-
-}
-
-- (void)setAmyPoehler:(Person *)person {
-    
-    person.name = @"Amy Poehler";
-    person.fieldOfStudy = @"Comedy";
-    person.summary = @"Amy Meredith Poehler is an American actress, comedian, voice artist, director, producer and writer. She was raised in Burlington, Massachusetts, graduated from Boston College in 1993 and moved to Chicago, Illinois to study improv at The Second City and ImprovOlympic. In 1996, she moved to New York City after becoming part of the improvisational comedy troupe Upright Citizens Brigade, which later developed into an eponymous television show that aired on Comedy Central for three seasons. Poehler was also one of the founding members of the Upright Citizens Brigade Theatre in 1999. She is a 15-time Emmy Award nominee.";
-//    person.thumbnailImage = [UIImage imageNamed:@"amyPoehler"];
-
-    
-    NSString *quote1 = @"I think we should stop asking people in their twenties what they “want to do” and start asking them what they don’t want to do.";
-    NSString *quote2 = @"Telling me to relax or smile when I’m angry is like bringing a birthday cake into an ape sanctuary. You’re just asking to get your nose and genitals bitten off.";
-    NSString *quote3 = @"if you can dance and be free and not embarrassed you can rule the world";
-    
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
+    [CreatePeople createQuotes:tina
+                    withQuote1:@"You could put a blond wig on a hot-water heater and some dude would try to f*** it"
+                        Quote2:@"I feel about Photoshop the way some people feel about abortion. It is appalling and a tragic reflection on the moral decay of our society…unless I need it, in which case, everybody be cool"
+                        Quote3:@"My ability to turn good news into anxiety is rivaled only by my ability to turn anxiety into chin acne."
+                     MOContext:moContext];
 
 }
 
-- (void)setHomerSimpson:(Person *)person {
++ (void)setAmyPoehlerWithMOC:(NSManagedObjectContext *)moContext {
     
-    person.name = @"Homer Simpson";
-    person.fieldOfStudy = @"Cartoon";
-    person.summary = @"Homer Jay Simpson is a fictional character in the animated television series The Simpsons as the patriarch of the eponymous family. He is voiced by Dan Castellaneta and first appeared on television, along with the rest of his family, in The Tracey Ullman Show short Good Night on April 19, 1987. Homer was created and designed by cartoonist Matt Groening while he was waiting in the lobby of James L. Brooks' office. Groening had been called to pitch a series of shorts based on his comic strip Life in Hell but instead decided to create a new set of characters. He named the character after his father, Homer Groening. After appearing for three seasons on The Tracey Ullman Show, the Simpson family got their own series on Fox that debuted December 17, 1989.";
-//    person.thumbnailImage = [UIImage imageNamed:@"homerSimpson"];
-
+    Person *amy = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
     
-    NSString *quote1 = @"I didn't lie, I was writing fiction with my mouth";
-    NSString *quote2 = @"You can't keep blaming yourself. Just blame yourself once, and move on";
-    NSString *quote3 = @"You tried your best and you failed miserably. The lesson is 'never try.";
+    [CreatePeople createPerson:amy
+                      WithName:@"Amy Poehler"
+                  FieldOfStudy:@"Comedy"
+                       Summary:@"Amy Meredith Poehler is an American actress, comedian, voice artist, director, producer and writer. She was raised in Burlington, Massachusetts, graduated from Boston College in 1993 and moved to Chicago, Illinois to study improv at The Second City and ImprovOlympic. In 1996, she moved to New York City after becoming part of the improvisational comedy troupe Upright Citizens Brigade, which later developed into an eponymous television show that aired on Comedy Central for three seasons. Poehler was also one of the founding members of the Upright Citizens Brigade Theatre in 1999. She is a 15-time Emmy Award nominee."
+                ThumbnailImage:[UIImage imageNamed:@"Amy Poehler"]
+                  ProfileImage:nil];
     
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
+    [CreatePeople createQuotes:amy
+                    withQuote1:@"I think we should stop asking people in their twenties what they “want to do” and start asking them what they don’t want to do."
+                        Quote2:@"Telling me to relax or smile when I’m angry is like bringing a birthday cake into an ape sanctuary. You’re just asking to get your nose and genitals bitten off."
+                        Quote3:@"if you can dance and be free and not embarrassed you can rule the world"
+                     MOContext:moContext];
     
 }
 
-- (void)setEricCartman:(Person *)person {
++ (void)setHomerSimpsonWithMOC:(NSManagedObjectContext *)moContext {
     
-    person.name = @"Eric Cartman";
-    person.fieldOfStudy = @"Cartoon";
-    person.summary = @"Eric Theodore Cartman is a main character in the animated television series South Park, created by Matt Stone and Trey Parker, and voiced by Trey Parker. Cartman, generally referred to by his surname, is one of four central characters in South Park, in addition to Stan Marsh, Kyle Broflovski, and Kenny McCormick. Cartman first appeared, originally named Kenny, in prototypical form in a 1992 animated short Jesus vs. Frosty, and a 1995 animated short Jesus vs. Santa, and first appeared on television in the pilot episode of South Park, Cartman Gets an Anal Probe, on August 13, 1997.";
-//    person.thumbnailImage = [UIImage imageNamed:@"ericCartman"];
+    Person *homer = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:homer
+                      WithName:@"Homer Simpson"
+                  FieldOfStudy:@"Cartoon"
+                       Summary:@"Homer Jay Simpson is a fictional character in the animated television series The Simpsons as the patriarch of the eponymous family. He is voiced by Dan Castellaneta and first appeared on television, along with the rest of his family, in The Tracey Ullman Show short Good Night on April 19, 1987. Homer was created and designed by cartoonist Matt Groening while he was waiting in the lobby of James L. Brooks' office. Groening had been called to pitch a series of shorts based on his comic strip Life in Hell but instead decided to create a new set of characters. He named the character after his father, Homer Groening. After appearing for three seasons on The Tracey Ullman Show, the Simpson family got their own series on Fox that debuted December 17, 1989."
+                ThumbnailImage:[UIImage imageNamed:@"Homer Simpson"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:homer
+                    withQuote1:@"I didn't lie, I was writing fiction with my mouth"
+                        Quote2:@"You can't keep blaming yourself. Just blame yourself once, and move on"
+                        Quote3:@"You tried your best and you failed miserably. The lesson is 'never try."
+                     MOContext:moContext];
+    
 
-    
-    NSString *quote1 = @"Hippies.  They're everywhere.  They wanna save the earth, but all they do is smoke pot and smell bad.";
-    NSString *quote2 = @"Real guitars are for old people.";
-    NSString *quote3 = @"Love is like taking a dump.";
-    
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
+}
 
++ (void)setEricCartmanWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *eric = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:eric
+                      WithName:@"Eric Cartman"
+                  FieldOfStudy:@"Cartoon"
+                       Summary:@"Eric Theodore Cartman is a main character in the animated television series South Park, created by Matt Stone and Trey Parker, and voiced by Trey Parker. Cartman, generally referred to by his surname, is one of four central characters in South Park, in addition to Stan Marsh, Kyle Broflovski, and Kenny McCormick. Cartman first appeared, originally named Kenny, in prototypical form in a 1992 animated short Jesus vs. Frosty, and a 1995 animated short Jesus vs. Santa, and first appeared on television in the pilot episode of South Park, Cartman Gets an Anal Probe, on August 13, 1997."
+                ThumbnailImage:[UIImage imageNamed:@"Eric Cartman"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:eric
+                    withQuote1:@"Hippies.  They're everywhere.  They wanna save the earth, but all they do is smoke pot and smell bad."
+                        Quote2:@"Real guitars are for old people."
+                        Quote3:@"Love is like taking a dump."
+                     MOContext:moContext];
+    
 }
 
 - (void)setMichaelJordan:(Person *)person {

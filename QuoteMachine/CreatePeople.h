@@ -28,14 +28,14 @@
 //Cartoon Characters
 + (void)setSuperMarioWithMOC:(NSManagedObjectContext *)moContext;
 + (void)setFinnTheHumanWithMOC:(NSManagedObjectContext *)moContext;
-- (void)setHomerSimpson:(Person *)person;
-- (void)setEricCartman:(Person *)person;
++ (void)setHomerSimpsonWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setEricCartmanWithMOC:(NSManagedObjectContext *)moContext;
 
 //Comedians
 + (void)setMitchHedbergWithMOC:(NSManagedObjectContext *)moContext;
 + (void)setLarryDavidWithMOC:(NSManagedObjectContext *)moContext;
-- (void)setTinaFey:(Person *)person;
-- (void)setAmyPoehler:(Person *)person;
++ (void)setTinaFeyWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setAmyPoehlerWithMOC:(NSManagedObjectContext *)moContext;
 
 //Sports figures
 - (void)setMichaelJordan:(Person *)person;

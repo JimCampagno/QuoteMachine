@@ -12,13 +12,34 @@
 @interface ViewControllerTestingImages ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (strong, nonatomic) NSMutableArray *holdingTheImages;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
 @implementation ViewControllerTestingImages
 
+-(NSMutableArray *)holdingTheImages {
+
+    if (!_holdingTheImages) {
+        
+        _holdingTheImages = [[NSMutableArray alloc] init];
+    }
+    
+    return _holdingTheImages;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+   
+    
+   
+    
+    
     
     self.dataStore = [QuoteDataStore sharedDataStore];
     
@@ -30,26 +51,64 @@
                                          executeFetchRequest:personQuoteRequest
                                          error:nil];
     
-    
     for (Person *person in self.dataStore.quotesReadyForGame) {
         
-        if ([person.name isEqualToString:@"Neil deGrasse Tyson"]) {
+        if (person.thumbnailImage) {
             
-            NSLog(@"Found you");
+            [self.holdingTheImages addObject:person.thumbnailImage];
+            self.image.image = self.holdingTheImages[0];
             
-            NSLog(@"%@", person.fieldOfStudy);
-            self.image.image = person.profilePicture;
-            
-            
-            break;
         }
-    
     }
+    
+    
+//    for (Person *person in self.dataStore.quotesReadyForGame) {
+//        
+//        if ([person.name isEqualToString:@"Neil deGrasse Tyson"]) {
+//            
+//            NSLog(@"Found you");
+//            
+//            NSLog(@"%@", person.fieldOfStudy);
+//            self.image.image = person.profilePicture;
+//            
+//            
+//            break;
+//        }
+//    
+//    }
     
     
     
 //    self.image.image = [UIImage imageNamed:@"Amy Poehler"];
     
+    
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *identifier = @"personCell";
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
+    
+    
+    
+    UIImage *imageToUse = [self.holdingTheImages objectAtIndex:indexPath.row];
+
+    
+    recipeImageView.image = imageToUse;
+    recipeImageView.layer.cornerRadius = 50;
+    recipeImageView.layer.masksToBounds = YES;
+    
+    
+    
+    return cell;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
+    return [self.holdingTheImages count];
     
 }
 

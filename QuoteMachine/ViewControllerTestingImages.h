@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "QuoteDataStore.h"
 
-@interface ViewControllerTestingImages : UIViewController <NSFetchedResultsControllerDelegate>
+@interface ViewControllerTestingImages : UIViewController <NSFetchedResultsControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic) QuoteDataStore *dataStore;
 

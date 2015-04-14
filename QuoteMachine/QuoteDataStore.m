@@ -54,18 +54,6 @@
     
     [CreatePeople createAllOfTheVariousPeopleWithContext:self.managedObjectContext];
     
-    Person *homer = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setHomerSimpson:homer];
-    
-    Person *eric = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setEricCartman:eric];
-    
-    Person *tina = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setTinaFey:tina];
-    
-    Person *amy = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setAmyPoehler:amy];
-    
     Person *michael = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
     [objectToSetPeople setMichaelJordan:michael];
     
