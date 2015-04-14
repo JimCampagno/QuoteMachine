@@ -50,40 +50,9 @@
 
 - (void)generateGame {
     
-    CreatePeople *objectToSetPeople = [[CreatePeople alloc] init];
-    
     [CreatePeople createAllOfTheVariousPeopleWithContext:self.managedObjectContext];
-    
-    Person *michael = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setMichaelJordan:michael];
-    
-    Person *ali = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setMuhammadAli:ali];
-    
-    Person *stuart = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setStuartScott:stuart];
-    
-    Person *vince = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setVinceLombardi:vince];
-    
-    Person *jane = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setJaneGoodall:jane];
-    
-    Person *anita = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setAnitaBorg:anita];
-    
-    Person *barbara = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setBarbaraMcClintock:barbara];
-    
-    Person *marie = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:self.managedObjectContext];
-    [objectToSetPeople setMarieCurie:marie];
-    
-
     [self saveContext];
     [self fetchData];
-    
-    
-
 }
 
 

@@ -12,23 +12,56 @@
 
 @interface CreatePeople ()
 
-@property (strong, nonatomic) QuoteDataStore *dataStoreForCreate;
++ (void)createPerson:(Person *)person
+            WithName:(NSString *)name
+        FieldOfStudy:(NSString *)fos
+             Summary:(NSString *)summary
+      ThumbnailImage:(UIImage *)image
+        ProfileImage:(UIImage *)profImage;
+
++ (void)createQuotes:(Person *)person
+          withQuote1:(NSString *)quote1
+              Quote2:(NSString *)quote2
+              Quote3:(NSString *)quote3
+           MOContext:(NSManagedObjectContext *)context;
+
+//CreateAllPeopleAtOnce
++ (void)createAllOfTheVariousPeopleWithContext:(NSManagedObjectContext *)context;
+
+//Scientists
++ (void)setNeilDegrasseTysonWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setBillNyeWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setCarlSaganWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setisaacNewtonWithMOC:(NSManagedObjectContext *)moContext;
+
+//Cartoon Characters
++ (void)setSuperMarioWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setFinnTheHumanWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setHomerSimpsonWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setEricCartmanWithMOC:(NSManagedObjectContext *)moContext;
+
+//Comedians
++ (void)setMitchHedbergWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setLarryDavidWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setTinaFeyWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setAmyPoehlerWithMOC:(NSManagedObjectContext *)moContext;
+
+//Sports figures
++ (void)setMichaelJordanWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setMuhammadAliWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setStuartScottWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setVinceLombardiWithMOC:(NSManagedObjectContext *)moContext;
+
+//More Scientists
++ (void)setJaneGoodallWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setAnitaBorgWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setBarbaraMcClintockWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setMarieCurieWithMOC:(NSManagedObjectContext *)moContext;
 
 @end
 
 
 @implementation CreatePeople
-
-- (instancetype)init {
-    
-    self = [super init];
-    
-    if (self) {
-        
-        self.dataStoreForCreate = [QuoteDataStore sharedDataStore];
-    }
-    return self;
-}
 
 + (void)createQuotes:(Person *)person
           withQuote1:(NSString *)quote1
@@ -56,35 +89,7 @@
     [person addQuotesObject:quoteOfPerson3];
 }
 
-- (void)createQuotesForPerson:(Person *)person
-                   withQuote1:(NSString *)quote1
-                   withQuote2:(NSString *)quote2
-                   withQuote3:(NSString *)quote3 {
-    
-    Quotes *quoteOfPerson1 = [NSEntityDescription
-                              insertNewObjectForEntityForName:@"Quotes"
-                              inManagedObjectContext:self.dataStoreForCreate
-                              .managedObjectContext];
-    Quotes *quoteOfPerson2 = [NSEntityDescription
-                              insertNewObjectForEntityForName:@"Quotes"
-                              inManagedObjectContext:self.dataStoreForCreate
-                              .managedObjectContext];
-    Quotes *quoteOfPerson3 = [NSEntityDescription
-                              insertNewObjectForEntityForName:@"Quotes"
-                              inManagedObjectContext:self.dataStoreForCreate
-                              .managedObjectContext];
-    quoteOfPerson1.quote = quote1;
-    quoteOfPerson2.quote = quote2;
-    quoteOfPerson3.quote = quote3;
-    
-    quoteOfPerson1.person = person;
-    quoteOfPerson2.person = person;
-    quoteOfPerson3.person = person;
-    
-    [person addQuotesObject:quoteOfPerson1];
-    [person addQuotesObject:quoteOfPerson2];
-    [person addQuotesObject:quoteOfPerson3];
-}
+
 
 + (void)createPerson:(Person *)person
             WithName:(NSString *)name
@@ -115,6 +120,14 @@
     [CreatePeople setAmyPoehlerWithMOC:context];
     [CreatePeople setHomerSimpsonWithMOC:context];
     [CreatePeople setEricCartmanWithMOC:context];
+    [CreatePeople setMichaelJordanWithMOC:context];
+    [CreatePeople setMuhammadAliWithMOC:context];
+    [CreatePeople setStuartScottWithMOC:context];
+    [CreatePeople setVinceLombardiWithMOC:context];
+    [CreatePeople setJaneGoodallWithMOC:context];
+    [CreatePeople setAnitaBorgWithMOC:context];
+    [CreatePeople setBarbaraMcClintockWithMOC:context];
+    [CreatePeople setMarieCurieWithMOC:context];
 }
 
 
@@ -342,162 +355,155 @@
     
 }
 
-- (void)setMichaelJordan:(Person *)person {
++ (void)setMichaelJordanWithMOC:(NSManagedObjectContext *)moContext {
     
-    person.name = @"Michael Jordan";
-    person.fieldOfStudy = @"Sports";
-    person.summary = @"Michael Jeffrey Jordan, also known by his initials, MJ, is an American former professional basketball player, entrepreneur, and principal owner and chairman of the Charlotte Hornets.";
-//    person.thumbnailImage = [UIImage imageNamed:@"michaelJordan"];
-
+    Person *mj = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
     
-    NSString *quote1 = @"My attitude is that if you push me towards something that you think is a weakness, then I will turn that perceived weakness into a strength";
-    NSString *quote2 = @"I can accept failure, everyone fails at something. But I can't accept not trying.";
-    NSString *quote3 = @"Some people want it to happen, some wish it would happen, and others make it happen.";
+    [CreatePeople createPerson:mj
+                      WithName:@"Michael Jordan"
+                  FieldOfStudy:@"Sports"
+                       Summary:@"Michael Jeffrey Jordan, also known by his initials, MJ, is an American former professional basketball player, entrepreneur, and principal owner and chairman of the Charlotte Hornets."
+                ThumbnailImage:[UIImage imageNamed:@"Michael Jordan"]
+                  ProfileImage:nil];
     
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
-
-    
-    
-}
-
-- (void)setMuhammadAli:(Person *)person {
-    
-    person.name = @"Muhammad Ali";
-    person.fieldOfStudy = @"Sports";
-    person.summary = @"Muhammad Ali is an American former professional boxer, generally considered among the greatest heavyweights in the sport's history.";
-//    person.thumbnailImage = [UIImage imageNamed:@"muhammadAli"];
-
-    
-    NSString *quote1 = @"Don't count the days, make the days count.";
-    NSString *quote2 = @"To be a great champion you must believe you are the best. If you’re not, pretend you are";
-    NSString *quote3 = @"Often it isn't the mountains ahead that wear you out, it's the little pebble in your shoe.";
-    
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
-
-    
+    [CreatePeople createQuotes:mj
+                    withQuote1:@"My attitude is that if you push me towards something that you think is a weakness, then I will turn that perceived weakness into a strength"
+                        Quote2:@"I can accept failure, everyone fails at something. But I can't accept not trying."
+                        Quote3:@"Some people want it to happen, some wish it would happen, and others make it happen."
+                     MOContext:moContext];
     
 }
 
-- (void)setStuartScott:(Person *)person {
++ (void)setMuhammadAliWithMOC:(NSManagedObjectContext *)moContext {
     
-    person.name = @"Stuart Scott";
-    person.fieldOfStudy = @"Sports";
-    person.summary = @"Stuart Orlando Scott was an American sportscaster and anchor on ESPN, most notably on the network's SportsCenter.";
-//    person.thumbnailImage = [UIImage imageNamed:@"stuartScott"];
-
+    Person *ali = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
     
-    NSString *quote1 = @"As cool as the other side of the pillow.";
-    NSString *quote2 = @"Don't downgrade your dream just to fit your reality. Upgrade your conviction to match your destiny.";
-    NSString *quote3 = @"This whole fight, this journey thing is not a solo venture. This is something that requires support.";
+    [CreatePeople createPerson:ali
+                      WithName:@"Muhammad Ali"
+                  FieldOfStudy:@"Sports"
+                       Summary:@"Muhammad Ali is an American former professional boxer, generally considered among the greatest heavyweights in the sport's history."
+                ThumbnailImage:[UIImage imageNamed:@"Muhammad Ali"]
+                  ProfileImage:nil];
     
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
-
+    [CreatePeople createQuotes:ali
+                    withQuote1:@"Don't count the days, make the days count."
+                        Quote2:@"To be a great champion you must believe you are the best. If you’re not, pretend you are"
+                        Quote3:@"Often it isn't the mountains ahead that wear you out, it's the little pebble in your shoe."
+                     MOContext:moContext];
 }
 
-- (void)setVinceLombardi:(Person *)person {
++ (void)setStuartScottWithMOC:(NSManagedObjectContext *)moContext {
     
-    person.name = @"Vince Lombardi";
-    person.fieldOfStudy = @"Sports";
-    person.summary = @"Vincent Thomas Vince Lombardi (June 11, 1913– September 3, 1970),[1] was an American football player, coach, and executive. He is best known as the head coach of the Green Bay Packers during the 1960s, where he led the team to three straight and five total National Football League championships in seven years, including winning the first two Super Bowls following the 1966 and 1967 NFL seasons. Lombardi is considered by many to be one of the best and most successful coaches in NFL history.[2] The National Football League's Super Bowl trophy is named in his honor. He was enshrined in the Pro Football Hall of Fame in 1971.";
-//    person.thumbnailImage = [UIImage imageNamed:@"vinceLombardi"];
-
+    Person *stuart = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
     
-    NSString *quote1 = @"The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will.";
-    NSString *quote2 = @"The real glory is being knocked to your knees and then coming back. That's real glory. Thats the essence of it.";
-    NSString *quote3 = @"The man on top of the mountain didn't fall there.";
+    [CreatePeople createPerson:stuart
+                      WithName:@"Stuart Scott"
+                  FieldOfStudy:@"Sports"
+                       Summary:@"Stuart Orlando Scott was an American sportscaster and anchor on ESPN, most notably on the network's SportsCenter."
+                ThumbnailImage:[UIImage imageNamed:@"Stuart Scott"]
+                  ProfileImage:nil];
     
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
-
+    [CreatePeople createQuotes:stuart
+                    withQuote1:@"As cool as the other side of the pillow."
+                        Quote2:@"Don't downgrade your dream just to fit your reality. Upgrade your conviction to match your destiny."
+                        Quote3:@"This whole fight, this journey thing is not a solo venture. This is something that requires support."
+                     MOContext:moContext];
 }
 
-
-- (void)setJaneGoodall:(Person *)person {
++ (void)setVinceLombardiWithMOC:(NSManagedObjectContext *)moContext {
     
-    person.name = @"Jane Goodall";
-    person.fieldOfStudy = @"Science";
-    person.summary = @"Dame Jane Morris Goodall, DBE is an English primatologist, ethologist, anthropologist, and UN Messenger of Peace.";
-//    person.thumbnailImage = [UIImage imageNamed:@"janeGoodall"];
-
+    Person *vince = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
     
-    NSString *quote1 = @"What you do makes a difference, and you have to decide what kind of difference you want to make.";
-    NSString *quote2 = @"We have the choice to use the gift of our life to make the world a better place--or not to bother";
-    NSString *quote3 = @"Change happens by listening and then starting a dialogue with the people who are doing something you don't believe is right. ";
+    [CreatePeople createPerson:vince
+                      WithName:@"Vince Lombardi"
+                  FieldOfStudy:@"Sports"
+                       Summary:@"Vincent Thomas Vince Lombardi (June 11, 1913– September 3, 1970),[1] was an American football player, coach, and executive. He is best known as the head coach of the Green Bay Packers during the 1960s, where he led the team to three straight and five total National Football League championships in seven years, including winning the first two Super Bowls following the 1966 and 1967 NFL seasons. Lombardi is considered by many to be one of the best and most successful coaches in NFL history.[2] The National Football League's Super Bowl trophy is named in his honor. He was enshrined in the Pro Football Hall of Fame in 1971."
+                ThumbnailImage:[UIImage imageNamed:@"Vince Lombardi"]
+                  ProfileImage:nil];
     
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
-
-    
-}
-
-- (void)setAnitaBorg:(Person *)person {
-    
-    person.name = @"Anita Borg";
-    person.fieldOfStudy = @"Science";
-    person.summary = @"Anita Borg was an American computer scientist. She founded the Institute for Women and Technology and the Grace Hopper Celebration of Women in Computing. She was born Anita Borg Naffz in Chicago, Illinois.";
-//    person.thumbnailImage = [UIImage imageNamed:@"anitaBorg"];
-
-    
-    NSString *quote1 = @"If we want technology to serve society rather than enslave it, we have to build systems accessible to all people - be they male or female.";
-    NSString *quote2 = @"Keep an active fantasy life about what you can do and what your possibilities are. Have principles and work towards them, but be patient with yourself when you can't change the whole world. You can't do it all by yourself";
-    NSString *quote3 = @"Don't underestimate yourself, but learn to know yourself. Learn to understand your strengths and believe in yourself. Be rationally optimistic. Optimism is a wonderful thing, it gets you where you're going";
-    
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
-}
-
-- (void)setBarbaraMcClintock:(Person *)person {
-    
-    person.name = @"Barbara McClintock";
-    person.fieldOfStudy = @"Science";
-    person.summary = @"Barbara McClintock, was an American scientist and one of the world's most distinguished cytogeneticists, who won the 1983 Nobel laureate in Physiology or Medicine. McClintock received her PhD in botany from Cornell University in 1927.";
-//    person.thumbnailImage = [UIImage imageNamed:@"barbaraMcClintock"];
-
-    
-    NSString *quote1 = @"If you know you are on the right track, if you have this inner knowledge, then nobody can turn you off... no matter what they say.";
-    NSString *quote2 = @"Every time I walk on grass, I feel sorry because I know the grass is screaming at me.";
-    NSString *quote3 = @"I was just so interested in what I was doing I could hardly wait to get up in the morning and get at it. One of my friends, a geneticist, said I was a child, because only children can't wait to get up in the morning to get at what they want to do.";
-    
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
-
-
-    
-}
-
-- (void)setMarieCurie:(Person *)person {
-    
-    person.name = @"Marie Curie";
-    person.fieldOfStudy = @"Science";
-    person.summary = @"Marie Skłodowska-Curie was a Polish and naturalized-French physicist and chemist who conducted pioneering research on radioactivity. She was the first woman to win a Nobel Prize, the first person and only woman to win twice, the only person to win twice in multiple sciences, and was part of the Curie family legacy of five Nobel Prizes. She was also the first woman to become a professor at the University of Paris, and in 1995 became the first woman to be entombed on her own merits in the Panthéon in Paris.";
-//    person.thumbnailImage = [UIImage imageNamed:@"marieCurie"];
-
-    
-    NSString *quote1 = @"After all, science is essentially international, and it is only through lack of the historical sense that national qualities have been attributed to it.";
-    NSString *quote2 = @"Be less curious about people and more curious about ideas.";
-    NSString *quote3 = @"Life is not easy for any of us, but what of that? We must have perseverance and above all confidence in ourselves. We must believe that we are gifted in something, and that this thing, at whatever cost, must be attained.";
-    
-    [self createQuotesForPerson:person withQuote1:quote1 withQuote2:quote2 withQuote3:quote3];
+    [CreatePeople createQuotes:vince
+                    withQuote1:@"The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will."
+                        Quote2:@"The real glory is being knocked to your knees and then coming back. That's real glory. Thats the essence of it."
+                        Quote3:@"The man on top of the mountain didn't fall there."
+                     MOContext:moContext];
     
 }
 
 
++ (void)setJaneGoodallWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *jane = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:jane
+                      WithName:@"Jane"
+                  FieldOfStudy:@"Science"
+                       Summary:@"Dame Jane Morris Goodall, DBE is an English primatologist, ethologist, anthropologist, and UN Messenger of Peace."
+                ThumbnailImage:[UIImage imageNamed:@"Jane Goodall"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:jane
+                    withQuote1:@"What you do makes a difference, and you have to decide what kind of difference you want to make."
+                        Quote2:@"We have the choice to use the gift of our life to make the world a better place--or not to bother"
+                        Quote3:@"Change happens by listening and then starting a dialogue with the people who are doing something you don't believe is right. "
+                     MOContext:moContext];
+}
 
++ (void)setAnitaBorgWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *anita = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:anita
+                      WithName:@"Anita Borg"
+                  FieldOfStudy:@"Science"
+                       Summary:@"Anita Borg was an American computer scientist. She founded the Institute for Women and Technology and the Grace Hopper Celebration of Women in Computing. She was born Anita Borg Naffz in Chicago, Illinois."
+                ThumbnailImage:[UIImage imageNamed:@"Anita Borg"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:anita
+                    withQuote1:@"If we want technology to serve society rather than enslave it, we have to build systems accessible to all people - be they male or female."
+                        Quote2:@"Keep an active fantasy life about what you can do and what your possibilities are. Have principles and work towards them, but be patient with yourself when you can't change the whole world. You can't do it all by yourself"
+                        Quote3:@"Don't underestimate yourself, but learn to know yourself. Learn to understand your strengths and believe in yourself. Be rationally optimistic. Optimism is a wonderful thing, it gets you where you're going"
+                     MOContext:moContext];
+    
+}
 
++ (void)setBarbaraMcClintockWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *barbara = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:barbara
+                      WithName:@"Barbara McClintock"
+                  FieldOfStudy:@"Science"
+                       Summary:@"Barbara McClintock, was an American scientist and one of the world's most distinguished cytogeneticists, who won the 1983 Nobel laureate in Physiology or Medicine. McClintock received her PhD in botany from Cornell University in 1927."
+                ThumbnailImage:[UIImage imageNamed:@"Barbara McClintock"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:barbara
+                    withQuote1:@"If you know you are on the right track, if you have this inner knowledge, then nobody can turn you off... no matter what they say."
+                        Quote2:@"Every time I walk on grass, I feel sorry because I know the grass is screaming at me."
+                        Quote3:@"I was just so interested in what I was doing I could hardly wait to get up in the morning and get at it. One of my friends, a geneticist, said I was a child, because only children can't wait to get up in the morning to get at what they want to do."
+                     MOContext:moContext];
+    
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
++ (void)setMarieCurieWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *marie = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:marie
+                      WithName:@"Marie Curie"
+                  FieldOfStudy:@"Science"
+                       Summary:@"Marie Skłodowska-Curie was a Polish and naturalized-French physicist and chemist who conducted pioneering research on radioactivity. She was the first woman to win a Nobel Prize, the first person and only woman to win twice, the only person to win twice in multiple sciences, and was part of the Curie family legacy of five Nobel Prizes. She was also the first woman to become a professor at the University of Paris, and in 1995 became the first woman to be entombed on her own merits in the Panthéon in Paris."
+                ThumbnailImage:[UIImage imageNamed:@"Marie Curie"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:marie
+                    withQuote1:@"After all, science is essentially international, and it is only through lack of the historical sense that national qualities have been attributed to it."
+                        Quote2:@"Be less curious about people and more curious about ideas."
+                        Quote3:@"Life is not easy for any of us, but what of that? We must have perseverance and above all confidence in ourselves. We must believe that we are gifted in something, and that this thing, at whatever cost, must be attained."
+                     MOContext:moContext];
+    
+}
 
 @end

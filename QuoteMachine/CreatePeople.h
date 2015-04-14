@@ -14,8 +14,6 @@
 
 @interface CreatePeople : NSObject
 
-- (instancetype)init;
-
 //CreateAllPeopleAtOnce
 + (void)createAllOfTheVariousPeopleWithContext:(NSManagedObjectContext *)context;
 
@@ -38,15 +36,15 @@
 + (void)setAmyPoehlerWithMOC:(NSManagedObjectContext *)moContext;
 
 //Sports figures
-- (void)setMichaelJordan:(Person *)person;
-- (void)setMuhammadAli:(Person *)person;
-- (void)setStuartScott:(Person *)person;
-- (void)setVinceLombardi:(Person *)person;
++ (void)setMichaelJordanWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setMuhammadAliWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setStuartScottWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setVinceLombardiWithMOC:(NSManagedObjectContext *)moContext;
 
 //More Scientists
-- (void)setJaneGoodall:(Person *)person;
-- (void)setAnitaBorg:(Person *)person;
-- (void)setBarbaraMcClintock:(Person *)person;
-- (void)setMarieCurie:(Person *)person;
++ (void)setJaneGoodallWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setAnitaBorgWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setBarbaraMcClintockWithMOC:(NSManagedObjectContext *)moContext;
++ (void)setMarieCurieWithMOC:(NSManagedObjectContext *)moContext;
 
 @end

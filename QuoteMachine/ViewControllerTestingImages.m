@@ -20,7 +20,7 @@
 @implementation ViewControllerTestingImages
 
 -(NSMutableArray *)holdingTheImages {
-
+    
     if (!_holdingTheImages) {
         
         _holdingTheImages = [[NSMutableArray alloc] init];
@@ -32,12 +32,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-   
     
-   
+    
+    
     
     
     
@@ -62,24 +62,24 @@
     }
     
     
-//    for (Person *person in self.dataStore.quotesReadyForGame) {
-//        
-//        if ([person.name isEqualToString:@"Neil deGrasse Tyson"]) {
-//            
-//            NSLog(@"Found you");
-//            
-//            NSLog(@"%@", person.fieldOfStudy);
-//            self.image.image = person.profilePicture;
-//            
-//            
-//            break;
-//        }
-//    
-//    }
+    //    for (Person *person in self.dataStore.quotesReadyForGame) {
+    //
+    //        if ([person.name isEqualToString:@"Neil deGrasse Tyson"]) {
+    //
+    //            NSLog(@"Found you");
+    //
+    //            NSLog(@"%@", person.fieldOfStudy);
+    //            self.image.image = person.profilePicture;
+    //
+    //
+    //            break;
+    //        }
+    //
+    //    }
     
     
     
-//    self.image.image = [UIImage imageNamed:@"Amy Poehler"];
+    //    self.image.image = [UIImage imageNamed:@"Amy Poehler"];
     
     
 }
@@ -90,16 +90,19 @@
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
+    
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
+    
     UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
     
     
     
     UIImage *imageToUse = [self.holdingTheImages objectAtIndex:indexPath.row];
-
+    
     
     recipeImageView.image = imageToUse;
-    recipeImageView.layer.cornerRadius = 50;
-    recipeImageView.layer.masksToBounds = YES;
+    //    recipeImageView.layer.cornerRadius = 50;
+    //    recipeImageView.layer.masksToBounds = YES;
     
     
     
@@ -118,13 +121,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
