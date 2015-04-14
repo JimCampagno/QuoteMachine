@@ -10,6 +10,7 @@
 		1B7D17681AAB610A0011946B /* QuoteScreenStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B7D17671AAB610A0011946B /* QuoteScreenStoryboard.storyboard */; };
 		1B7D176B1AAB61320011946B /* QuoteScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D176A1AAB61320011946B /* QuoteScreenViewController.m */; };
 		1B7D17711AACE99D0011946B /* UIView+distance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D17701AACE99D0011946B /* UIView+distance.m */; };
+		7D0BD28B1ADC8D0600464804 /* ViewControllerTestingImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0BD28A1ADC8D0600464804 /* ViewControllerTestingImages.m */; };
 		7D3AE0711AA36D8B001EE74B /* QuoteDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE0701AA36D8B001EE74B /* QuoteDataStore.m */; };
 		7D3AE0741AA3791E001EE74B /* MatchingTheQuotesGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE0731AA3791E001EE74B /* MatchingTheQuotesGame.m */; };
 		7D3AE0771AA37DBB001EE74B /* Quotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE0761AA37DBB001EE74B /* Quotes.m */; };
@@ -44,6 +45,8 @@
 		1B7D176A1AAB61320011946B /* QuoteScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteScreenViewController.m; sourceTree = "<group>"; };
 		1B7D176F1AACE99D0011946B /* UIView+distance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+distance.h"; sourceTree = "<group>"; };
 		1B7D17701AACE99D0011946B /* UIView+distance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+distance.m"; sourceTree = "<group>"; };
+		7D0BD2891ADC8D0600464804 /* ViewControllerTestingImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTestingImages.h; sourceTree = "<group>"; };
+		7D0BD28A1ADC8D0600464804 /* ViewControllerTestingImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTestingImages.m; sourceTree = "<group>"; };
 		7D3AE06F1AA36D8B001EE74B /* QuoteDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteDataStore.h; sourceTree = "<group>"; };
 		7D3AE0701AA36D8B001EE74B /* QuoteDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteDataStore.m; sourceTree = "<group>"; };
 		7D3AE0721AA3791E001EE74B /* MatchingTheQuotesGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchingTheQuotesGame.h; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				7D42D6211A9FC074002738E7 /* GameScreenViewController.m */,
 				1B7D176F1AACE99D0011946B /* UIView+distance.h */,
 				1B7D17701AACE99D0011946B /* UIView+distance.m */,
+				7D0BD2891ADC8D0600464804 /* ViewControllerTestingImages.h */,
+				7D0BD28A1ADC8D0600464804 /* ViewControllerTestingImages.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				1B7D176B1AAB61320011946B /* QuoteScreenViewController.m in Sources */,
 				7D42D5FD1A9FBF32002738E7 /* AppDelegate.m in Sources */,
 				7D50326F1ADC734000C34816 /* ImageToDataTransformer.m in Sources */,
+				7D0BD28B1ADC8D0600464804 /* ViewControllerTestingImages.m in Sources */,
 				7D42D5FA1A9FBF32002738E7 /* main.m in Sources */,
 				1B7D17711AACE99D0011946B /* UIView+distance.m in Sources */,
 				7D42D6221A9FC074002738E7 /* GameScreenViewController.m in Sources */,
