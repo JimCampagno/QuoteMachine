@@ -8,112 +8,111 @@
 
 #import "ViewControllerTestingImages.h"
 #import "Person.h"
+#import "PersonCollectionViewCell.h"
 
 @interface ViewControllerTestingImages ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *image;
-@property (strong, nonatomic) NSMutableArray *holdingTheImages;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 
 @end
 
 @implementation ViewControllerTestingImages
 
--(NSMutableArray *)holdingTheImages {
-    
-    if (!_holdingTheImages) {
-        
-        _holdingTheImages = [[NSMutableArray alloc] init];
-    }
-    
-    return _holdingTheImages;
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    
-    
-    
-    
-    
     self.dataStore = [QuoteDataStore sharedDataStore];
-    
     [self.dataStore fetchData];
-    
-    NSFetchRequest *personQuoteRequest =
-    [[NSFetchRequest alloc] initWithEntityName:@"Person"];
-    self.dataStore.quotesReadyForGame = [self.dataStore.managedObjectContext
-                                         executeFetchRequest:personQuoteRequest
-                                         error:nil];
-    
-    for (Person *person in self.dataStore.quotesReadyForGame) {
-        
-        if (person.thumbnailImage) {
-            
-            [self.holdingTheImages addObject:person.thumbnailImage];
-            self.image.image = self.holdingTheImages[0];
-            
-        }
-    }
-    
-    
-    //    for (Person *person in self.dataStore.quotesReadyForGame) {
-    //
-    //        if ([person.name isEqualToString:@"Neil deGrasse Tyson"]) {
-    //
-    //            NSLog(@"Found you");
-    //
-    //            NSLog(@"%@", person.fieldOfStudy);
-    //            self.image.image = person.profilePicture;
-    //
-    //
-    //            break;
-    //        }
-    //
-    //    }
-    
-    
-    
-    //    self.image.image = [UIImage imageNamed:@"Amy Poehler"];
     
     
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *identifier = @"personCell";
+    Person *personToUse = [self.dataStore.quotesReadyForGame objectAtIndex:indexPath.row];
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    PersonCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"personCell" forIndexPath:indexPath];
     
-    
-    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo-frame.png"]];
-    
-    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
-    
-    
-    
-    UIImage *imageToUse = [self.holdingTheImages objectAtIndex:indexPath.row];
-    
-    
-    recipeImageView.image = imageToUse;
-    //    recipeImageView.layer.cornerRadius = 50;
-    //    recipeImageView.layer.masksToBounds = YES;
-    
-    
-    
+    [cell fillInCellForDisplayWithName:personToUse.name andPhoto:personToUse.thumbnailImage];
+
     return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return [self.holdingTheImages count];
+    return [self.dataStore.quotesReadyForGame count];
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+
+    UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
+    PersonCollectionViewCell *cellToUse = (PersonCollectionViewCell *)datasetCell;
+    
+    NSLog(@"You selected %@", cellToUse.name);
+    
+    cellToUse.imageView.layer.borderWidth = 2.5;
+    cellToUse.imageView.layer.borderColor = [UIColor greenColor].CGColor;
+    
+    [UIView animateKeyframesWithDuration:0.6
+                                   delay:0.0
+                                 options:UIViewKeyframeAnimationOptionCalculationModeLinear
+                              animations:^{
+                                  
+                                  cellToUse.imageView.transform = CGAffineTransformMakeScale(0.6, 0.6);
+                                  
+                                  [UIView addKeyframeWithRelativeStartTime:0.0
+                                                          relativeDuration:1 / 3.0
+                                                                animations:^{
+                                                                    
+                                                                    cellToUse.imageView.transform =
+                                                                    CGAffineTransformMakeRotation(
+                                                                                                  M_PI + (M_PI / 4));
+                                                                }];
+                                  
+                                  [UIView addKeyframeWithRelativeStartTime:1 / 3.0
+                                                          relativeDuration:1 / 3.0
+                                                                animations:^{
+                                                                    
+                                                                    cellToUse.imageView.transform =
+                                                                    CGAffineTransformMakeRotation(
+                                                                                                  M_PI - (M_PI / 4));
+                                                                }];
+                                  
+                                  [UIView addKeyframeWithRelativeStartTime:2 / 3.0
+                                                          relativeDuration:1 / 3.0
+                                                                animations:^{
+                                                                    
+                                                                    cellToUse.imageView.transform =
+                                                                    CGAffineTransformMakeRotation(0);
+                                                                }];
+                              }
+                              completion:^(BOOL finished) {
+                                  
+                                  cellToUse.imageView.layer.borderWidth = 1.5;
+                                  
+                              }];
+
     
 }
+
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
+//    datasetCell.backgroundColor = [UIColor redColor]; // Default color
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

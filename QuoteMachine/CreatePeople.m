@@ -155,7 +155,7 @@
     
     [CreatePeople createPerson:mario
                       WithName:@"Mario"
-                  FieldOfStudy:@"Gaming"
+                  FieldOfStudy:@"Cartoon"
                        Summary:@"Mario is a fictional character in the Mario video game franchise, created by Nintendo's Japanese video game designer, Shigeru Miyamoto."
                 ThumbnailImage:[UIImage imageNamed:@"Mario"]
                   ProfileImage:nil];

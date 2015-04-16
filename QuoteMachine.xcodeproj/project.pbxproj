@@ -26,6 +26,7 @@
 		7D50326F1ADC734000C34816 /* ImageToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D50326E1ADC734000C34816 /* ImageToDataTransformer.m */; };
 		7D5168E81AB1050F0092A5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5168E61AB1050F0092A5E5 /* Main.storyboard */; };
 		7DB1664B1ADA141B002BBA30 /* ScreenSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1664A1ADA141B002BBA30 /* ScreenSelectViewController.m */; };
+		7DFC9D761AE057470018F23B /* PersonCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC9D751AE057470018F23B /* PersonCollectionViewCell.m */; };
 		F8FC3633FC7D81A1839C4DAF /* libPods-QuoteMachine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0E51941320B362DA921A41 /* libPods-QuoteMachine.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,8 @@
 		7D5168E71AB1050F0092A5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7DB166491ADA141B002BBA30 /* ScreenSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenSelectViewController.h; sourceTree = "<group>"; };
 		7DB1664A1ADA141B002BBA30 /* ScreenSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenSelectViewController.m; sourceTree = "<group>"; };
+		7DFC9D741AE057470018F23B /* PersonCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCollectionViewCell.h; sourceTree = "<group>"; };
+		7DFC9D751AE057470018F23B /* PersonCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCollectionViewCell.m; sourceTree = "<group>"; };
 		8B0E51941320B362DA921A41 /* libPods-QuoteMachine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QuoteMachine.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF43B142619056DDF31A6059 /* Pods-QuoteMachine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteMachine.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteMachine/Pods-QuoteMachine.release.xcconfig"; sourceTree = "<group>"; };
 		F7A19373B3C064CE3494CC9A /* Pods-QuoteMachine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteMachine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteMachine/Pods-QuoteMachine.debug.xcconfig"; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				7D3AE0731AA3791E001EE74B /* MatchingTheQuotesGame.m */,
 				7D50326D1ADC734000C34816 /* ImageToDataTransformer.h */,
 				7D50326E1ADC734000C34816 /* ImageToDataTransformer.m */,
+				7DFC9D741AE057470018F23B /* PersonCollectionViewCell.h */,
+				7DFC9D751AE057470018F23B /* PersonCollectionViewCell.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				1B7D176B1AAB61320011946B /* QuoteScreenViewController.m in Sources */,
 				7D42D5FD1A9FBF32002738E7 /* AppDelegate.m in Sources */,
 				7D50326F1ADC734000C34816 /* ImageToDataTransformer.m in Sources */,
+				7DFC9D761AE057470018F23B /* PersonCollectionViewCell.m in Sources */,
 				7D0BD28B1ADC8D0600464804 /* ViewControllerTestingImages.m in Sources */,
 				7D42D5FA1A9FBF32002738E7 /* main.m in Sources */,
 				1B7D17711AACE99D0011946B /* UIView+distance.m in Sources */,

@@ -51,6 +51,7 @@
 - (void)generateGame {
     
     [CreatePeople createAllOfTheVariousPeopleWithContext:self.managedObjectContext];
+    
     [self saveContext];
     [self fetchData];
 }
@@ -59,7 +60,7 @@
 
 - (void)fetchData {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Person"];
-    NSSortDescriptor *createdAtSorter = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSSortDescriptor *createdAtSorter = [NSSortDescriptor sortDescriptorWithKey:@"fieldOfStudy" ascending:YES];
     request.sortDescriptors = @[createdAtSorter];
     
     self.quotesReadyForGame = [self.managedObjectContext executeFetchRequest:request error:nil];
