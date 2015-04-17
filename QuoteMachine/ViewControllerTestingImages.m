@@ -15,11 +15,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-
 @end
 
 @implementation ViewControllerTestingImages
-
 
 
 - (void)viewDidLoad {
@@ -30,8 +28,6 @@
     
     self.dataStore = [QuoteDataStore sharedDataStore];
     [self.dataStore fetchData];
-    
-    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
