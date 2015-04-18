@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSMutableArray * fourPeopleChosen;
 
 @end
 
@@ -33,12 +34,19 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     Person *personToUse = [self.dataStore.quotesReadyForGame objectAtIndex:indexPath.row];
-    
     PersonCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"personCell" forIndexPath:indexPath];
-    
     [cell fillInCellForDisplayWithName:personToUse.name andPhoto:personToUse.thumbnailImage];
-
-    return cell;
+    
+    if ([self.fourPeopleChosen containsObject:personToUse]) {
+        
+        [cell setUpPropertiesOfCellOnReuseWhenSelected];
+        
+        return cell;
+        
+    } else {
+        
+        return cell;
+    }
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -48,72 +56,55 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-
     UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
     PersonCollectionViewCell *cellToUse = (PersonCollectionViewCell *)datasetCell;
+    Person *personTapped = [self.dataStore.quotesReadyForGame objectAtIndex:indexPath.row];
     
-    NSLog(@"You selected %@", cellToUse.name);
-    
-    cellToUse.imageView.layer.borderWidth = 2.5;
-    cellToUse.imageView.layer.borderColor = [UIColor greenColor].CGColor;
-    
-    [UIView animateKeyframesWithDuration:0.6
-                                   delay:0.0
-                                 options:UIViewKeyframeAnimationOptionCalculationModeLinear
-                              animations:^{
-                                  
-                                  cellToUse.imageView.transform = CGAffineTransformMakeScale(0.6, 0.6);
-                                  
-                                  [UIView addKeyframeWithRelativeStartTime:0.0
-                                                          relativeDuration:1 / 3.0
-                                                                animations:^{
-                                                                    
-                                                                    cellToUse.imageView.transform =
-                                                                    CGAffineTransformMakeRotation(
-                                                                                                  M_PI + (M_PI / 4));
-                                                                }];
-                                  
-                                  [UIView addKeyframeWithRelativeStartTime:1 / 3.0
-                                                          relativeDuration:1 / 3.0
-                                                                animations:^{
-                                                                    
-                                                                    cellToUse.imageView.transform =
-                                                                    CGAffineTransformMakeRotation(
-                                                                                                  M_PI - (M_PI / 4));
-                                                                }];
-                                  
-                                  [UIView addKeyframeWithRelativeStartTime:2 / 3.0
-                                                          relativeDuration:1 / 3.0
-                                                                animations:^{
-                                                                    
-                                                                    cellToUse.imageView.transform =
-                                                                    CGAffineTransformMakeRotation(0);
-                                                                }];
-                              }
-                              completion:^(BOOL finished) {
-                                  
-                                  cellToUse.imageView.layer.borderWidth = 1.5;
-                                  
-                              }];
-
-    
+    if ([self.fourPeopleChosen containsObject:personTapped]) {
+        
+        [self deselectSpecificCell:cellToUse containingPerson:personTapped];
+        
+    } else {
+        
+        [self selectSpecificCell:cellToUse containingPerson:personTapped];
+        
+    }
 }
 
 
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)selectSpecificCell:(PersonCollectionViewCell *)cell containingPerson:(Person *)personTapped {
     
-//    UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
-//    datasetCell.backgroundColor = [UIColor redColor]; // Default color
+    if ([self.fourPeopleChosen count] == 4) {
+        
+        [cell animateCellWhenSelected];
+        
+    } else {
+        
+        
+        [self.fourPeopleChosen addObject:personTapped];
+        
+        [cell animateWhenAddedToArray];
+    }
+    
+}
+
+- (void)deselectSpecificCell:(PersonCollectionViewCell *)cell containingPerson:(Person *)personTapped {
+    
+    
+    [self.fourPeopleChosen removeObject:personTapped];
+    
+    [cell animateWhenRemovedFromArray];
+   
 }
 
 
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSMutableArray *)fourPeopleChosen {
+    if (!_fourPeopleChosen) {
+        _fourPeopleChosen = [[NSMutableArray alloc] init];
+    }
+    return _fourPeopleChosen;
 }
+
 
 /*
  #pragma mark - Navigation

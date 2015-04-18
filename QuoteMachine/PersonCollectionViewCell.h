@@ -16,5 +16,9 @@
 - (void)fixTheWordWrapWithLabel;
 - (void)setupImageToBeDisplayedInCell;
 - (void)fillInCellForDisplayWithName:(NSString *)name andPhoto:(UIImage *)image;
+- (void)animateCellWhenSelected;
+- (void)animateWhenAddedToArray;
+- (void)animateWhenRemovedFromArray;
+- (void)setUpPropertiesOfCellOnReuseWhenSelected;
 
 @end

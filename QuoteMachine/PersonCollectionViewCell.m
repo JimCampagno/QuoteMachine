@@ -19,7 +19,7 @@
 
 - (void)setupImageToBeDisplayedInCell {
     
-    self.imageView.layer.borderWidth = 1.0;
+    self.imageView.layer.borderWidth = 0.90;
     self.imageView.layer.borderColor = [UIColor grayColor].CGColor;
     self.imageView.layer.cornerRadius = 40;
     self.imageView.layer.masksToBounds = YES;
@@ -33,5 +33,91 @@
     self.name.text = name;
     self.imageView.image = image;
 }
+
+- (void)animateCellWhenSelected {
+    
+    [UIView animateWithDuration:0.095
+                     animations:^{
+                         
+                         self.imageView.transform = CGAffineTransformMakeScale(0.85, 0.85);
+                         
+                     }
+                     completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.095
+                                          animations:^{
+                                              
+                                              self.imageView.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                                              
+                                          }
+                                          completion:^ (BOOL finished) {
+                                              
+                                          }];
+                     }];
+    
+}
+
+- (void)animateWhenAddedToArray {
+    
+    [UIView animateWithDuration:0.095
+                     animations:^{
+                         
+                         self.imageView.transform = CGAffineTransformMakeScale(0.85, 0.85);
+                         
+                     }
+                     completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.095
+                                          animations:^{
+                                              
+                                              self.imageView.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                                              self.imageView.layer.borderWidth = 2.75;
+                                              self.imageView.layer.borderColor = [UIColor greenColor].CGColor;
+                                              
+                                          }
+                                          completion:^ (BOOL finished) {
+                                              
+                                          }];
+                     }];
+
+}
+
+- (void)animateWhenRemovedFromArray {
+    
+    [UIView animateWithDuration:0.095
+                     animations:^{
+                         
+                         self.imageView.transform = CGAffineTransformMakeScale(0.90, 0.90);
+                         
+                     }
+                     completion:^(BOOL finished){
+                         
+                         [UIView animateWithDuration:0.095
+                                          animations:^{
+                                              
+                                              self.imageView.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                                              self.imageView.layer.borderWidth = 1.0;
+                                              self.imageView.layer.borderColor = [UIColor grayColor].CGColor;
+                                              
+                                          }
+                                          completion:^ (BOOL finished) {
+                                              
+                                              
+                                          }];
+                     }];
+
+}
+
+- (void)setUpPropertiesOfCellOnReuseWhenSelected {
+    
+    self.imageView.layer.borderWidth = 2.75;
+    self.imageView.layer.borderColor = [UIColor greenColor].CGColor;
+    
+}
+
+
+
+
+
 
 @end
