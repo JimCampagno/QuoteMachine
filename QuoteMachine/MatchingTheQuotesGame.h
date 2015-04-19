@@ -24,5 +24,6 @@
 - (NSString *)drawAQuoteToDisplay;
 - (void)displayInstructionAndFirstQuoteWithLabel:(UILabel *)label;
 - (void)displayANewQuoteWithLabel:(UILabel *)label;
+- (void)makeAGuessWithPerson:(Person *)person toQuoteInLabel:(UILabel *)label inView:(UIView *)view withScoreLabel:(UILabel *)score;
 
 @end

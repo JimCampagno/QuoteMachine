@@ -19,6 +19,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *secondButton;
 @property (weak, nonatomic) IBOutlet UIButton *thirdButton;
 @property (weak, nonatomic) IBOutlet UIButton *fourthButton;
+@property (weak, nonatomic) IBOutlet UILabel *nameOfPersonOne;
+@property (weak, nonatomic) IBOutlet UILabel *nameOfPersonTwo;
+@property (weak, nonatomic) IBOutlet UILabel *nameOfPersonThree;
+@property (weak, nonatomic) IBOutlet UILabel *nameOfPersonFour;
 @property (strong, nonatomic) MatchingTheQuotesGame *gameToBePlayed;
 
 - (IBAction)personOne:(id)sender;
@@ -38,15 +42,36 @@
     
     [self setupQuoteBox];
     
-    
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     
     [self.gameToBePlayed displayInstructionAndFirstQuoteWithLabel:self.quotesToDisplay];
 }
+
+
+
+- (IBAction)personOne:(id)sender {
+    
+    [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[0] toQuoteInLabel:self.quotesToDisplay inView:self.view withScoreLabel:self.score];
+}
+
+- (IBAction)personTwo:(id)sender {
+    
+    [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[1] toQuoteInLabel:self.quotesToDisplay inView:self.view withScoreLabel:self.score];
+}
+
+- (IBAction)personThree:(id)sender {
+    
+    [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[2] toQuoteInLabel:self.quotesToDisplay inView:self.view withScoreLabel:self.score];
+}
+
+- (IBAction)personFour:(id)sender {
+    
+    [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[3] toQuoteInLabel:self.quotesToDisplay inView:self.view withScoreLabel:self.score];
+}
+
+
 
 - (void)setUpButtons {
     
@@ -64,6 +89,16 @@
     UIImage *secondImage = secondPerson.thumbnailImage;
     UIImage *thirdImage = thirdPerson.thumbnailImage;
     UIImage *fourthImage = fourthPerson.thumbnailImage;
+    
+    self.nameOfPersonOne.text = firstPerson.name;
+    self.nameOfPersonTwo.text = secondPerson.name;
+    self.nameOfPersonThree.text = thirdPerson.name;
+    self.nameOfPersonFour.text = fourthPerson.name;
+    
+    [self setupTextBoxForNameLabe:self.nameOfPersonOne];
+    [self setupTextBoxForNameLabe:self.nameOfPersonTwo];
+    [self setupTextBoxForNameLabe:self.nameOfPersonThree];
+    [self setupTextBoxForNameLabe:self.nameOfPersonFour];
     
     [self.firstButton setBackgroundImage:firstImage forState:UIControlStateNormal];
     [self.secondButton setBackgroundImage:secondImage forState:UIControlStateNormal];
@@ -94,16 +129,10 @@
     return _gameToBePlayed;
 }
 
-- (IBAction)personOne:(id)sender {
-}
-
-- (IBAction)personTwo:(id)sender {
-}
-
-- (IBAction)personThree:(id)sender {
-}
-
-- (IBAction)personFour:(id)sender {
+- (void)setupTextBoxForNameLabe:(UILabel *)label {
+    
+    label.numberOfLines = 0;
+    label.lineBreakMode = NSLineBreakByWordWrapping;
 }
 
 

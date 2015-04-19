@@ -116,8 +116,26 @@
         if ([self.fourPeopleChosen count] == 4) {
             
             
+            
+            
             [self blurOutTopImages];
-        
+            
+            
+            
+            
+            
+            
+            //            [self fadeInFourImagesIntoBlurView:self.blurEffectView];
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         }
     }
     
@@ -196,11 +214,18 @@
 
 - (void)blurOutTopImages {
     
+    
+    
     // Blur effect
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     self.blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     [self.blurEffectView setFrame:self.blurView.bounds];
+    
+    self.blurEffectView.alpha = 0.0;
+    
+    
     [self.view addSubview:self.blurEffectView];
+    
     
     // Vibrancy effect
     UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
@@ -242,23 +267,31 @@
     [self.cancelLabel addGestureRecognizer:tapGestureRecognizerForCancel];
     self.cancelLabel.userInteractionEnabled = YES;
     
-    
-    
     // Add labels to the vibrancy view
     [[vibrancyEffectView contentView] addSubview:self.playLabel];
     [[vibrancyEffectView contentView] addSubview:self.cancelLabel];
     
-    
     // Add the vibrancy view to the blur view
     [[self.blurEffectView contentView] addSubview:vibrancyEffectView];
     
+    [UIView animateWithDuration:0.7 animations:^{
+        self.blurEffectView.alpha = 1.0;
+    }];
     
+    [self fadeInFourImagesIntoBlurView:self.blurEffectView];
+}
+
+- (void)fadeInFourImagesIntoBlurView:(UIVisualEffectView *)view {
     
     self.gameImageOne.hidden = NO;
     self.gameImageTwo.hidden = NO;
     self.gameImageThree.hidden = NO;
     self.gameImageFour.hidden = NO;
     
+    self.gameImageOne.alpha = 0.0;
+    self.gameImageTwo.alpha = 0.0;
+    self.gameImageThree.alpha = 0.0;
+    self.gameImageFour.alpha = 0.0;
     
     NSMutableArray *photosOfPeopleChosen = [[NSMutableArray alloc] init];
     
@@ -267,26 +300,31 @@
         [photosOfPeopleChosen addObject:person.thumbnailImage];
         
     }
-    
-    
     self.gameImageOne.image = photosOfPeopleChosen[0];
     self.gameImageTwo.image = photosOfPeopleChosen[1];
     self.gameImageThree.image = photosOfPeopleChosen[2];
     self.gameImageFour.image = photosOfPeopleChosen[3];
-    
-    
     
     [self setUpGameSelectedImages:self.gameImageOne];
     [self setUpGameSelectedImages:self.gameImageTwo];
     [self setUpGameSelectedImages:self.gameImageThree];
     [self setUpGameSelectedImages:self.gameImageFour];
     
+    //Add images chosen to the blur view
+    [[view contentView] addSubview:self.gameImageOne];
+    [[view contentView] addSubview:self.gameImageTwo];
+    [[view contentView] addSubview:self.gameImageThree];
+    [[view contentView] addSubview:self.gameImageFour];
     
-    [[self.blurEffectView contentView] addSubview:self.gameImageOne];
-    [[self.blurEffectView contentView] addSubview:self.gameImageTwo];
-    [[self.blurEffectView contentView] addSubview:self.gameImageThree];
-    [[self.blurEffectView contentView] addSubview:self.gameImageFour];
-    
+    [UIView animateWithDuration:2.0 animations:^{
+        
+        
+        self.gameImageOne.alpha = 1.0;
+        self.gameImageTwo.alpha = 1.0;
+        self.gameImageThree.alpha = 1.0;
+        self.gameImageFour.alpha = 1.0;
+        
+    }];
     
 }
 
@@ -300,6 +338,10 @@
     UIStoryboard *mainSB = self.storyboard;
     UINavigationController *initialVC = [mainSB instantiateInitialViewController];
     [[UIApplication sharedApplication].delegate.window setRootViewController:initialVC];
+    
+    
+    
+    
 }
 
 - (void)setUpGameSelectedImages:(UIImageView *)image {
@@ -312,12 +354,12 @@
 }
 
 #pragma mark - Navigation
- 
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     
-     MatchAQuoteToAPersonViewController *newVC = segue.destinationViewController;
-     newVC.fourChosenPeople = self.fourPeopleChosen;
- }
- 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    MatchAQuoteToAPersonViewController *newVC = segue.destinationViewController;
+    newVC.fourChosenPeople = self.fourPeopleChosen;
+}
+
 
 @end

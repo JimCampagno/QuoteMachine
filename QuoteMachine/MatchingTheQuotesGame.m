@@ -43,7 +43,7 @@
 - (BOOL)isPerson:(Person *)person matchedToQuote:(NSString *)quote {
     
     if ([[self.quotesReadyForQuiz valueForKey:person.name] containsObject:quote]) {
-        NSLog (@"You picked the correct Quote!");
+        
         return YES;
     }
     else {
@@ -124,6 +124,49 @@
         }];
     }
 }
+
+- (void)makeAGuessWithPerson:(Person *)person toQuoteInLabel:(UILabel *)label inView:(UIView *)view withScoreLabel:(UILabel *)score {
+    
+    
+    if ([self isPerson:person matchedToQuote:label.text])
+    {
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             
+                             view.layer.backgroundColor = [UIColor greenColor].CGColor;
+                             
+                             self.scoreOfGame = [NSNumber numberWithInt:[self.scoreOfGame intValue] + 1];
+                             score.text = [self.scoreOfGame stringValue];
+                             
+                         }
+                         completion:^ (BOOL finished) {
+                             
+                             [UIView animateWithDuration:0.85 animations:^{
+                                 view.layer.backgroundColor = [UIColor whiteColor].CGColor;
+                                 [self displayANewQuoteWithLabel:label];
+                             }];
+                             
+                         }];
+    } else {
+        
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             
+                             view.layer.backgroundColor = [UIColor redColor].CGColor;
+                             
+                         }
+                         completion:^ (BOOL finished) {
+                             
+                             [UIView animateWithDuration:0.85 animations:^{
+                                 view.layer.backgroundColor = [UIColor whiteColor].CGColor;
+                                 [self displayANewQuoteWithLabel:label];
+                             }];
+                             
+                         }];
+        
+    }
+}
+
 
 #pragma mark - Overriding Getters
 
