@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class Person;
 @class Quotes;
@@ -21,5 +22,7 @@
 - (instancetype)initWithPeople:(NSArray *)people;
 - (BOOL)isPerson:(Person *)person matchedToQuote:(NSString *)quote;
 - (NSString *)drawAQuoteToDisplay;
+- (void)displayInstructionAndFirstQuoteWithLabel:(UILabel *)label;
+- (void)displayANewQuoteWithLabel:(UILabel *)label;
 
 @end

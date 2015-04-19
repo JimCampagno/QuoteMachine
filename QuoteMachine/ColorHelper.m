@@ -20,7 +20,6 @@
     [UIColor colorWithRed:randomRed green:randomGreen blue:randomBlue alpha:1];
     
     return randomColor.CGColor;
-    
 }
 
 @end

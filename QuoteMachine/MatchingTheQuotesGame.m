@@ -75,6 +75,55 @@
     
 }
 
+- (void)displayInstructionAndFirstQuoteWithLabel:(UILabel *)label {
+    
+    label.alpha = 0.0;
+    label.text = @"A quote will display here.  Tap the person who you think said it.";
+    
+    [UIView animateWithDuration:5.0
+                     animations:^{
+                         
+                         label.alpha = 1.0;
+                     }
+                     completion:^ (BOOL finished) {
+                         
+                         [UIView animateWithDuration:2.0 animations:^{
+                             
+                             label.alpha = 0.0;
+                         } completion:^(BOOL finished) {
+                             
+                             label.text = [self drawAQuoteToDisplay];
+                             
+                             [UIView animateWithDuration:5.0 animations:^{
+                                 
+                                 label.alpha = 1.0;
+                             }];
+                         }];
+                     }];
+}
+
+- (void)displayANewQuoteWithLabel:(UILabel *)label {
+    
+    if ([self.holdingTheQuotesAlreadyDisplayed count] == 12) {
+        
+        NSString *displayTheFinalScore = [NSString stringWithFormat:@"%@ out of 12.", [self.scoreOfGame stringValue] ];
+        label.text = displayTheFinalScore;
+        UIColor *color = [UIColor blueColor];
+        [label setTextColor:color];
+        
+    }
+    else {
+        
+        [UIView animateWithDuration:1.0 animations:^{
+            label.alpha = 0.0f;
+        } completion:^(BOOL finished) {
+            label.text = [self drawAQuoteToDisplay];
+            [UIView animateWithDuration:1.0 animations:^{
+                label.alpha = 1.0f;
+            }];
+        }];
+    }
+}
 
 #pragma mark - Overriding Getters
 
