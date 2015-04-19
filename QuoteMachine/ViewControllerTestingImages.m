@@ -10,6 +10,8 @@
 #import "Person.h"
 #import "PersonCollectionViewCell.h"
 #import "ColorHelper.h"
+#import "MatchAQuoteToAPersonViewController.h"
+
 
 @interface ViewControllerTestingImages ()
 
@@ -104,8 +106,6 @@
         
     } else {
         
-        
-        
         [self.fourPeopleChosen addObject:personTapped];
         [self addImageToTopOfViewWithPerson:personTapped];
         
@@ -116,31 +116,8 @@
         if ([self.fourPeopleChosen count] == 4) {
             
             
-            
-            
-            
-            
-            
-            
             [self blurOutTopImages];
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+        
         }
     }
     
@@ -250,11 +227,6 @@
     self.playLabel.userInteractionEnabled = YES;
     
     
-    
-    
-    
-    
-    
     //Attributes to use
     CGFloat heightOfIphone =[[UIScreen mainScreen] bounds].size.height/2 + 74;
     CGFloat widthOfIphone = [[UIScreen mainScreen] bounds].size.width/2;
@@ -297,8 +269,6 @@
     }
     
     
-    [self setUpConstraintsForGameChosenImages:self.gameImageOne];
-    
     self.gameImageOne.image = photosOfPeopleChosen[0];
     self.gameImageTwo.image = photosOfPeopleChosen[1];
     self.gameImageThree.image = photosOfPeopleChosen[2];
@@ -322,24 +292,14 @@
 
 - (void)labelTapped {
     
-    NSLog(@"Play Label Tapped!");
+    [self performSegueWithIdentifier:@"gameTime" sender:self];
 }
 
 - (void)cancelLabelTapped {
     
-    [self.blurEffectView removeFromSuperview];
-    
-    [self.fourPeopleChosen removeAllObjects];
-    
-    [self.collectionView reloadData];
-    
-    self.firstImage.image = nil;
-    self.secondImage.image = nil;
-    self.thirdImage.image = nil;
-    self.fourthImage.image = nil;
-    
-    NSLog(@"Cancel Label Tapped!");
-    
+    UIStoryboard *mainSB = self.storyboard;
+    UINavigationController *initialVC = [mainSB instantiateInitialViewController];
+    [[UIApplication sharedApplication].delegate.window setRootViewController:initialVC];
 }
 
 - (void)setUpGameSelectedImages:(UIImageView *)image {
@@ -351,47 +311,13 @@
     
 }
 
-- (void)setUpConstraintsForGameChosenImages:(UIImageView *)image {
-    
-    [image removeConstraints:image.constraints];
-    image.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    NSLayoutConstraint *alignCenterX =
-    [NSLayoutConstraint constraintWithItem:image
-                                 attribute:NSLayoutAttributeCenterX
-                                 relatedBy:NSLayoutRelationEqual
-     
-                                    toItem:self.blurEffectView
-                                 attribute:NSLayoutAttributeCenterX
-                                multiplier:0.25
-     
-                                  constant:0.0];
-    [self.view addConstraint:alignCenterX];
-    
-    NSLayoutConstraint *alignCenterY =
-    [NSLayoutConstraint constraintWithItem:image
-                                 attribute:NSLayoutAttributeCenterY
-                                 relatedBy:NSLayoutRelationEqual
-     
-                                    toItem:self.blurEffectView
-                                 attribute:NSLayoutAttributeCenterY
-                                multiplier:1.6
-     
-                                  constant:0.0];
-    [self.view addConstraint:alignCenterY];
-    
-    
-    
-}
-
-/*
- #pragma mark - Navigation
+#pragma mark - Navigation
  
- // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+     
+     MatchAQuoteToAPersonViewController *newVC = segue.destinationViewController;
+     newVC.fourChosenPeople = self.fourPeopleChosen;
  }
- */
+ 
 
 @end

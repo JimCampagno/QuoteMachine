@@ -10,4 +10,6 @@
 
 @interface MatchAQuoteToAPersonViewController : UIViewController
 
+@property (strong, nonatomic) NSArray *fourChosenPeople;
+
 @end
