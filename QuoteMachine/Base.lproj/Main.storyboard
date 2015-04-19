@@ -557,17 +557,45 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lAO-R1-9K0">
-                                <rect key="frame" x="-4" y="0.0" width="608" height="116"/>
+                                <rect key="frame" x="-4" y="0.0" width="608" height="600"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5fo-Rl-hJo" userLabel="GameTimeImageOne">
+                                <rect key="frame" x="33" y="438" width="85" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="5S0-GX-Pk5"/>
+                                    <constraint firstAttribute="height" constant="85" id="eoH-jp-hbW"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kkM-Bl-VUe" userLabel="GameTimeImageTwo">
+                                <rect key="frame" x="183" y="438" width="85" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="1v8-a6-3DY"/>
+                                    <constraint firstAttribute="height" constant="85" id="gZe-D9-2JH"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g47-dj-mVD" userLabel="GameTimeImageThree">
+                                <rect key="frame" x="333" y="438" width="85" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="EAh-eL-uNZ"/>
+                                    <constraint firstAttribute="height" constant="85" id="rVp-kQ-Pv2"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZqF-Qh-3If" userLabel="GameTimeImageFour">
+                                <rect key="frame" x="483" y="438" width="85" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="9aT-Kx-lDp"/>
+                                    <constraint firstAttribute="width" constant="85" id="s3K-iT-CWd"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KnK-js-Mni" firstAttribute="bottom" secondItem="kxp-PB-Yae" secondAttribute="top" constant="-8" id="09a-4J-3BR"/>
                             <constraint firstItem="J3b-BJ-pJE" firstAttribute="top" secondItem="0Eb-b3-sRk" secondAttribute="bottom" constant="20" id="21O-du-dD4"/>
-                            <constraint firstItem="lAO-R1-9K0" firstAttribute="bottom" secondItem="kxp-PB-Yae" secondAttribute="top" id="3UD-H0-FEt"/>
                             <constraint firstItem="lAO-R1-9K0" firstAttribute="top" secondItem="0Eb-b3-sRk" secondAttribute="bottom" constant="-20" id="4XV-No-kKk"/>
                             <constraint firstItem="kxp-PB-Yae" firstAttribute="leading" secondItem="9Qj-ke-Vam" secondAttribute="leadingMargin" constant="-20" id="4wi-dP-Y38"/>
                             <constraint firstItem="J3b-BJ-pJE" firstAttribute="bottom" secondItem="kxp-PB-Yae" secondAttribute="top" constant="-8" id="5bj-zP-sSL"/>
+                            <constraint firstItem="g47-dj-mVD" firstAttribute="centerY" secondItem="9Qj-ke-Vam" secondAttribute="centerY" multiplier="1.6" id="8Mj-Px-UWP"/>
                             <constraint firstItem="uyg-5L-fWt" firstAttribute="top" secondItem="0Eb-b3-sRk" secondAttribute="bottom" constant="20" id="APt-zt-JqR"/>
                             <constraint firstItem="kxp-PB-Yae" firstAttribute="top" secondItem="0Eb-b3-sRk" secondAttribute="bottom" constant="96" id="AmI-Hg-KHD"/>
                             <constraint firstItem="lAO-R1-9K0" firstAttribute="trailing" secondItem="9Qj-ke-Vam" secondAttribute="trailingMargin" constant="20" id="E1G-jF-rO7"/>
@@ -576,10 +604,18 @@
                             <constraint firstItem="kxp-PB-Yae" firstAttribute="trailing" secondItem="9Qj-ke-Vam" secondAttribute="trailingMargin" constant="20" id="RcR-hZ-XEw"/>
                             <constraint firstItem="J3b-BJ-pJE" firstAttribute="centerX" secondItem="9Qj-ke-Vam" secondAttribute="centerX" multiplier="1.25" id="UIY-B9-FB2"/>
                             <constraint firstItem="kxp-PB-Yae" firstAttribute="top" secondItem="j9D-eN-oPL" secondAttribute="bottom" constant="8" id="XNe-ze-4d4"/>
+                            <constraint firstItem="kkM-Bl-VUe" firstAttribute="centerY" secondItem="9Qj-ke-Vam" secondAttribute="centerY" multiplier="1.6" id="Z5D-fm-CLT"/>
                             <constraint firstItem="lAO-R1-9K0" firstAttribute="leading" secondItem="9Qj-ke-Vam" secondAttribute="leadingMargin" constant="-20" id="ZqG-lD-kRv"/>
                             <constraint firstItem="j9D-eN-oPL" firstAttribute="centerX" secondItem="9Qj-ke-Vam" secondAttribute="centerX" multiplier="0.75" id="fdh-mw-T0P"/>
+                            <constraint firstItem="g47-dj-mVD" firstAttribute="centerX" secondItem="9Qj-ke-Vam" secondAttribute="centerX" multiplier="1.25" id="h6t-c9-KHk"/>
+                            <constraint firstItem="ZqF-Qh-3If" firstAttribute="centerX" secondItem="9Qj-ke-Vam" secondAttribute="centerX" multiplier="1.75" id="hmh-nt-dqp"/>
+                            <constraint firstItem="kkM-Bl-VUe" firstAttribute="centerX" secondItem="9Qj-ke-Vam" secondAttribute="centerX" multiplier="0.75" id="i4u-hw-GYZ"/>
+                            <constraint firstItem="ZqF-Qh-3If" firstAttribute="centerY" secondItem="9Qj-ke-Vam" secondAttribute="centerY" multiplier="1.6" id="pl2-mm-tf1"/>
+                            <constraint firstItem="5fo-Rl-hJo" firstAttribute="centerX" secondItem="9Qj-ke-Vam" secondAttribute="centerX" multiplier="0.25" id="tFI-gr-ry7"/>
+                            <constraint firstItem="5fo-Rl-hJo" firstAttribute="centerY" secondItem="9Qj-ke-Vam" secondAttribute="centerY" multiplier="1.6" id="tkf-CW-GU3"/>
                             <constraint firstItem="kxp-PB-Yae" firstAttribute="bottom" secondItem="aAO-TM-gF8" secondAttribute="top" id="u3E-sd-Hwo"/>
                             <constraint firstItem="j9D-eN-oPL" firstAttribute="top" secondItem="0Eb-b3-sRk" secondAttribute="bottom" constant="20" id="vsN-r5-H8S"/>
+                            <constraint firstItem="lAO-R1-9K0" firstAttribute="bottom" secondItem="aAO-TM-gF8" secondAttribute="top" id="wpD-HJ-Zah"/>
                             <constraint firstItem="KnK-js-Mni" firstAttribute="centerX" secondItem="9Qj-ke-Vam" secondAttribute="centerX" multiplier="1.75" id="y15-zy-KJ3"/>
                             <constraint firstItem="uyg-5L-fWt" firstAttribute="bottom" secondItem="kxp-PB-Yae" secondAttribute="top" constant="-8" id="y50-iS-Kgb"/>
                         </constraints>
@@ -589,6 +625,10 @@
                         <outlet property="collectionView" destination="kxp-PB-Yae" id="FBy-4L-UPZ"/>
                         <outlet property="firstImage" destination="uyg-5L-fWt" id="l0d-yh-UmJ"/>
                         <outlet property="fourthImage" destination="KnK-js-Mni" id="iZ3-h6-XRZ"/>
+                        <outlet property="gameImageFour" destination="ZqF-Qh-3If" id="m7G-CZ-t75"/>
+                        <outlet property="gameImageOne" destination="5fo-Rl-hJo" id="djU-a9-roQ"/>
+                        <outlet property="gameImageThree" destination="g47-dj-mVD" id="OOB-iW-GZh"/>
+                        <outlet property="gameImageTwo" destination="kkM-Bl-VUe" id="etT-F9-DVv"/>
                         <outlet property="secondImage" destination="j9D-eN-oPL" id="Y1C-kZ-cdY"/>
                         <outlet property="thirdImage" destination="J3b-BJ-pJE" id="M7M-q4-Sfz"/>
                     </connections>

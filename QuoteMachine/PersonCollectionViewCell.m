@@ -71,7 +71,7 @@
                                           animations:^{
                                               
                                               self.imageView.transform = CGAffineTransformMakeScale(1.0, 1.0);
-                                              self.imageView.layer.borderWidth = 2.75;
+                                              self.imageView.layer.borderWidth = 3.5;
                                               self.imageView.layer.borderColor = [UIColor greenColor].CGColor;
                                               
                                           }

@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
 @interface ColorHelper : NSObject
 
-+ (UIColor *)randomColor;
++ (CGColorRef)randomColor;
 
 @end

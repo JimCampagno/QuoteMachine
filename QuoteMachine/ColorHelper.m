@@ -10,7 +10,7 @@
 
 @implementation ColorHelper
 
-+ (UIColor *)randomColor {
++ (CGColorRef)randomColor {
     
     CGFloat randomRed = arc4random_uniform(255)/255.0;
     CGFloat randomGreen = arc4random_uniform(255)/255.0;
@@ -19,7 +19,7 @@
     UIColor *randomColor =
     [UIColor colorWithRed:randomRed green:randomGreen blue:randomBlue alpha:1];
     
-    return randomColor;
+    return randomColor.CGColor;
     
 }
 

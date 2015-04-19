@@ -19,10 +19,17 @@
 @property (weak, nonatomic) IBOutlet UIImageView *secondImage;
 @property (weak, nonatomic) IBOutlet UIImageView *thirdImage;
 @property (weak, nonatomic) IBOutlet UIImageView *fourthImage;
+
 @property (weak, nonatomic) IBOutlet UIImageView *blurView;
 @property (strong, nonatomic) UIVisualEffectView *blurEffectView;
-@property (strong, nonatomic) UILabel *playLabel;
 
+@property (strong, nonatomic) UILabel *playLabel;
+@property (strong, nonatomic) UILabel *cancelLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *gameImageOne;
+@property (weak, nonatomic) IBOutlet UIImageView *gameImageTwo;
+@property (weak, nonatomic) IBOutlet UIImageView *gameImageThree;
+@property (weak, nonatomic) IBOutlet UIImageView *gameImageFour;
 @end
 
 @implementation ViewControllerTestingImages
@@ -37,7 +44,7 @@
     self.dataStore = [QuoteDataStore sharedDataStore];
     [self.dataStore fetchData];
     
-
+    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -74,6 +81,10 @@
         if ([self.fourPeopleChosen count] == 4) {
             
             [self.blurEffectView removeFromSuperview];
+            self.firstImage.alpha = 1.0;
+            self.secondImage.alpha = 1.0;
+            self.thirdImage.alpha = 1.0;
+            self.fourthImage.alpha = 1.0;
         }
         [self deselectSpecificCell:cellToUse containingPerson:personTapped];
         
@@ -93,13 +104,42 @@
         
     } else {
         
+        
+        
         [self.fourPeopleChosen addObject:personTapped];
         [self addImageToTopOfViewWithPerson:personTapped];
+        
+        cell.imageView.alpha = 1.0;
+        
         [cell animateWhenAddedToArray];
         
         if ([self.fourPeopleChosen count] == 4) {
             
+            
+            
+            
+            
+            
+            
+            
             [self blurOutTopImages];
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
         }
     }
@@ -112,7 +152,7 @@
     [self.fourPeopleChosen removeObject:personTapped];
     [self removeImageFromTopViewWithPerson:personTapped];
     [cell animateWhenRemovedFromArray];
-   
+    
 }
 
 
@@ -128,25 +168,25 @@
     if (!self.firstImage.image) {
         
         self.firstImage.image = person.thumbnailImage;
-        self.firstImage.layer.borderColor = [ColorHelper randomColor].CGColor;
+        self.firstImage.layer.borderColor = [ColorHelper randomColor];
         self.firstImage.layer.borderWidth = 2.0;
     }
     else if (!self.secondImage.image) {
         
         self.secondImage.image = person.thumbnailImage;
-        self.secondImage.layer.borderColor = [ColorHelper randomColor].CGColor;
+        self.secondImage.layer.borderColor = [ColorHelper randomColor];
         self.secondImage.layer.borderWidth = 2.0;
     }
     else if (!self.thirdImage.image) {
         
         self.thirdImage.image = person.thumbnailImage;
-        self.thirdImage.layer.borderColor = [ColorHelper randomColor].CGColor;
+        self.thirdImage.layer.borderColor = [ColorHelper randomColor];
         self.thirdImage.layer.borderWidth = 2.0;
     }
     else if (!self.fourthImage.image) {
         
         self.fourthImage.image = person.thumbnailImage;
-        self.fourthImage.layer.borderColor = [ColorHelper randomColor].CGColor;
+        self.fourthImage.layer.borderColor = [ColorHelper randomColor];
         self.fourthImage.layer.borderWidth = 2.0;
     }
 }
@@ -190,12 +230,18 @@
     UIVisualEffectView *vibrancyEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
     [vibrancyEffectView setFrame:self.blurView.bounds];
     
+    
+    //Attributes to use
+    CGFloat heightForPlayLabel =[[UIScreen mainScreen] bounds].size.height/2 -35;
+    CGFloat widthForPlayLabel = [[UIScreen mainScreen] bounds].size.width/2;
+    
+    
     // Label for vibrant text
     self.playLabel = [[UILabel alloc] init];
     [self.playLabel setText:@"Play"];
     [self.playLabel setFont:[UIFont systemFontOfSize:72.0f]];
     [self.playLabel sizeToFit];
-    [self.playLabel setCenter: self.blurView.center];
+    [self.playLabel setCenter: CGPointMake(widthForPlayLabel, heightForPlayLabel)];
     
     //Make the play label Tappable
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped)];
@@ -203,18 +249,139 @@
     [self.playLabel addGestureRecognizer:tapGestureRecognizer];
     self.playLabel.userInteractionEnabled = YES;
     
-    // Add label to the vibrancy view
+    
+    
+    
+    
+    
+    
+    //Attributes to use
+    CGFloat heightOfIphone =[[UIScreen mainScreen] bounds].size.height/2 + 74;
+    CGFloat widthOfIphone = [[UIScreen mainScreen] bounds].size.width/2;
+    
+    self.cancelLabel = [[UILabel alloc] init];
+    [self.cancelLabel setText:@"Cancel"];
+    [self.cancelLabel setFont:[UIFont systemFontOfSize:40.0f]];
+    [self.cancelLabel sizeToFit];
+    [self.cancelLabel setCenter:CGPointMake(widthOfIphone, heightOfIphone)];
+    
+    UITapGestureRecognizer *tapGestureRecognizerForCancel = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelLabelTapped)];
+    tapGestureRecognizerForCancel.numberOfTapsRequired = 1;
+    [self.cancelLabel addGestureRecognizer:tapGestureRecognizerForCancel];
+    self.cancelLabel.userInteractionEnabled = YES;
+    
+    
+    
+    // Add labels to the vibrancy view
     [[vibrancyEffectView contentView] addSubview:self.playLabel];
+    [[vibrancyEffectView contentView] addSubview:self.cancelLabel];
+    
     
     // Add the vibrancy view to the blur view
     [[self.blurEffectView contentView] addSubview:vibrancyEffectView];
+    
+    
+    
+    self.gameImageOne.hidden = NO;
+    self.gameImageTwo.hidden = NO;
+    self.gameImageThree.hidden = NO;
+    self.gameImageFour.hidden = NO;
+    
+    
+    NSMutableArray *photosOfPeopleChosen = [[NSMutableArray alloc] init];
+    
+    for (Person *person in self.fourPeopleChosen ) {
+        
+        [photosOfPeopleChosen addObject:person.thumbnailImage];
+        
+    }
+    
+    
+    [self setUpConstraintsForGameChosenImages:self.gameImageOne];
+    
+    self.gameImageOne.image = photosOfPeopleChosen[0];
+    self.gameImageTwo.image = photosOfPeopleChosen[1];
+    self.gameImageThree.image = photosOfPeopleChosen[2];
+    self.gameImageFour.image = photosOfPeopleChosen[3];
+    
+    
+    
+    [self setUpGameSelectedImages:self.gameImageOne];
+    [self setUpGameSelectedImages:self.gameImageTwo];
+    [self setUpGameSelectedImages:self.gameImageThree];
+    [self setUpGameSelectedImages:self.gameImageFour];
+    
+    
+    [[self.blurEffectView contentView] addSubview:self.gameImageOne];
+    [[self.blurEffectView contentView] addSubview:self.gameImageTwo];
+    [[self.blurEffectView contentView] addSubview:self.gameImageThree];
+    [[self.blurEffectView contentView] addSubview:self.gameImageFour];
+    
     
 }
 
 - (void)labelTapped {
     
+    NSLog(@"Play Label Tapped!");
+}
+
+- (void)cancelLabelTapped {
     
-    NSLog(@"TAPPED IT!");
+    [self.blurEffectView removeFromSuperview];
+    
+    [self.fourPeopleChosen removeAllObjects];
+    
+    [self.collectionView reloadData];
+    
+    self.firstImage.image = nil;
+    self.secondImage.image = nil;
+    self.thirdImage.image = nil;
+    self.fourthImage.image = nil;
+    
+    NSLog(@"Cancel Label Tapped!");
+    
+}
+
+- (void)setUpGameSelectedImages:(UIImageView *)image {
+    
+    image.layer.borderWidth = 1.5;
+    image.layer.borderColor = [ColorHelper randomColor];
+    image.layer.cornerRadius = 42.5;
+    image.layer.masksToBounds = YES;
+    
+}
+
+- (void)setUpConstraintsForGameChosenImages:(UIImageView *)image {
+    
+    [image removeConstraints:image.constraints];
+    image.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSLayoutConstraint *alignCenterX =
+    [NSLayoutConstraint constraintWithItem:image
+                                 attribute:NSLayoutAttributeCenterX
+                                 relatedBy:NSLayoutRelationEqual
+     
+                                    toItem:self.blurEffectView
+                                 attribute:NSLayoutAttributeCenterX
+                                multiplier:0.25
+     
+                                  constant:0.0];
+    [self.view addConstraint:alignCenterX];
+    
+    NSLayoutConstraint *alignCenterY =
+    [NSLayoutConstraint constraintWithItem:image
+                                 attribute:NSLayoutAttributeCenterY
+                                 relatedBy:NSLayoutRelationEqual
+     
+                                    toItem:self.blurEffectView
+                                 attribute:NSLayoutAttributeCenterY
+                                multiplier:1.6
+     
+                                  constant:0.0];
+    [self.view addConstraint:alignCenterY];
+    
+    
+    
 }
 
 /*
