@@ -128,6 +128,26 @@
     [CreatePeople setAnitaBorgWithMOC:context];
     [CreatePeople setBarbaraMcClintockWithMOC:context];
     [CreatePeople setMarieCurieWithMOC:context];
+    [CreatePeople setGandalfWithMOC:context];
+}
+
+
++ (void)setGandalfWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:person
+                      WithName:@"Gandalf"
+                  FieldOfStudy:@"Movie"
+                       Summary:@""
+                ThumbnailImage:[UIImage imageNamed:@"gandalf"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:person
+                    withQuote1:@"\"All we have to decide is what to do with the time that is given us.\""
+                        Quote2:@"\"He that breaks a thing to find out what it is has left the path of wisdom.\""
+                        Quote3:@"\"It is not despair, for despair is only for those who see the end beyond all doubt. We do not.\""
+                     MOContext:moContext];
 }
 
 
