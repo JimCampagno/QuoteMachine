@@ -144,25 +144,25 @@
         
         self.firstImage.image = person.thumbnailImage;
         self.firstImage.layer.borderColor = [ColorHelper randomColor];
-        self.firstImage.layer.borderWidth = 2.0;
+        self.firstImage.layer.borderWidth = 1.2;
     }
     else if (!self.secondImage.image) {
         
         self.secondImage.image = person.thumbnailImage;
         self.secondImage.layer.borderColor = [ColorHelper randomColor];
-        self.secondImage.layer.borderWidth = 2.0;
+        self.secondImage.layer.borderWidth = 1.2;
     }
     else if (!self.thirdImage.image) {
         
         self.thirdImage.image = person.thumbnailImage;
         self.thirdImage.layer.borderColor = [ColorHelper randomColor];
-        self.thirdImage.layer.borderWidth = 2.0;
+        self.thirdImage.layer.borderWidth = 1.2;
     }
     else if (!self.fourthImage.image) {
         
         self.fourthImage.image = person.thumbnailImage;
         self.fourthImage.layer.borderColor = [ColorHelper randomColor];
-        self.fourthImage.layer.borderWidth = 2.0;
+        self.fourthImage.layer.borderWidth = 1.2;
     }
 }
 
@@ -171,24 +171,20 @@
     if (self.firstImage.image == person.thumbnailImage) {
         
         self.firstImage.image = nil;
-        self.firstImage.layer.borderColor = [UIColor grayColor].CGColor;
-        self.firstImage.layer.borderWidth = 0.5;
+        self.firstImage.layer.borderWidth = 0.0;
         
     }
     else if (self.secondImage.image == person.thumbnailImage) {
         self.secondImage.image = nil;
-        self.secondImage.layer.borderColor = [UIColor grayColor].CGColor;
-        self.secondImage.layer.borderWidth = 0.5;
+        self.secondImage.layer.borderWidth = 0.0;
     }
     else if (self.thirdImage.image == person.thumbnailImage) {
         self.thirdImage.image = nil;
-        self.thirdImage.layer.borderColor = [UIColor grayColor].CGColor;
-        self.thirdImage.layer.borderWidth = 0.5;
+        self.thirdImage.layer.borderWidth = 0.0;
     }
     else if (self.fourthImage.image == person.thumbnailImage) {
         self.fourthImage.image = nil;
-        self.fourthImage.layer.borderColor = [UIColor grayColor].CGColor;
-        self.fourthImage.layer.borderWidth = 0.5;
+        self.fourthImage.layer.borderWidth = 0.0;
     }
 }
 

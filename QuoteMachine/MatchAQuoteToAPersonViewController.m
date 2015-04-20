@@ -42,6 +42,7 @@
     
     [self setupQuoteBox];
     
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -110,7 +111,7 @@
     
     button.layer.borderWidth = 1.5;
     button.layer.borderColor = [ColorHelper randomColor];
-    button.layer.cornerRadius = 37.5;
+    button.layer.cornerRadius = 42.5;
     button.layer.masksToBounds = YES;
 }
 
@@ -134,9 +135,6 @@
     label.numberOfLines = 0;
     label.lineBreakMode = NSLineBreakByWordWrapping;
 }
-
-
-
 
 /*
  #pragma mark - Navigation

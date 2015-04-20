@@ -80,7 +80,7 @@
     label.alpha = 0.0;
     label.text = @"A quote will display here.  Tap the person who you think said it.";
     
-    [UIView animateWithDuration:5.0
+    [UIView animateWithDuration:1.5
                      animations:^{
                          
                          label.alpha = 1.0;
@@ -119,7 +119,7 @@
             
         } completion:^(BOOL finished) {
             label.textColor = [UIColor blackColor];
-            label.font=[label.font fontWithSize:20];
+            label.font=[label.font fontWithSize:24];
             label.text = [self drawAQuoteToDisplay];
             [UIView animateWithDuration:1.0 animations:^{
                 label.alpha = 1.0f;
@@ -143,7 +143,7 @@
                          }
                          completion:^ (BOOL finished) {
                              
-                             [UIView animateWithDuration:2.1 animations:^{
+                             [UIView animateWithDuration:2.0 animations:^{
                                  
                                  
                                  view.layer.backgroundColor = [UIColor whiteColor].CGColor;
@@ -161,15 +161,12 @@
         
         NSString *message = [firstPart stringByAppendingString:secondPart];
         label.text = message;
-        
-        
-        
+    
         [UIView animateWithDuration:0.3
                          animations:^{
                              
                              view.layer.backgroundColor = [UIColor redColor].CGColor;
-                             
-                             
+
                          }
                          completion:^(BOOL finished) {
                              
@@ -178,30 +175,18 @@
                                               animations:^{
                                                   
                                                   label.alpha = 1.0;
-                                                  
-                                                  
                                               }
                                               completion:^ (BOOL finished) {
                                                   
-                                                  
-                                                  
-                                                  
-                                                  [UIView animateWithDuration:1.8
+                                                  [UIView animateWithDuration:1.7
                                                                    animations:^{
                                                                        view.layer.backgroundColor =
                                                                        [UIColor whiteColor].CGColor;
-                                                                       
-                                                                       
-                                                                       
+                                                            
                                                                        [self displayANewQuoteWithLabel:label];
                                                                        
                                                                    }];
                                               }];
-                             
-                             
-                             
-                             
-                             
                          }];
     }
 }
