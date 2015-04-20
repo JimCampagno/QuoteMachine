@@ -41,10 +41,7 @@
     [self setUpButtons];
     
     [self setupQuoteBox];
-    
 
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -117,6 +114,11 @@
 }
 
 - (void)setupQuoteBox {
+    
+    
+    self.score.font = [UIFont fontWithName:@"Noteworthy" size:35.0f];
+
+
     
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.quotesToDisplay.font = [UIFont fontWithName:@"Didot" size:26.0f];
