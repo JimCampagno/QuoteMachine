@@ -116,7 +116,10 @@
         
         [UIView animateWithDuration:1.0 animations:^{
             label.alpha = 0.0f;
+            
         } completion:^(BOOL finished) {
+            label.textColor = [UIColor blackColor];
+            label.font=[label.font fontWithSize:20];
             label.text = [self drawAQuoteToDisplay];
             [UIView animateWithDuration:1.0 animations:^{
                 label.alpha = 1.0f;
@@ -134,14 +137,15 @@
                          animations:^{
                              
                              view.layer.backgroundColor = [UIColor greenColor].CGColor;
-                             
                              self.scoreOfGame = [NSNumber numberWithInt:[self.scoreOfGame intValue] + 1];
                              score.text = [self.scoreOfGame stringValue];
                              
                          }
                          completion:^ (BOOL finished) {
                              
-                             [UIView animateWithDuration:0.85 animations:^{
+                             [UIView animateWithDuration:2.1 animations:^{
+                                 
+                                 
                                  view.layer.backgroundColor = [UIColor whiteColor].CGColor;
                                  [self displayANewQuoteWithLabel:label];
                              }];
@@ -149,24 +153,82 @@
                          }];
     } else {
         
+        label.alpha = 0.0;
+        label.textColor = [UIColor whiteColor];
+        label.font=[label.font fontWithSize:28];
+        NSString *firstPart = [self returnCorrectPersonWithQuote:label.text];
+        NSString *secondPart = @" said it.";
+        
+        NSString *message = [firstPart stringByAppendingString:secondPart];
+        label.text = message;
+        
+        
+        
         [UIView animateWithDuration:0.3
                          animations:^{
                              
                              view.layer.backgroundColor = [UIColor redColor].CGColor;
                              
-                         }
-                         completion:^ (BOOL finished) {
                              
-                             [UIView animateWithDuration:0.85 animations:^{
-                                 view.layer.backgroundColor = [UIColor whiteColor].CGColor;
-                                 [self displayANewQuoteWithLabel:label];
-                             }];
+                         }
+                         completion:^(BOOL finished) {
+                             
+                             [UIView animateWithDuration:0.3
+                              
+                                              animations:^{
+                                                  
+                                                  label.alpha = 1.0;
+                                                  
+                                                  
+                                              }
+                                              completion:^ (BOOL finished) {
+                                                  
+                                                  
+                                                  
+                                                  
+                                                  [UIView animateWithDuration:1.8
+                                                                   animations:^{
+                                                                       view.layer.backgroundColor =
+                                                                       [UIColor whiteColor].CGColor;
+                                                                       
+                                                                       
+                                                                       
+                                                                       [self displayANewQuoteWithLabel:label];
+                                                                       
+                                                                   }];
+                                              }];
+                             
+                             
+                             
+                             
                              
                          }];
-        
     }
 }
 
+
+- (NSString *)returnCorrectPersonWithQuote:(NSString *)quote {
+    
+    NSString *result = @"";
+    
+    for (NSString *key in self.quotesReadyForQuiz) {
+        
+        NSMutableArray *value = [self.quotesReadyForQuiz objectForKey:key];
+        
+        for (NSString *quoteSaid in value) {
+            
+            if ([quoteSaid isEqualToString:quote]) {
+                
+                result = [NSString stringWithFormat:@"%@", key];
+                return result;
+                
+            }
+        }
+        
+    }
+    
+    return result;
+}
 
 #pragma mark - Overriding Getters
 

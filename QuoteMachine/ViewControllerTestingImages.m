@@ -115,27 +115,7 @@
         
         if ([self.fourPeopleChosen count] == 4) {
             
-            
-            
-            
             [self blurOutTopImages];
-            
-            
-            
-            
-            
-            
-            //            [self fadeInFourImagesIntoBlurView:self.blurEffectView];
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
     }
     

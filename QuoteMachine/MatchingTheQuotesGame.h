@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSNumber *scoreOfGame;
 @property (strong, nonatomic) NSMutableArray *holdingTheQuotesAlreadyDisplayed;
 @property (strong, nonatomic) NSString *randomQuotePicked;
+@property (strong, nonatomic) NSString *theCorrectAnswer;
 
 - (instancetype)initWithPeople:(NSArray *)people;
 - (BOOL)isPerson:(Person *)person matchedToQuote:(NSString *)quote;
