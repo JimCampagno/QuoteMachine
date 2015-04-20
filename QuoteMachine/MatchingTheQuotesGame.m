@@ -119,7 +119,7 @@
             
         } completion:^(BOOL finished) {
             label.textColor = [UIColor blackColor];
-            label.font=[label.font fontWithSize:24];
+            label.font=[label.font fontWithSize:26];
             label.text = [self drawAQuoteToDisplay];
             [UIView animateWithDuration:1.0 animations:^{
                 label.alpha = 1.0f;
@@ -146,7 +146,7 @@
                              [UIView animateWithDuration:2.0 animations:^{
                                  
                                  
-                                 view.layer.backgroundColor = [UIColor whiteColor].CGColor;
+                                 view.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
                                  [self displayANewQuoteWithLabel:label];
                              }];
                              
@@ -154,7 +154,7 @@
     } else {
         
         label.alpha = 0.0;
-        label.textColor = [UIColor whiteColor];
+        label.textColor = [UIColor redColor];
         label.font=[label.font fontWithSize:28];
         NSString *firstPart = [self returnCorrectPersonWithQuote:label.text];
         NSString *secondPart = @" said it.";
@@ -181,7 +181,7 @@
                                                   [UIView animateWithDuration:1.7
                                                                    animations:^{
                                                                        view.layer.backgroundColor =
-                                                                       [UIColor whiteColor].CGColor;
+                                                                       [UIColor lightGrayColor].CGColor;
                                                             
                                                                        [self displayANewQuoteWithLabel:label];
                                                                        

@@ -42,6 +42,8 @@
     
     [self setupQuoteBox];
     
+
+    
     
 }
 
@@ -71,7 +73,6 @@
     
     [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[3] toQuoteInLabel:self.quotesToDisplay inView:self.view withScoreLabel:self.score];
 }
-
 
 
 - (void)setUpButtons {
@@ -117,6 +118,8 @@
 
 - (void)setupQuoteBox {
     
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.quotesToDisplay.font = [UIFont fontWithName:@"Didot" size:26.0f];
     self.quotesToDisplay.numberOfLines = 0;
     self.quotesToDisplay.lineBreakMode = NSLineBreakByWordWrapping;
 }
