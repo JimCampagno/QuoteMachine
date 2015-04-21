@@ -48,6 +48,8 @@
     
     [self setupAllFourTopImages];
     
+    self.view.backgroundColor = [UIColor grayColor];
+    
     
     
 }
