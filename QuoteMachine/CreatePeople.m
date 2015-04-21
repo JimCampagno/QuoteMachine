@@ -129,7 +129,97 @@
     [CreatePeople setBarbaraMcClintockWithMOC:context];
     [CreatePeople setMarieCurieWithMOC:context];
     [CreatePeople setGandalfWithMOC:context];
+    [CreatePeople setJadenSmithWithMOC:context];
+    [CreatePeople setMichaelScottWithMOC:context];
+    [CreatePeople setDwightSchruteWithMOC:context];
+    [CreatePeople setYodaWithMOC:context];
+    
+    
 }
+
+
+
+
++ (void)setYodaWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:person
+                      WithName:@"Yoda"
+                  FieldOfStudy:@"Movie"
+                       Summary:@""
+                ThumbnailImage:[UIImage imageNamed:@"yoda"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:person
+                    withQuote1:@"\"Train yourself to let go of everything you fear to lose\""
+                        Quote2:@"\"Always pass on what you have learned\""
+                        Quote3:@"\"Do.  Or do not.  There is no try.\""
+                     MOContext:moContext];
+}
+
+
+
+
++ (void)setDwightSchruteWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:person
+                      WithName:@"Dwight Schrute"
+                  FieldOfStudy:@"Comedy"
+                       Summary:@""
+                ThumbnailImage:[UIImage imageNamed:@"dwightSchrute"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:person
+                    withQuote1:@"\"I'm faster than around 80% of all snakes\""
+                        Quote2:@"\"The eyes are the groin of the head\""
+                        Quote3:@"\"Before I do anything I ask myself \"Would an idiot do that?\" and if the answer is yes.  I do not do that thing.\""
+                     MOContext:moContext];
+}
+
+
+
++ (void)setMichaelScottWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:person
+                      WithName:@"Michael Scott"
+                  FieldOfStudy:@"Comedy"
+                       Summary:@""
+                ThumbnailImage:[UIImage imageNamed:@"michaelScott"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:person
+                    withQuote1:@"\"Sometimes I'll start a sentence and I don't even know where it's going.  I just hope I find it along the way.\""
+                        Quote2:@"\"I love inside jokes.  I'd love to be a part of one someday.\""
+                        Quote3:@"\"There's no such thing as an inappropriate joke that's why it's a joke\""
+                     MOContext:moContext];
+}
+
+
+
++ (void)setJadenSmithWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:person
+                      WithName:@"Jaden Smith"
+                  FieldOfStudy:@"Comedy"
+                       Summary:@""
+                ThumbnailImage:[UIImage imageNamed:@"jadenSmith"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:person
+                    withQuote1:@"\"How can mirrors be real if our eyes aren't real\""
+                        Quote2:@"\"If a book store never runs out of a certain book, does that mean that nobody reads it, or everybody reads it\""
+                        Quote3:@"\"If newborn babies could speak they would be the most intelligent beings on Planet Earth\""
+                     MOContext:moContext];
+}
+
+
 
 
 + (void)setGandalfWithMOC:(NSManagedObjectContext *)moContext {
