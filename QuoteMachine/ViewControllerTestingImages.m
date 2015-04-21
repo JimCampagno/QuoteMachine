@@ -46,7 +46,26 @@
     self.dataStore = [QuoteDataStore sharedDataStore];
     [self.dataStore fetchData];
     
+    [self setupAllFourTopImages];
     
+    
+    
+}
+
+- (void)setupTopImageCell:(UIImageView *)image {
+    
+    image.layer.borderWidth = 1.5;
+    image.layer.borderColor = [UIColor grayColor].CGColor;
+    image.layer.cornerRadius = 34.0;
+    image.layer.masksToBounds = YES;
+}
+
+- (void)setupAllFourTopImages {
+    
+    [self setupTopImageCell:self.firstImage];
+    [self setupTopImageCell:self.secondImage];
+    [self setupTopImageCell:self.thirdImage];
+    [self setupTopImageCell:self.fourthImage];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -109,6 +128,9 @@
         [self.fourPeopleChosen addObject:personTapped];
         [self addImageToTopOfViewWithPerson:personTapped];
         
+        cell.alpha = 0.6;
+        
+        
         cell.imageView.alpha = 1.0;
         
         [cell animateWhenAddedToArray];
@@ -127,6 +149,8 @@
     [self.fourPeopleChosen removeObject:personTapped];
     [self removeImageFromTopViewWithPerson:personTapped];
     [cell animateWhenRemovedFromArray];
+    cell.alpha = 1.0;
+
     
 }
 
@@ -143,26 +167,39 @@
     if (!self.firstImage.image) {
         
         self.firstImage.image = person.thumbnailImage;
-        self.firstImage.layer.borderColor = [ColorHelper randomColor];
-        self.firstImage.layer.borderWidth = 1.2;
+        self.firstImage.layer.borderColor = [UIColor greenColor].CGColor;
+        self.firstImage.layer.borderWidth = 2.5;
+
+        
+        
     }
     else if (!self.secondImage.image) {
         
         self.secondImage.image = person.thumbnailImage;
-        self.secondImage.layer.borderColor = [ColorHelper randomColor];
-        self.secondImage.layer.borderWidth = 1.2;
+        self.secondImage.layer.borderColor = [UIColor greenColor].CGColor;
+        self.secondImage.layer.borderWidth = 2.5;
+
+
+        
     }
     else if (!self.thirdImage.image) {
         
         self.thirdImage.image = person.thumbnailImage;
-        self.thirdImage.layer.borderColor = [ColorHelper randomColor];
-        self.thirdImage.layer.borderWidth = 1.2;
+        self.thirdImage.layer.borderColor = [UIColor greenColor].CGColor;
+        self.thirdImage.layer.borderWidth = 2.5;
+
+
+        
     }
     else if (!self.fourthImage.image) {
         
         self.fourthImage.image = person.thumbnailImage;
-        self.fourthImage.layer.borderColor = [ColorHelper randomColor];
-        self.fourthImage.layer.borderWidth = 1.2;
+        self.fourthImage.layer.borderColor = [UIColor greenColor].CGColor;
+        self.fourthImage.layer.borderWidth = 2.5;
+
+
+        //        self.fourthImage.layer.borderColor = [ColorHelper randomColor];
+        //        self.fourthImage.layer.borderWidth = 1.2;
     }
 }
 
@@ -171,26 +208,38 @@
     if (self.firstImage.image == person.thumbnailImage) {
         
         self.firstImage.image = nil;
-        self.firstImage.layer.borderWidth = 0.0;
+        self.firstImage.layer.borderColor = [UIColor grayColor].CGColor;
+        self.firstImage.layer.borderWidth = 1.5;
+
+
+
+        
         
     }
     else if (self.secondImage.image == person.thumbnailImage) {
         self.secondImage.image = nil;
-        self.secondImage.layer.borderWidth = 0.0;
+        self.secondImage.layer.borderColor = [UIColor grayColor].CGColor;
+        self.secondImage.layer.borderWidth = 1.5;
+
+        
     }
     else if (self.thirdImage.image == person.thumbnailImage) {
         self.thirdImage.image = nil;
-        self.thirdImage.layer.borderWidth = 0.0;
+        self.thirdImage.layer.borderColor = [UIColor grayColor].CGColor;
+        self.thirdImage.layer.borderWidth = 1.5;
+
+        
     }
     else if (self.fourthImage.image == person.thumbnailImage) {
         self.fourthImage.image = nil;
-        self.fourthImage.layer.borderWidth = 0.0;
+        self.fourthImage.layer.borderColor = [UIColor grayColor].CGColor;
+        self.fourthImage.layer.borderWidth = 1.5;
+
+        //        self.fourthImage.layer.borderWidth = 0.0;
     }
 }
 
 - (void)blurOutTopImages {
-    
-    
     
     // Blur effect
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
@@ -314,10 +363,6 @@
     UIStoryboard *mainSB = self.storyboard;
     UINavigationController *initialVC = [mainSB instantiateInitialViewController];
     [[UIApplication sharedApplication].delegate.window setRootViewController:initialVC];
-    
-    
-    
-    
 }
 
 - (void)setUpGameSelectedImages:(UIImageView *)image {

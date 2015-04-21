@@ -98,9 +98,9 @@
     
     if ([self.holdingTheQuotesAlreadyDisplayed count] == 12) {
         
-        NSString *displayTheFinalScore = [NSString stringWithFormat:@"%@ out of 12.", [self.scoreOfGame stringValue] ];
+        NSString *displayTheFinalScore = [NSString stringWithFormat:@"%@ out of 12 guessed correctly", [self.scoreOfGame stringValue] ];
         label.text = displayTheFinalScore;
-        UIColor *color = [UIColor blueColor];
+        UIColor *color = [UIColor grayColor];
         [label setTextColor:color];
         
     }

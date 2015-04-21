@@ -764,13 +764,27 @@
                                     <constraint firstAttribute="width" constant="500" id="m0y-N3-t5U"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPs-QP-rK0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPs-QP-rK0">
                                 <rect key="frame" x="36" y="99" width="528" height="349"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="349" id="jBL-OY-p6U"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="az5-vt-ncu">
+                                <rect key="frame" x="235" y="391" width="130" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="PLAY AGAIN">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAgainTapped:" destination="EaN-h5-uQb" eventType="touchUpInside" id="ZUI-Yo-deS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="az5-vt-ncu" secondAttribute="centerX" id="2NC-QY-gyT"/>
                             <constraint firstItem="DPs-QP-rK0" firstAttribute="centerY" secondItem="0fF-nq-dcO" secondAttribute="centerY" multiplier="0.75" constant="48.5" id="4wL-sa-T9U"/>
                             <constraint firstItem="jVa-RA-J5i" firstAttribute="centerX" secondItem="0fF-nq-dcO" secondAttribute="centerX" multiplier="0.25" id="5wz-na-Wqw"/>
                             <constraint firstItem="Pj6-R9-Nty" firstAttribute="centerX" secondItem="0fF-nq-dcO" secondAttribute="centerX" id="75l-M9-oy3"/>
@@ -789,6 +803,7 @@
                             <constraint firstItem="wlH-yO-aG8" firstAttribute="centerX" secondItem="0fF-nq-dcO" secondAttribute="centerX" id="cV4-1j-Gge"/>
                             <constraint firstItem="AgY-Pf-HGQ" firstAttribute="centerY" secondItem="0fF-nq-dcO" secondAttribute="centerY" multiplier="1.65" id="eVO-tg-PES"/>
                             <constraint firstItem="Pj6-R9-Nty" firstAttribute="top" secondItem="ZJN-86-nbs" secondAttribute="bottom" constant="-10" id="lCb-Ud-hhi"/>
+                            <constraint firstAttribute="centerY" secondItem="az5-vt-ncu" secondAttribute="centerY" constant="-111" id="m6J-5C-N9J"/>
                             <constraint firstItem="1z4-xk-NgK" firstAttribute="top" secondItem="XEl-r3-j01" secondAttribute="bottom" constant="2" id="nB6-Q9-aj8"/>
                             <constraint firstItem="d1v-fu-7Mg" firstAttribute="centerX" secondItem="0fF-nq-dcO" secondAttribute="centerX" multiplier="1.75" id="pZA-hi-F5V"/>
                             <constraint firstItem="d1v-fu-7Mg" firstAttribute="top" secondItem="AgY-Pf-HGQ" secondAttribute="bottom" constant="2" id="sx0-PE-cJq"/>
@@ -806,6 +821,7 @@
                         <outlet property="nameOfPersonOne" destination="jVa-RA-J5i" id="Ful-93-rSV"/>
                         <outlet property="nameOfPersonThree" destination="eaf-YG-Ldc" id="QTb-kc-TSX"/>
                         <outlet property="nameOfPersonTwo" destination="1z4-xk-NgK" id="bkl-ff-i9k"/>
+                        <outlet property="playAgain" destination="az5-vt-ncu" id="Osc-tv-hqq"/>
                         <outlet property="quotesToDisplay" destination="DPs-QP-rK0" id="I6e-c6-yut"/>
                         <outlet property="score" destination="wlH-yO-aG8" id="5x6-vE-XPy"/>
                         <outlet property="secondButton" destination="XEl-r3-j01" id="XiI-aN-7HN"/>

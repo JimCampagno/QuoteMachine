@@ -109,7 +109,7 @@
 }
 
 - (void)setUpPropertiesOfCellOnReuseWhenSelected {
-    
+    self.alpha = 0.6;
     self.imageView.layer.borderWidth = 2.75;
     self.imageView.layer.borderColor = [UIColor greenColor].CGColor;
     

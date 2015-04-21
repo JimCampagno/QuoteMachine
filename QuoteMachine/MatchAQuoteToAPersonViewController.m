@@ -13,6 +13,7 @@
 
 @interface MatchAQuoteToAPersonViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *playAgain;
 @property (weak, nonatomic) IBOutlet UILabel *score;
 @property (weak, nonatomic) IBOutlet UILabel *quotesToDisplay;
 @property (weak, nonatomic) IBOutlet UIButton *firstButton;
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameOfPersonFour;
 @property (strong, nonatomic) MatchingTheQuotesGame *gameToBePlayed;
 
+- (IBAction)playAgainTapped:(id)sender;
 - (IBAction)personOne:(id)sender;
 - (IBAction)personTwo:(id)sender;
 - (IBAction)personThree:(id)sender;
@@ -50,6 +52,20 @@
 }
 
 
+
+- (IBAction)playAgainTapped:(id)sender {
+    
+    [UIView animateWithDuration:1.5
+                     animations:^{
+                         self.view.alpha = 0.0;
+                     }
+                     completion:^ (BOOL finished) {
+                         UIStoryboard *mainSB = self.storyboard;
+                         UINavigationController *initialVC = [mainSB instantiateInitialViewController];
+                         [[UIApplication sharedApplication].delegate.window setRootViewController:initialVC];
+                     }];
+
+}
 
 - (IBAction)personOne:(id)sender {
     
@@ -114,7 +130,10 @@
 }
 
 - (void)setupQuoteBox {
-
+    
+    self.playAgain.hidden = YES;
+    self.playAgain.titleLabel.font = [UIFont fontWithName:@"Noteworthy" size:30.0f];
+    
     self.score.font = [UIFont fontWithName:@"Noteworthy" size:35.0f];
 
     self.view.backgroundColor = [UIColor lightGrayColor];
