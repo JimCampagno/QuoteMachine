@@ -25,6 +25,7 @@
 		7D42D6221A9FC074002738E7 /* GameScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D42D6211A9FC074002738E7 /* GameScreenViewController.m */; };
 		7D50326F1ADC734000C34816 /* ImageToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D50326E1ADC734000C34816 /* ImageToDataTransformer.m */; };
 		7D5168E81AB1050F0092A5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5168E61AB1050F0092A5E5 /* Main.storyboard */; };
+		7DA08D5C1AE6A9DE0013F19A /* jimc.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA08D5B1AE6A9DE0013F19A /* jimc.png */; };
 		7DB1664B1ADA141B002BBA30 /* ScreenSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1664A1ADA141B002BBA30 /* ScreenSelectViewController.m */; };
 		7DC18B021AE2F57C006D8C93 /* ColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC18B011AE2F57C006D8C93 /* ColorHelper.m */; };
 		7DF1C33B1AE3036400A4A1E3 /* MatchAQuoteToAPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1C33A1AE3036400A4A1E3 /* MatchAQuoteToAPersonViewController.m */; };
@@ -76,6 +77,7 @@
 		7D50326D1ADC734000C34816 /* ImageToDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageToDataTransformer.h; sourceTree = "<group>"; };
 		7D50326E1ADC734000C34816 /* ImageToDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageToDataTransformer.m; sourceTree = "<group>"; };
 		7D5168E71AB1050F0092A5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7DA08D5B1AE6A9DE0013F19A /* jimc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jimc.png; sourceTree = "<group>"; };
 		7DB166491ADA141B002BBA30 /* ScreenSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenSelectViewController.h; sourceTree = "<group>"; };
 		7DB1664A1ADA141B002BBA30 /* ScreenSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenSelectViewController.m; sourceTree = "<group>"; };
 		7DC18B001AE2F57C006D8C93 /* ColorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorHelper.h; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		7D42D5F71A9FBF32002738E7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7DA08D5B1AE6A9DE0013F19A /* jimc.png */,
 				7D42D6091A9FBF32002738E7 /* LaunchScreen.xib */,
 				7D5168E61AB1050F0092A5E5 /* Main.storyboard */,
 				1B7D17671AAB610A0011946B /* QuoteScreenStoryboard.storyboard */,
@@ -329,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B7D17681AAB610A0011946B /* QuoteScreenStoryboard.storyboard in Resources */,
+				7DA08D5C1AE6A9DE0013F19A /* jimc.png in Resources */,
 				7D42D60B1A9FBF32002738E7 /* LaunchScreen.xib in Resources */,
 				7D42D6081A9FBF32002738E7 /* Images.xcassets in Resources */,
 				7D5168E81AB1050F0092A5E5 /* Main.storyboard in Resources */,
