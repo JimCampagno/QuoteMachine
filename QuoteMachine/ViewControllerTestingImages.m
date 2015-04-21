@@ -15,8 +15,10 @@
 
 @interface ViewControllerTestingImages ()
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray * fourPeopleChosen;
+
+@property (weak, nonatomic) IBOutlet UILabel *selectFourPeople;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIImageView *firstImage;
 @property (weak, nonatomic) IBOutlet UIImageView *secondImage;
 @property (weak, nonatomic) IBOutlet UIImageView *thirdImage;
@@ -49,6 +51,11 @@
     [self setupAllFourTopImages];
     
     self.view.backgroundColor = [UIColor grayColor];
+    self.selectFourPeople.layer.borderWidth = 0.5;
+    self.selectFourPeople.layer.borderColor = [UIColor blackColor].CGColor;
+    self.selectFourPeople.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
+    self.selectFourPeople.font = [UIFont fontWithName:@"Courier-Bold" size:29.0f];
+    
     
     
     
@@ -94,6 +101,8 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    self.selectFourPeople.hidden = YES;
     
     UICollectionViewCell *datasetCell =[collectionView cellForItemAtIndexPath:indexPath];
     PersonCollectionViewCell *cellToUse = (PersonCollectionViewCell *)datasetCell;

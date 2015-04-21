@@ -587,11 +587,22 @@
                                     <constraint firstAttribute="width" constant="85" id="s3K-iT-CWd"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Four" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9A-Eu-Lxf">
+                                <rect key="frame" x="180" y="56" width="240" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="UXm-7e-MjQ"/>
+                                    <constraint firstAttribute="width" constant="240" id="kST-vb-AWq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KnK-js-Mni" firstAttribute="bottom" secondItem="kxp-PB-Yae" secondAttribute="top" constant="-8" id="09a-4J-3BR"/>
                             <constraint firstItem="J3b-BJ-pJE" firstAttribute="top" secondItem="0Eb-b3-sRk" secondAttribute="bottom" constant="20" id="21O-du-dD4"/>
+                            <constraint firstItem="g9A-Eu-Lxf" firstAttribute="top" secondItem="0Eb-b3-sRk" secondAttribute="bottom" constant="36" id="2wJ-iI-I1I"/>
                             <constraint firstItem="lAO-R1-9K0" firstAttribute="top" secondItem="0Eb-b3-sRk" secondAttribute="bottom" constant="-20" id="4XV-No-kKk"/>
                             <constraint firstItem="kxp-PB-Yae" firstAttribute="leading" secondItem="9Qj-ke-Vam" secondAttribute="leadingMargin" constant="-20" id="4wi-dP-Y38"/>
                             <constraint firstItem="J3b-BJ-pJE" firstAttribute="bottom" secondItem="kxp-PB-Yae" secondAttribute="top" constant="-8" id="5bj-zP-sSL"/>
@@ -601,6 +612,7 @@
                             <constraint firstItem="lAO-R1-9K0" firstAttribute="trailing" secondItem="9Qj-ke-Vam" secondAttribute="trailingMargin" constant="20" id="E1G-jF-rO7"/>
                             <constraint firstItem="uyg-5L-fWt" firstAttribute="centerX" secondItem="9Qj-ke-Vam" secondAttribute="centerX" multiplier="0.25" id="HhX-hX-EFW"/>
                             <constraint firstItem="KnK-js-Mni" firstAttribute="top" secondItem="0Eb-b3-sRk" secondAttribute="bottom" constant="20" id="MNQ-3n-PEq"/>
+                            <constraint firstAttribute="centerX" secondItem="g9A-Eu-Lxf" secondAttribute="centerX" constant="-0.5" id="ROE-rq-18h"/>
                             <constraint firstItem="kxp-PB-Yae" firstAttribute="trailing" secondItem="9Qj-ke-Vam" secondAttribute="trailingMargin" constant="20" id="RcR-hZ-XEw"/>
                             <constraint firstItem="J3b-BJ-pJE" firstAttribute="centerX" secondItem="9Qj-ke-Vam" secondAttribute="centerX" multiplier="1.25" id="UIY-B9-FB2"/>
                             <constraint firstItem="kxp-PB-Yae" firstAttribute="top" secondItem="j9D-eN-oPL" secondAttribute="bottom" constant="8" id="XNe-ze-4d4"/>
@@ -630,6 +642,7 @@
                         <outlet property="gameImageThree" destination="g47-dj-mVD" id="OOB-iW-GZh"/>
                         <outlet property="gameImageTwo" destination="kkM-Bl-VUe" id="etT-F9-DVv"/>
                         <outlet property="secondImage" destination="j9D-eN-oPL" id="Y1C-kZ-cdY"/>
+                        <outlet property="selectFourPeople" destination="g9A-Eu-Lxf" id="RaF-Bz-sTW"/>
                         <outlet property="thirdImage" destination="J3b-BJ-pJE" id="M7M-q4-Sfz"/>
                         <segue destination="EaN-h5-uQb" kind="custom" identifier="gameTime" id="itW-PG-eQR"/>
                     </connections>
