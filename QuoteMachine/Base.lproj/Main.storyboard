@@ -764,17 +764,14 @@
                                     <constraint firstAttribute="width" constant="500" id="m0y-N3-t5U"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPs-QP-rK0">
-                                <rect key="frame" x="36" y="106" width="528" height="281"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="281" id="cod-UE-hZn"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPs-QP-rK0">
+                                <rect key="frame" x="36" y="99" width="528" height="349"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="DPs-QP-rK0" firstAttribute="centerY" secondItem="0fF-nq-dcO" secondAttribute="centerY" multiplier="0.75" constant="21.5" id="4wL-sa-T9U"/>
+                            <constraint firstItem="DPs-QP-rK0" firstAttribute="centerY" secondItem="0fF-nq-dcO" secondAttribute="centerY" multiplier="0.75" constant="48.5" id="4wL-sa-T9U"/>
                             <constraint firstItem="jVa-RA-J5i" firstAttribute="centerX" secondItem="0fF-nq-dcO" secondAttribute="centerX" multiplier="0.25" id="5wz-na-Wqw"/>
                             <constraint firstItem="Pj6-R9-Nty" firstAttribute="centerX" secondItem="0fF-nq-dcO" secondAttribute="centerX" id="75l-M9-oy3"/>
                             <constraint firstItem="jVa-RA-J5i" firstAttribute="top" secondItem="faa-tU-vAr" secondAttribute="bottom" constant="2" id="7xE-Ui-Wlz"/>

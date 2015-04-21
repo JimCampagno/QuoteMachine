@@ -77,29 +77,21 @@
 
 - (void)displayInstructionAndFirstQuoteWithLabel:(UILabel *)label {
     
-    label.alpha = 0.0;
-    label.text = @"A quote will display here.  Tap the person who you think said it.";
     
-    [UIView animateWithDuration:1.5
-                     animations:^{
-                         
-                         label.alpha = 1.0;
-                     }
-                     completion:^ (BOOL finished) {
-                         
-                         [UIView animateWithDuration:2.0 animations:^{
-                             
-                             label.alpha = 0.0;
-                         } completion:^(BOOL finished) {
-                             
-                             label.text = [self drawAQuoteToDisplay];
-                             
-                             [UIView animateWithDuration:5.0 animations:^{
-                                 
-                                 label.alpha = 1.0;
-                             }];
-                         }];
-                     }];
+    label.alpha = 0.0;
+
+    [UIView animateWithDuration:2.0 animations:^{
+        
+    } completion:^(BOOL finished) {
+        
+        label.text = [self drawAQuoteToDisplay];
+        
+        [UIView animateWithDuration:5.0 animations:^{
+            
+            label.alpha = 1.0;
+            
+        }];
+    }];
 }
 
 - (void)displayANewQuoteWithLabel:(UILabel *)label {
@@ -161,12 +153,12 @@
         
         NSString *message = [firstPart stringByAppendingString:secondPart];
         label.text = message;
-    
+        
         [UIView animateWithDuration:0.3
                          animations:^{
                              
                              view.layer.backgroundColor = [UIColor redColor].CGColor;
-
+                             
                          }
                          completion:^(BOOL finished) {
                              
@@ -182,7 +174,7 @@
                                                                    animations:^{
                                                                        view.layer.backgroundColor =
                                                                        [UIColor lightGrayColor].CGColor;
-                                                            
+                                                                       
                                                                        [self displayANewQuoteWithLabel:label];
                                                                        
                                                                    }];

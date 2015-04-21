@@ -114,14 +114,11 @@
 }
 
 - (void)setupQuoteBox {
-    
-    
+
     self.score.font = [UIFont fontWithName:@"Noteworthy" size:35.0f];
 
-
-    
     self.view.backgroundColor = [UIColor lightGrayColor];
-    self.quotesToDisplay.font = [UIFont fontWithName:@"Didot" size:26.0f];
+    self.quotesToDisplay.font = [UIFont fontWithName:@"Noteworthy-Bold" size:26.0f];
     self.quotesToDisplay.numberOfLines = 0;
     self.quotesToDisplay.lineBreakMode = NSLineBreakByWordWrapping;
 }

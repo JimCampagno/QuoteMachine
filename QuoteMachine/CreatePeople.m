@@ -133,10 +133,152 @@
     [CreatePeople setMichaelScottWithMOC:context];
     [CreatePeople setDwightSchruteWithMOC:context];
     [CreatePeople setYodaWithMOC:context];
+    [CreatePeople setAlbertEinsteinWithMOC:context];
+    [CreatePeople setWilliamShakespeareWithMOC:context];
+    [CreatePeople setEleanorWithMOC:context];
+    [CreatePeople setAlbertCamusWithMOC:context];
+    [CreatePeople setTeddyRooseveltWithMOC:context];
+    [CreatePeople setOscarWildetWithMOC:context];
+    [CreatePeople setMartinLuthertWithMOC:context];
     
     
 }
 
+
++ (void)setMartinLuthertWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:person
+                      WithName:@"Martin Luther King Jr."
+                  FieldOfStudy:@"Science"
+                       Summary:@""
+                ThumbnailImage:[UIImage imageNamed:@"martinLuther"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:person
+                    withQuote1:@"\"In the end, we will remember not the words of our enemies, but the silence of our friends\""
+                        Quote2:@"\"Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that\""
+                        Quote3:@"\"Faith is taking the first step even when you can't see the whole staircase\""
+                     MOContext:moContext];
+}
+
+
++ (void)setOscarWildetWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:person
+                      WithName:@"Oscar Wilde"
+                  FieldOfStudy:@"Science"
+                       Summary:@""
+                ThumbnailImage:[UIImage imageNamed:@"OscarWilde"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:person
+                    withQuote1:@"\"Be yourself; everyone else is already taken\""
+                        Quote2:@"\"To live is the rarest thing in the world. Most people exist, that is all\""
+                        Quote3:@"\"A good friend will always stab you in the front\""
+                     MOContext:moContext];
+}
+
+
+
++ (void)setTeddyRooseveltWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:person
+                      WithName:@"Teddy Roosevelt"
+                  FieldOfStudy:@"Science"
+                       Summary:@""
+                ThumbnailImage:[UIImage imageNamed:@"Theodore"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:person
+                    withQuote1:@"\"People don't care how much you know until they know how much you care\""
+                        Quote2:@"\"I am a part of everything that I have read\""
+                        Quote3:@"\"Do what you can, with what you have, where you are\""
+                     MOContext:moContext];
+}
+
+
+
++ (void)setAlbertCamusWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:person
+                      WithName:@"Albert Camus"
+                  FieldOfStudy:@"Science"
+                       Summary:@""
+                ThumbnailImage:[UIImage imageNamed:@"AlbertCamus"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:person
+                    withQuote1:@"\"Don't walk behind me; I may not lead. Don't walk in front of me; I may not follow. Just walk beside me and be my friend\""
+                        Quote2:@"\"You will never be happy if you continue to search for what happiness consists of. You will never live if you are looking for the meaning of life\""
+                        Quote3:@"\"Live to the point of tears\""
+                     MOContext:moContext];
+}
+
+
+
++ (void)setEleanorWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:person
+                      WithName:@"Eleanor Roosevelt"
+                  FieldOfStudy:@"Science"
+                       Summary:@""
+                ThumbnailImage:[UIImage imageNamed:@"Eleanor"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:person
+                    withQuote1:@"\"No one can make you feel inferior without your consent\""
+                        Quote2:@"\"A woman is like a tea bag; you never know how strong it is until it's in hot water\""
+                        Quote3:@"\"Do what you feel in your heart to be right – for you’ll be criticized anyway\""
+                     MOContext:moContext];
+}
+
+
++ (void)setWilliamShakespeareWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:person
+                      WithName:@"William Shakespeare"
+                  FieldOfStudy:@"Science"
+                       Summary:@""
+                ThumbnailImage:[UIImage imageNamed:@"Shakespeare"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:person
+                    withQuote1:@"\"The fool doth think he is wise, but the wise man knows himself to be a fool\""
+                        Quote2:@"\"I would challenge you to a battle of wits, but I see you are unarmed!\""
+                        Quote3:@"\"There is nothing either good or bad, but thinking makes it so\""
+                     MOContext:moContext];
+}
+
+
++ (void)setAlbertEinsteinWithMOC:(NSManagedObjectContext *)moContext {
+    
+    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:moContext];
+    
+    [CreatePeople createPerson:person
+                      WithName:@"Albert Einstein"
+                  FieldOfStudy:@"Science"
+                       Summary:@""
+                ThumbnailImage:[UIImage imageNamed:@"albertEinstein"]
+                  ProfileImage:nil];
+    
+    [CreatePeople createQuotes:person
+                    withQuote1:@"\"If you can't explain it to a six year old, you don't understand it yourself\""
+                        Quote2:@"\"Logic will get you from A to Z; imagination will get you everywhere\""
+                        Quote3:@"\"If you want your children to be intelligent, read them fairy tales. If you want them to be more intelligent, read them more fairy tales\""
+                     MOContext:moContext];
+}
 
 
 
