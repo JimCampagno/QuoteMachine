@@ -24,7 +24,12 @@
 - (BOOL)isPerson:(Person *)person matchedToQuote:(NSString *)quote;
 - (NSString *)drawAQuoteToDisplay;
 - (void)displayInstructionAndFirstQuoteWithLabel:(UILabel *)label;
-- (void)displayANewQuoteWithLabel:(UILabel *)label;
-- (void)makeAGuessWithPerson:(Person *)person toQuoteInLabel:(UILabel *)label inView:(UIView *)view withScoreLabel:(UILabel *)score;
+- (void)displayANewQuoteWithLabel:(UILabel *)label
+                    andPlayButton:(UIButton *)button;
+- (void)makeAGuessWithPerson:(Person *)person
+              toQuoteInLabel:(UILabel *)label
+                      inView:(UIView *)view
+              withScoreLabel:(UILabel *)score
+               andPlayButton:(UIButton *)button;
 
 @end

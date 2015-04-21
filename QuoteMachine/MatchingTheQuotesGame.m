@@ -94,22 +94,25 @@
     }];
 }
 
-- (void)displayANewQuoteWithLabel:(UILabel *)label {
+- (void)displayANewQuoteWithLabel:(UILabel *)label
+                    andPlayButton:(UIButton *)button {
     
     if ([self.holdingTheQuotesAlreadyDisplayed count] == 12) {
         
         NSString *displayTheFinalScore = [NSString stringWithFormat:@"%@ out of 12 guessed correctly", [self.scoreOfGame stringValue] ];
+        button.hidden = NO;
+        
         label.text = displayTheFinalScore;
         UIColor *color = [UIColor grayColor];
         [label setTextColor:color];
         
-    }
-    else {
+    } else {
         
         [UIView animateWithDuration:1.0 animations:^{
             label.alpha = 0.0f;
             
         } completion:^(BOOL finished) {
+            
             label.textColor = [UIColor blackColor];
             label.font=[label.font fontWithSize:26];
             label.text = [self drawAQuoteToDisplay];
@@ -120,7 +123,11 @@
     }
 }
 
-- (void)makeAGuessWithPerson:(Person *)person toQuoteInLabel:(UILabel *)label inView:(UIView *)view withScoreLabel:(UILabel *)score {
+- (void)makeAGuessWithPerson:(Person *)person
+              toQuoteInLabel:(UILabel *)label
+                      inView:(UIView *)view
+              withScoreLabel:(UILabel *)score
+               andPlayButton:(UIButton *)button {
     
     
     if ([self isPerson:person matchedToQuote:label.text])
@@ -137,9 +144,8 @@
                              
                              [UIView animateWithDuration:2.0 animations:^{
                                  
-                                 
                                  view.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
-                                 [self displayANewQuoteWithLabel:label];
+                                 [self displayANewQuoteWithLabel:label andPlayButton:button];
                              }];
                              
                          }];
@@ -175,7 +181,7 @@
                                                                        view.layer.backgroundColor =
                                                                        [UIColor lightGrayColor].CGColor;
                                                                        
-                                                                       [self displayANewQuoteWithLabel:label];
+                                                                       [self displayANewQuoteWithLabel:label andPlayButton:button   ];
                                                                        
                                                                    }];
                                               }];

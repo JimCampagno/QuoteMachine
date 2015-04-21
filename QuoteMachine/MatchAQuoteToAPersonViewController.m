@@ -43,7 +43,7 @@
     [self setUpButtons];
     
     [self setupQuoteBox];
-
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -64,29 +64,44 @@
                          UINavigationController *initialVC = [mainSB instantiateInitialViewController];
                          [[UIApplication sharedApplication].delegate.window setRootViewController:initialVC];
                      }];
-
+    
 }
 
 - (IBAction)personOne:(id)sender {
     
-    [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[0] toQuoteInLabel:self.quotesToDisplay inView:self.view withScoreLabel:self.score];
+    [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[0]
+                               toQuoteInLabel:self.quotesToDisplay
+                                       inView:self.view
+                               withScoreLabel:self.score
+                                andPlayButton:self.playAgain];
 }
 
 - (IBAction)personTwo:(id)sender {
     
-    [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[1] toQuoteInLabel:self.quotesToDisplay inView:self.view withScoreLabel:self.score];
+    [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[1]
+                               toQuoteInLabel:self.quotesToDisplay
+                                       inView:self.view
+                               withScoreLabel:self.score
+                                andPlayButton:self.playAgain];
 }
 
 - (IBAction)personThree:(id)sender {
     
-    [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[2] toQuoteInLabel:self.quotesToDisplay inView:self.view withScoreLabel:self.score];
+    [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[2]
+                               toQuoteInLabel:self.quotesToDisplay
+                                       inView:self.view
+                               withScoreLabel:self.score
+                                andPlayButton:self.playAgain];
 }
 
 - (IBAction)personFour:(id)sender {
     
-    [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[3] toQuoteInLabel:self.quotesToDisplay inView:self.view withScoreLabel:self.score];
+    [self.gameToBePlayed makeAGuessWithPerson:self.fourChosenPeople[3]
+                               toQuoteInLabel:self.quotesToDisplay
+                                       inView:self.view
+                               withScoreLabel:self.score
+                                andPlayButton:self.playAgain];
 }
-
 
 - (void)setUpButtons {
     
@@ -135,7 +150,7 @@
     self.playAgain.titleLabel.font = [UIFont fontWithName:@"Noteworthy" size:30.0f];
     
     self.score.font = [UIFont fontWithName:@"Noteworthy" size:35.0f];
-
+    
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.quotesToDisplay.font = [UIFont fontWithName:@"Noteworthy-Bold" size:26.0f];
     self.quotesToDisplay.numberOfLines = 0;
