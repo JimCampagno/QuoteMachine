@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B7D17681AAB610A0011946B /* QuoteScreenStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B7D17671AAB610A0011946B /* QuoteScreenStoryboard.storyboard */; };
-		1B7D176B1AAB61320011946B /* QuoteScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D176A1AAB61320011946B /* QuoteScreenViewController.m */; };
-		1B7D17711AACE99D0011946B /* UIView+distance.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D17701AACE99D0011946B /* UIView+distance.m */; };
 		7D0BD28B1ADC8D0600464804 /* ViewControllerTestingImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0BD28A1ADC8D0600464804 /* ViewControllerTestingImages.m */; };
 		7D3AE0711AA36D8B001EE74B /* QuoteDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE0701AA36D8B001EE74B /* QuoteDataStore.m */; };
 		7D3AE0741AA3791E001EE74B /* MatchingTheQuotesGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3AE0731AA3791E001EE74B /* MatchingTheQuotesGame.m */; };
@@ -22,11 +19,9 @@
 		7D42D6081A9FBF32002738E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D42D6071A9FBF32002738E7 /* Images.xcassets */; };
 		7D42D60B1A9FBF32002738E7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D42D6091A9FBF32002738E7 /* LaunchScreen.xib */; };
 		7D42D6171A9FBF32002738E7 /* QuoteMachineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D42D6161A9FBF32002738E7 /* QuoteMachineTests.m */; };
-		7D42D6221A9FC074002738E7 /* GameScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D42D6211A9FC074002738E7 /* GameScreenViewController.m */; };
 		7D50326F1ADC734000C34816 /* ImageToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D50326E1ADC734000C34816 /* ImageToDataTransformer.m */; };
 		7D5168E81AB1050F0092A5E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5168E61AB1050F0092A5E5 /* Main.storyboard */; };
 		7DA08D5C1AE6A9DE0013F19A /* jimc.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA08D5B1AE6A9DE0013F19A /* jimc.png */; };
-		7DB1664B1ADA141B002BBA30 /* ScreenSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB1664A1ADA141B002BBA30 /* ScreenSelectViewController.m */; };
 		7DC18B021AE2F57C006D8C93 /* ColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC18B011AE2F57C006D8C93 /* ColorHelper.m */; };
 		7DF1C33B1AE3036400A4A1E3 /* MatchAQuoteToAPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1C33A1AE3036400A4A1E3 /* MatchAQuoteToAPersonViewController.m */; };
 		7DFC9D761AE057470018F23B /* PersonCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DFC9D751AE057470018F23B /* PersonCollectionViewCell.m */; };
@@ -44,11 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B7D17671AAB610A0011946B /* QuoteScreenStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QuoteScreenStoryboard.storyboard; sourceTree = "<group>"; };
-		1B7D17691AAB61320011946B /* QuoteScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteScreenViewController.h; sourceTree = "<group>"; };
-		1B7D176A1AAB61320011946B /* QuoteScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteScreenViewController.m; sourceTree = "<group>"; };
-		1B7D176F1AACE99D0011946B /* UIView+distance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+distance.h"; sourceTree = "<group>"; };
-		1B7D17701AACE99D0011946B /* UIView+distance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+distance.m"; sourceTree = "<group>"; };
 		7D0BD2891ADC8D0600464804 /* ViewControllerTestingImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTestingImages.h; sourceTree = "<group>"; };
 		7D0BD28A1ADC8D0600464804 /* ViewControllerTestingImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTestingImages.m; sourceTree = "<group>"; };
 		7D3AE06F1AA36D8B001EE74B /* QuoteDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteDataStore.h; sourceTree = "<group>"; };
@@ -72,14 +62,10 @@
 		7D42D6101A9FBF32002738E7 /* QuoteMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuoteMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D42D6151A9FBF32002738E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D42D6161A9FBF32002738E7 /* QuoteMachineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuoteMachineTests.m; sourceTree = "<group>"; };
-		7D42D6201A9FC074002738E7 /* GameScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScreenViewController.h; sourceTree = "<group>"; };
-		7D42D6211A9FC074002738E7 /* GameScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScreenViewController.m; sourceTree = "<group>"; };
 		7D50326D1ADC734000C34816 /* ImageToDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageToDataTransformer.h; sourceTree = "<group>"; };
 		7D50326E1ADC734000C34816 /* ImageToDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageToDataTransformer.m; sourceTree = "<group>"; };
 		7D5168E71AB1050F0092A5E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7DA08D5B1AE6A9DE0013F19A /* jimc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jimc.png; sourceTree = "<group>"; };
-		7DB166491ADA141B002BBA30 /* ScreenSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenSelectViewController.h; sourceTree = "<group>"; };
-		7DB1664A1ADA141B002BBA30 /* ScreenSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenSelectViewController.m; sourceTree = "<group>"; };
 		7DC18B001AE2F57C006D8C93 /* ColorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorHelper.h; sourceTree = "<group>"; };
 		7DC18B011AE2F57C006D8C93 /* ColorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorHelper.m; sourceTree = "<group>"; };
 		7DF1C3391AE3036400A4A1E3 /* MatchAQuoteToAPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchAQuoteToAPersonViewController.h; sourceTree = "<group>"; };
@@ -165,7 +151,6 @@
 				7DA08D5B1AE6A9DE0013F19A /* jimc.png */,
 				7D42D6091A9FBF32002738E7 /* LaunchScreen.xib */,
 				7D5168E61AB1050F0092A5E5 /* Main.storyboard */,
-				1B7D17671AAB610A0011946B /* QuoteScreenStoryboard.storyboard */,
 				7D42D6071A9FBF32002738E7 /* Images.xcassets */,
 				7D42D5F81A9FBF32002738E7 /* Info.plist */,
 				7D42D5F91A9FBF32002738E7 /* main.m */,
@@ -224,14 +209,6 @@
 		7DB166461ADA08E8002BBA30 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7DB166491ADA141B002BBA30 /* ScreenSelectViewController.h */,
-				7DB1664A1ADA141B002BBA30 /* ScreenSelectViewController.m */,
-				1B7D17691AAB61320011946B /* QuoteScreenViewController.h */,
-				1B7D176A1AAB61320011946B /* QuoteScreenViewController.m */,
-				7D42D6201A9FC074002738E7 /* GameScreenViewController.h */,
-				7D42D6211A9FC074002738E7 /* GameScreenViewController.m */,
-				1B7D176F1AACE99D0011946B /* UIView+distance.h */,
-				1B7D17701AACE99D0011946B /* UIView+distance.m */,
 				7D0BD2891ADC8D0600464804 /* ViewControllerTestingImages.h */,
 				7D0BD28A1ADC8D0600464804 /* ViewControllerTestingImages.m */,
 				7DF1C3391AE3036400A4A1E3 /* MatchAQuoteToAPersonViewController.h */,
@@ -331,7 +308,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B7D17681AAB610A0011946B /* QuoteScreenStoryboard.storyboard in Resources */,
 				7DA08D5C1AE6A9DE0013F19A /* jimc.png in Resources */,
 				7D42D60B1A9FBF32002738E7 /* LaunchScreen.xib in Resources */,
 				7D42D6081A9FBF32002738E7 /* Images.xcassets in Resources */,
@@ -388,17 +364,13 @@
 			files = (
 				7D3AE0711AA36D8B001EE74B /* QuoteDataStore.m in Sources */,
 				7D3AE0741AA3791E001EE74B /* MatchingTheQuotesGame.m in Sources */,
-				7DB1664B1ADA141B002BBA30 /* ScreenSelectViewController.m in Sources */,
 				7D3AE07A1AA37DBC001EE74B /* Person.m in Sources */,
-				1B7D176B1AAB61320011946B /* QuoteScreenViewController.m in Sources */,
 				7D42D5FD1A9FBF32002738E7 /* AppDelegate.m in Sources */,
 				7D50326F1ADC734000C34816 /* ImageToDataTransformer.m in Sources */,
 				7DC18B021AE2F57C006D8C93 /* ColorHelper.m in Sources */,
 				7DFC9D761AE057470018F23B /* PersonCollectionViewCell.m in Sources */,
 				7D0BD28B1ADC8D0600464804 /* ViewControllerTestingImages.m in Sources */,
 				7D42D5FA1A9FBF32002738E7 /* main.m in Sources */,
-				1B7D17711AACE99D0011946B /* UIView+distance.m in Sources */,
-				7D42D6221A9FC074002738E7 /* GameScreenViewController.m in Sources */,
 				7D3AE0771AA37DBB001EE74B /* Quotes.m in Sources */,
 				7D3AE07D1AA37F57001EE74B /* CreatePeople.m in Sources */,
 				7DF1C33B1AE3036400A4A1E3 /* MatchAQuoteToAPersonViewController.m in Sources */,
